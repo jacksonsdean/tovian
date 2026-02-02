@@ -759,8 +759,10 @@ def romanization(word):
 def get_dictionary_csv(word_after_changes, translation, stress, rom, pos, notes, roots):
     # Create a display IPA with syllable dots, but do not use dots in sound changes.
     display_ipa = dotted_with_stress(unmark_stress(word_after_changes))
+    # Create romanized syllable pattern
+    rom_syllables = mark_syllable_boundaries(rom)
     csv_lines = []
-    csv_lines.append(f"{translation.strip()},{rom},/{display_ipa}/,{pos},{roots}")
+    csv_lines.append(f"{translation.strip()},{rom_syllables},/{display_ipa}/,{pos},{roots}")
     return "\n".join(csv_lines)
 
 def get_dictionary_latex(history, translation,roots,pos,notes):
@@ -781,6 +783,8 @@ def get_dictionary_latex(history, translation,roots,pos,notes):
     text+=rf'\noindent {{\tovian \fontsize{{{FONT_SIZE}}}{{10pt}} \textbf{{{romanization(raw_word)}}} }}'
     text+= r'\\' + '\n'
     text+=rf'\noindent /{format_for_latex(mark_stress(raw_word))}/'
+    text+= r'\\' + '\n'
+    text+=rf'\noindent Syllables: {mark_syllable_boundaries(romanization(raw_word))}'
     text+= r'\\' + '\n'
     if roots!='_':
         text+=rf'\noindent lit. {roots}'
