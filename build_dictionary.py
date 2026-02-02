@@ -1,6 +1,121 @@
 from collections import OrderedDict
 import re
 
+# Auxiliaries: aspect roots + tense suffixes (see site/guide/verbs.md)
+AUX_TENSE_SUFFIXES = OrderedDict([
+    ("past", "e"),
+    ("present", "a"),
+    ("future", "o"),
+])
+
+# IPA roots (romanization() will render these as th/lh/tl/sh/y, etc.)
+AUX_ASPECT_ROOTS = OrderedDict([
+    ("simple", "f"),
+    ("imperfective", "θ"),
+    ("perfect", "ɬ"),
+    ("near", "ƛ"),
+    ("immediate", "k"),
+    ("habitual", "m"),
+    ("progressive", "s"),
+    ("continuous", "ʃ"),
+    ("iterative", "n"),
+    ("inceptive", "j"),
+    ("cessative", "p"),
+    ("remote", "h"),
+])
+
+# Person prefixes (auxiliary agreement)
+# 3rd person is normally unmarked but may optionally be marked with a-
+AUX_PERSON_PREFIXES = OrderedDict([
+    ("1st", "i"),
+    ("2nd", "o"),
+    ("3rd", ""),
+    ("3rd (explicit)", "a"),
+])
+
+# Mood prefixes (normalized for concatenation; hyphens/0 placeholders removed)
+# Notes:
+# - roots.csv lists these as wi-, se-, ko-, ks-o, ɬe-, ƛ0-, ʃo-
+# - We treat ƛ0- as ƛo- (surface-like, matches examples such as tlo-te-ma)
+# - We treat ks-o as kso- (concatenated)
+AUX_MOOD_PREFIXES = OrderedDict([
+    ("(none)", ""),
+    ("subjunctive", "wi"),
+    ("imperative", "se"),
+    ("conditional", "ko"),
+    ("counterfactual", "kso"),
+    ("optative", "ɬe"),
+    ("obligative", "ƛo"),
+    ("potential", "ʃo"),
+])
+
+# Voice prefixes
+AUX_VOICE_PREFIXES = OrderedDict([
+    ("(none)", ""),
+    ("reflexive", "te"),
+    ("passive", "pa"),
+    ("middle", "mo"),
+    ("causative", "ke"),
+    ("reciprocal", "ra"),
+])
+
+
+def build_auxiliary_tense_aspect_entries():
+    """Generate all (aspect × tense) auxiliary forms as dictionary entries.
+
+    Returns tuples shaped like roots.csv rows:
+    (year, word, translation, roots, pos, note)
+    """
+    entries = []
+    for aspect_name, aspect_root in AUX_ASPECT_ROOTS.items():
+        for tense_name, tense_suffix in AUX_TENSE_SUFFIXES.items():
+            word = f"{aspect_root}{tense_suffix}"
+            translation = f"auxiliary: {aspect_name} ({tense_name})"
+            entries.append((-1, word, translation, "_", "AUX", "_"))
+    return entries
+
+
+def build_all_auxiliary_entries():
+    """Generate every possible auxiliary word.
+
+    Includes:
+    - base aspect × tense auxiliaries (fa, fe, fo, ...)
+    - all person × mood × voice × aspect × tense combinations
+    """
+    entries = []
+
+    # Base set (used by the aspect×tense table in the guide)
+    entries.extend(build_auxiliary_tense_aspect_entries())
+
+    # Full combinations
+    for person_name, person_prefix in AUX_PERSON_PREFIXES.items():
+        for mood_name, mood_prefix in AUX_MOOD_PREFIXES.items():
+            for voice_name, voice_prefix in AUX_VOICE_PREFIXES.items():
+                for aspect_name, aspect_root in AUX_ASPECT_ROOTS.items():
+                    for tense_name, tense_suffix in AUX_TENSE_SUFFIXES.items():
+                        word = f"{person_prefix}{mood_prefix}{voice_prefix}{aspect_root}{tense_suffix}"
+
+                        parts = [person_name]
+                        if mood_name != "(none)":
+                            parts.append(mood_name)
+                        if voice_name != "(none)":
+                            parts.append(voice_name)
+                        parts.append(aspect_name)
+                        translation = f"auxiliary-form: {' '.join(parts)} ({tense_name})"
+
+                        entries.append((-1, word, translation, "_", "AUX", "_"))
+
+    # Deduplicate by (word, translation)
+    seen = set()
+    unique = []
+    for e in entries:
+        key = (e[1], e[2])
+        if key in seen:
+            continue
+        seen.add(key)
+        unique.append(e)
+    return unique
+
 # USE THIS: https://fiatlingua.org/2014/09/
 # AND THIS: https://chridd.nfshost.com/diachronica/index-diachronica.pdf
 SPACE_BETWEEN_ENTRIES = '15pt'
@@ -30,17 +145,22 @@ plural_marker = 'e'
 
 light_morphemes = ['fe', 'la', 're', 'li']
 
-def find_syllables(word):
-    pattern = fr'([{consonants}]*[{vowels}][{consonants}]*)'
+
+def _char_class(chars: str) -> str:
+    """Escape characters for safe inclusion inside a regex character class []."""
+    return re.escape(chars)
+
+def find_syllables(word, consonant_inventory: str = consonants, vowel_inventory: str = vowels):
+    pattern = fr'([{_char_class(consonant_inventory)}]*[{_char_class(vowel_inventory)}][{_char_class(consonant_inventory)}]*)'
     syllables = re.findall(pattern, word)
     return syllables
 
-def count_syllables(word):
-    syllables = find_syllables(word)
+def count_syllables(word, consonant_inventory: str = consonants, vowel_inventory: str = vowels):
+    syllables = find_syllables(word, consonant_inventory=consonant_inventory, vowel_inventory=vowel_inventory)
     return len(syllables)
 
-def mark_syllable_boundaries(word):
-    syllables = find_syllables(word)
+def mark_syllable_boundaries(word, consonant_inventory: str = consonants, vowel_inventory: str = vowels):
+    syllables = find_syllables(word, consonant_inventory=consonant_inventory, vowel_inventory=vowel_inventory)
     if len(syllables) == 0:
         return word
     # Reconstruct the word with '.' between syllables
@@ -759,10 +879,9 @@ def romanization(word):
 def get_dictionary_csv(word_after_changes, translation, stress, rom, pos, notes, roots):
     # Create a display IPA with syllable dots, but do not use dots in sound changes.
     display_ipa = dotted_with_stress(unmark_stress(word_after_changes))
-    # Create romanized syllable pattern
-    rom_syllables = mark_syllable_boundaries(rom)
     csv_lines = []
-    csv_lines.append(f"{translation.strip()},{rom_syllables},/{display_ipa}/,{pos},{roots}")
+    # Do not add syllable markers to romanization.
+    csv_lines.append(f"{translation.strip()},{rom},/{display_ipa}/,{pos},{roots}")
     return "\n".join(csv_lines)
 
 def get_dictionary_latex(history, translation,roots,pos,notes):
@@ -784,7 +903,7 @@ def get_dictionary_latex(history, translation,roots,pos,notes):
     text+= r'\\' + '\n'
     text+=rf'\noindent /{format_for_latex(mark_stress(raw_word))}/'
     text+= r'\\' + '\n'
-    text+=rf'\noindent Syllables: {mark_syllable_boundaries(romanization(raw_word))}'
+    text+=rf'\noindent Syllables: {mark_syllable_boundaries(raw_word)}'
     text+= r'\\' + '\n'
     if roots!='_':
         text+=rf'\noindent lit. {roots}'
@@ -904,7 +1023,9 @@ def main():
     compounds = form_compounds(roots)
     borrowed = load_borrowed() 
 
-    input_words = roots + compounds + borrowed 
+    auxiliaries = build_all_auxiliary_entries()
+
+    input_words = roots + compounds + borrowed + auxiliaries
     interactive_dict = {}
     latex_histories = {}
     csv_histories = []
@@ -935,8 +1056,10 @@ def main():
             print(rom)
             print()
 
-        latex_history = get_dictionary_latex(history, translation, roots, pos, notes)
-        latex_histories[translation] = latex_history
+        # Do not include auxiliaries in the LaTeX dictionary.
+        if pos != 'AUX':
+            latex_history = get_dictionary_latex(history, translation, roots, pos, notes)
+            latex_histories[translation] = latex_history
 
     # sort latex_histories by key
     latex_histories = OrderedDict(sorted(latex_histories.items(), key=lambda x: x[0].lower()))
@@ -964,7 +1087,7 @@ def main():
         first_word = first_line.split('","')[0].strip('"').lower()
         pos = first_line.split(',')[3].strip('"')
         # if pos is 'case' or 'ps' or 'ns', put at end
-        if pos in ['CASE', 'CLASS', 'PLURAL', 'MOOD', 'VOICE', 'ASPECT', 'PLACEHOLDER']:
+        if pos in ['CASE', 'CLASS', 'PLURAL', 'MOOD', 'VOICE', 'ASPECT', 'AUX', 'PLACEHOLDER']:
             return 'zzz' + first_word
         if not first_word[0].isdigit():
             return first_word
@@ -993,7 +1116,7 @@ def main():
         with open(fname, 'w', encoding='utf-8') as file:
             file.write('English,Tovian,IPA,Roots\n')
             for csv_history in expanded_csv_histories:
-                file.write(csv_history + '\n\n')
+                file.write(csv_history.rstrip('\n') + '\n')
             
         
     if args.interactive:

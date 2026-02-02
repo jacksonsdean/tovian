@@ -2,13 +2,16 @@
 
 (function () {
     const state = {
-      entries: [], // {english, tovian, ipa, roots}
+      entries: [], // all entries: {english, tovian, ipa, roots}
+      allEntries: [],
+      dictEntries: [],
       fuseDict: null,
       highlights: [], // {id, title, summary, examples: [{tovian, english}]}
       fuseAll: null, // combined for Ask
       tableLoaded: false,
       favorites: new Set(),
       showIPA: true,
+      includeAuxiliaries: false,
     };
   
     // Base prefix for path (from Eleventy pathPrefix)
@@ -58,7 +61,25 @@
         tovian: (r[1] || '').trim(),
         ipa: (r[2] || '').trim(),
         roots: (r[3] || '').trim(),
+        isAuxiliary: /^auxiliary(\-form)?:/i.test((r[0] || '').trim()),
+        // A broader text field to make search forgiving (typos, IPA, roots, etc.)
+        search: '',
       }));
+    }
+
+    function applyAuxFilter(entries, includeAuxiliaries) {
+      if (includeAuxiliaries) return entries;
+      return entries.filter(e => !e.isAuxiliary);
+    }
+
+    function withSearchFields(entries) {
+      return entries.map((e) => {
+        const en = (e.english || '');
+        // Common misspelling: auxilliary
+        const misspell = /\bauxiliary\b/i.test(en) ? ' auxilliary' : '';
+        e.search = `${en}${misspell} ${e.tovian || ''} ${e.ipa || ''} ${e.roots || ''}`;
+        return e;
+      });
     }
   
     // Render helpers
@@ -90,7 +111,7 @@
       const wrap = document.getElementById('dictCards');
       if (!wrap) return; // No dictionary grid on this page
       wrap.innerHTML = '';
-      list.slice(0, 400).forEach((e) => wrap.appendChild(renderCard(e.item || e)));
+      list.forEach((e) => wrap.appendChild(renderCard(e.item || e)));
     }
   
     function buildTableIfNeeded() {
@@ -186,9 +207,11 @@
       } catch {}
       // Dictionary
       const csvText = await fetch(base + 'dictionary.csv').then((r) => r.text());
-      state.entries = parseCSV(csvText).filter((x) => x.english && x.tovian && !/\(obsolete\)/i.test(x.english));
-      state.fuseDict = new Fuse(state.entries, { keys: ['english', 'tovian'], threshold: 0.3 });
-      renderDictCards(state.entries.slice(0, 400));
+      state.allEntries = withSearchFields(parseCSV(csvText)).filter((x) => x.english && x.tovian && !/\(obsolete\)/i.test(x.english));
+      state.entries = state.allEntries;
+      state.dictEntries = applyAuxFilter(state.entries, state.includeAuxiliaries);
+      state.fuseDict = new Fuse(state.dictEntries, { keys: ['english', 'tovian', 'ipa', 'roots', 'search'], threshold: 0.3 });
+      renderDictCards(state.dictEntries);
       // Handle hash scrolling after dynamic content affects layout
       function scrollToHashIfAny() {
         if (!location.hash) return;
@@ -205,18 +228,20 @@
   
       // Word of the Day (deterministic by date)
       const wotdHost = document.getElementById('wotd');
-      if (wotdHost && state.entries.length) {
+      // Always exclude auxiliaries from Word of the Day.
+      const wotdEntries = applyAuxFilter(state.allEntries, false);
+      if (wotdHost && wotdEntries.length) {
         const d = new Date();
         // ignore calendar/date-like entries for WOTD
         const months = ['january','february','march','april','may','june','july','august','september','october','november','december'];
         const seasons = ['spring','summer','autumn','winter'];
-        const nonCalendar = state.entries.filter(e => {
+        const nonCalendar = wotdEntries.filter(e => {
           const en = (e.english || '').toLowerCase();
           if (/^\d+\s+of\s+(spring|summer|autumn|winter)$/.test(en)) return false;
           if (months.some(m => new RegExp('^'+m+'\\s+\\d+$').test(en))) return false;
           return true;
         });
-        const pool = nonCalendar.length ? nonCalendar : state.entries;
+        const pool = nonCalendar.length ? nonCalendar : wotdEntries;
         const seed = d.getFullYear() * 372 + (d.getMonth()+1) * 31 + d.getDate();
         const idx = seed % pool.length;
         const card = renderCard(pool[idx]);
@@ -224,7 +249,7 @@
         // Also show today's named date if present (e.g., "January 20")
         try {
           const dateKey = `${months[d.getMonth()]} ${d.getDate()}`;
-          const match = state.entries.find(e => e.english.toLowerCase() === dateKey);
+          const match = wotdEntries.find(e => e.english.toLowerCase() === dateKey);
           if (match) {
             const head = document.createElement('div');
             head.className = 'muted';
@@ -238,12 +263,12 @@
         if (stat) {
           stat.innerHTML = `Dictionary entries: <b id="dictCount">0</b>`;
           const target = document.getElementById('dictCount');
-          countUp(target, state.entries.length, 800);
+          countUp(target, state.dictEntries.length, 800);
         }
         const badge = document.getElementById('dictBadge');
         if (badge) {
           badge.textContent = '0';
-          countUp(badge, state.entries.length, 800);
+          countUp(badge, state.dictEntries.length, 800);
         }
         // Chip with today label next to WOTD heading
         const chip = document.getElementById('wotdChip');
@@ -352,25 +377,80 @@
 
       // Dictionary filter
       const dictInput = document.getElementById('dictSearch');
+      const auxBtn = document.getElementById('toggleAuxBtn');
       function filterTable(q) {
         const table = document.getElementById('dictionaryTable');
         if (!table) return;
         const rows = table.tBodies?.[0]?.rows || [];
         const needle = q.toLowerCase();
         Array.from(rows).forEach((row) => {
+          const englishCell = (row.cells?.[0]?.textContent || '').trim();
+          const isAux = /^auxiliary(\-form)?:/i.test(englishCell);
+          if (!state.includeAuxiliaries && isAux) {
+            row.style.display = 'none';
+            return;
+          }
           const txt = Array.from(row.cells).map(c => c.textContent.toLowerCase()).join(' ');
           row.style.display = needle && !txt.includes(needle) ? 'none' : '';
         });
       }
+
+      function rebuildDictionaryIndexAndRender() {
+        state.dictEntries = applyAuxFilter(state.entries, state.includeAuxiliaries);
+        state.fuseDict = new Fuse(state.dictEntries, { keys: ['english', 'tovian', 'ipa', 'roots', 'search'], threshold: 0.3 });
+        const q = dictInput?.value?.trim() || '';
+        const favMode = document.getElementById('favoritesBtn')?.getAttribute('aria-pressed') === 'true';
+        if (favMode) {
+          const favs = state.dictEntries.filter(e => state.favorites.has(`${e.tovian}__${e.english}`));
+          renderDictCards(favs);
+        } else if (!q) {
+          renderDictCards(state.dictEntries);
+        } else if (q.length <= 2) {
+          const needle = q.toLowerCase();
+          const exact = state.dictEntries.filter(e => (e.tovian || '').toLowerCase().includes(needle) || (e.english || '').toLowerCase().includes(needle));
+          renderDictCards(exact);
+        } else {
+          renderDictCards(state.fuseDict.search(q));
+        }
+        filterTable(q);
+
+        // Update badge/stat count to match current dictionary view
+        try {
+          const badge = document.getElementById('dictBadge');
+          if (badge) badge.textContent = String(state.dictEntries.length);
+          const target = document.getElementById('dictCount');
+          if (target) target.textContent = String(state.dictEntries.length);
+        } catch {}
+      }
+
+      auxBtn?.addEventListener('click', () => {
+        state.includeAuxiliaries = !state.includeAuxiliaries;
+        auxBtn.setAttribute('aria-pressed', state.includeAuxiliaries ? 'true' : 'false');
+        rebuildDictionaryIndexAndRender();
+      });
       dictInput?.addEventListener('input', () => {
         const q = dictInput.value.trim();
         if (!q) {
-          renderDictCards(state.entries);
+          renderDictCards(state.dictEntries);
           filterTable('');
           return;
         }
-        const hits = state.fuseDict.search(q);
-        renderDictCards(hits);
+        // For very short queries, fuzzy search gets noisy and may hide relevant items.
+        // Prefer a simple substring match in that case.
+        if (q.length <= 2) {
+          const needle = q.toLowerCase();
+          const exact = state.dictEntries.filter(e => (e.tovian || '').toLowerCase().includes(needle) || (e.english || '').toLowerCase().includes(needle));
+          // Guarantee that exact matches (e.g. "wa") can't get pushed out of the rendered slice
+          // when there are lots of substring hits.
+          const exactWord = state.dictEntries.filter(e => (e.tovian || '').toLowerCase() === needle || (e.english || '').toLowerCase() === needle);
+          const merged = exactWord.length
+            ? [...exactWord, ...exact.filter(e => !exactWord.includes(e))]
+            : exact;
+          renderDictCards(merged);
+        } else {
+          const hits = state.fuseDict.search(q);
+          renderDictCards(hits);
+        }
         filterTable(q);
       });
   
@@ -383,14 +463,19 @@
         toggleBtn.setAttribute('aria-pressed', nowHidden ? 'false' : 'true');
         cardsWrap.style.display = nowHidden ? '' : 'none';
         const more = document.getElementById('loadMoreBtn');
-        if (more) more.style.display = nowHidden ? (state.cardsShown < (document.getElementById('dictSearch')?.value?.trim() ? state.fuseDict.search(document.getElementById('dictSearch').value.trim()).length : state.entries.length) ? '' : 'none') : 'none';
-        if (!nowHidden) { buildTableIfNeeded(); const q = dictInput?.value?.trim() || ''; if (q) { const table = document.getElementById('dictionaryTable'); if (table) { const rows = table.tBodies?.[0]?.rows || []; const needle = q.toLowerCase(); Array.from(rows).forEach((row) => { const txt = Array.from(row.cells).map(c => c.textContent.toLowerCase()).join(' '); row.style.display = needle && !txt.includes(needle) ? 'none' : ''; }); } } setTimeout(applyIpaVisibilityToTable, 0); }
+        if (more) more.style.display = nowHidden ? (state.cardsShown < (document.getElementById('dictSearch')?.value?.trim() ? state.fuseDict.search(document.getElementById('dictSearch').value.trim()).length : state.dictEntries.length) ? '' : 'none') : 'none';
+        if (!nowHidden) {
+          buildTableIfNeeded();
+          const q = dictInput?.value?.trim() || '';
+          filterTable(q);
+          setTimeout(applyIpaVisibilityToTable, 0);
+        }
       });
 
       // Load more button
       document.getElementById('loadMoreBtn')?.addEventListener('click', () => {
         const q = document.getElementById('dictSearch')?.value?.trim();
-        const list = q ? state.fuseDict.search(q) : state.entries;
+        const list = q ? state.fuseDict.search(q) : state.dictEntries;
         appendMoreCards(list);
       });
   
@@ -403,10 +488,10 @@
           favBtn.setAttribute('aria-pressed', pressed ? 'false' : 'true');
           if (pressed) {
             const q = document.getElementById('dictSearch')?.value?.trim();
-            if (!q) renderDictCards(state.entries.slice(0, 400));
+            if (!q) renderDictCards(state.dictEntries);
             else renderDictCards(state.fuseDict.search(q));
           } else {
-            const favs = state.entries.filter(e => state.favorites.has(`${e.tovian}__${e.english}`));
+            const favs = state.dictEntries.filter(e => state.favorites.has(`${e.tovian}__${e.english}`));
             renderDictCards(favs);
           }
         });
@@ -419,7 +504,7 @@
         state.showIPA = !state.showIPA;
         ipaBtn.setAttribute('aria-pressed', state.showIPA ? 'true' : 'false');
         const q = document.getElementById('dictSearch')?.value?.trim();
-        if (!q) renderDictCards(state.entries.slice(0, 200));
+        if (!q) renderDictCards(state.dictEntries);
         else renderDictCards(state.fuseDict.search(q));
         applyIpaVisibilityToTable();
       });

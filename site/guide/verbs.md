@@ -63,3 +63,17 @@ Agreement (subject person on auxiliary)
 </table>
 
 Plural is a noun suffix <code>-e</code>; verbs do not agree with number.
+
+<details class="card" style="margin-top: 1rem;">
+  <summary><b>All auxiliary forms</b> <span class="muted">(aspect × tense)</span></summary>
+  <div id="auxiliariesAuto" class="muted" style="margin-top: .75rem;">Loading…</div>
+</details>
+
+<details class="card" style="margin-top: 1rem;">
+  <summary><b>All possible auxiliaries</b> <span class="muted">(person × mood × voice × aspect × tense)</span></summary>
+  <div style="margin-top: .75rem; display: grid; gap: .75rem;">
+    <input id="allAuxFilter" type="search" placeholder="Filter (e.g. 'imperative', 'passive', 'habitual', 'future')" />
+    <select id="allAuxSelect" size="12" style="width: 100%;"></select>
+    <div id="allAuxPreview" class="muted"></div>
+  </div>
+</details>

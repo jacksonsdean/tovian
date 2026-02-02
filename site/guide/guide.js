@@ -86,6 +86,127 @@
           navHost.appendChild(a);
         }
       }
+
+      // Auto-build auxiliaries table on Verbs page (and anywhere the host exists)
+      const auxHost = document.getElementById('auxiliariesAuto');
+      if (auxHost) {
+        const dictPath = location.pathname.includes('/guide/') ? '../dictionary.csv' : 'dictionary.csv';
+        try {
+          const csvText = await fetch(dictPath).then(r => r.text());
+          const lines = csvText.split(/\r?\n/).filter(Boolean);
+          const rows = lines.map(l => l.split(','));
+          rows.shift(); // header
+
+          const re = /^auxiliary:\s*([^()]+)\(([^)]+)\)\s*$/i;
+          const byAspect = new Map();
+          for (const r of rows) {
+            const english = (r[0] || '').trim();
+            const tovian = (r[1] || '').trim();
+            const ipa = (r[2] || '').trim();
+            const m = english.match(re);
+            if (!m) continue;
+            const aspect = (m[1] || '').trim().toLowerCase();
+            const tense = (m[2] || '').trim().toLowerCase();
+            if (!byAspect.has(aspect)) byAspect.set(aspect, new Map());
+            byAspect.get(aspect).set(tense, { tovian, ipa });
+          }
+
+          const tenses = ['past', 'present', 'future'];
+          const aspects = Array.from(byAspect.keys()).sort((a,b) => a.localeCompare(b));
+          if (!aspects.length) {
+            auxHost.textContent = 'No auxiliary entries found in dictionary.csv.';
+            return;
+          }
+
+          const esc = (s) => (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          const head = `<thead><tr><th>Aspect</th>${tenses.map(t => `<th>${t}</th>`).join('')}</tr></thead>`;
+          const body = aspects.map(a => {
+            const m = byAspect.get(a);
+            const cells = tenses.map(t => {
+              const v = m.get(t);
+              if (!v) return '<td class="muted">—</td>';
+              return `<td><div class="tovian">${esc(v.tovian)}</div><div class="muted" style="font-size:.9em;">${esc(v.ipa)}</div></td>`;
+            }).join('');
+            return `<tr><td><b>${esc(a)}</b></td>${cells}</tr>`;
+          }).join('');
+
+          auxHost.classList.remove('muted');
+          auxHost.innerHTML = `<div style="overflow:auto;"><table>${head}<tbody>${body}</tbody></table></div>`;
+        } catch (e) {
+          auxHost.textContent = 'Failed to load dictionary.csv for auxiliaries.';
+        }
+      }
+
+      // Auto-build full auxiliary dropdown (person × mood × voice × aspect × tense)
+      const allAuxSelect = document.getElementById('allAuxSelect');
+      const allAuxFilter = document.getElementById('allAuxFilter');
+      const allAuxPreview = document.getElementById('allAuxPreview');
+      if (allAuxSelect && allAuxFilter && allAuxPreview) {
+        const dictPath = location.pathname.includes('/guide/') ? '../dictionary.csv' : 'dictionary.csv';
+        try {
+          const csvText = await fetch(dictPath).then(r => r.text());
+          const lines = csvText.split(/\r?\n/).filter(Boolean);
+          const rows = lines.map(l => l.split(','));
+          rows.shift();
+
+          const auxRows = [];
+          for (const r of rows) {
+            const english = (r[0] || '').trim();
+            if (!/^auxiliary-form:/i.test(english)) continue;
+            auxRows.push({
+              english,
+              tovian: (r[1] || '').trim(),
+              ipa: (r[2] || '').trim(),
+              roots: (r[3] || '').trim(),
+            });
+          }
+
+          if (!auxRows.length) {
+            allAuxPreview.textContent = 'No auxiliary-form entries found in dictionary.csv.';
+            return;
+          }
+
+          auxRows.sort((a,b) => a.english.localeCompare(b.english));
+
+          const esc = (s) => (s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+          const renderOptions = (needle) => {
+            const q = (needle || '').trim().toLowerCase();
+            const list = q
+              ? auxRows.filter(e => `${e.english} ${e.tovian} ${e.ipa}`.toLowerCase().includes(q))
+              : auxRows;
+
+            allAuxSelect.innerHTML = list.map((e, i) => {
+              const label = e.english.replace(/^auxiliary-form:\s*/i, '');
+              return `<option value="${esc(label)}" data-i="${i}">${esc(label)} — ${esc(e.tovian)}</option>`;
+            }).join('');
+
+            allAuxPreview.textContent = `Showing ${list.length} auxiliary forms.`;
+          };
+
+          const showSelected = () => {
+            const opt = allAuxSelect.selectedOptions?.[0];
+            if (!opt) return;
+            const label = opt.value;
+            // Re-find in auxRows by label (safe enough; labels are unique-ish)
+            const match = auxRows.find(e => e.english.toLowerCase().includes(label.toLowerCase()));
+            if (!match) return;
+            allAuxPreview.innerHTML = `<div><b>${esc(match.tovian)}</b> <span class="muted">${esc(match.ipa)}</span></div>`;
+          };
+
+          allAuxFilter.addEventListener('input', () => {
+            renderOptions(allAuxFilter.value);
+            showSelected();
+          });
+          allAuxSelect.addEventListener('change', showSelected);
+
+          renderOptions('');
+          // Select first option by default
+          if (allAuxSelect.options.length) allAuxSelect.selectedIndex = 0;
+          showSelected();
+        } catch (e) {
+          allAuxPreview.textContent = 'Failed to load dictionary.csv for full auxiliary list.';
+        }
+      }
     } catch (e) {
       // silent
     }

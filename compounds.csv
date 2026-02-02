@@ -74,7 +74,7 @@ Year,Translation,Roots,POS,Note
 50,storm,wind+water,N,_
 100,thunder,storm+sound,N,_
 200,vine,arm+plant,N,_
-50,birth,bringing+light,N,_
+50,birth,bringing+ALL+light,N,_
 1500,rebirth,second+birth,N,_
 4000,silver,metal+light,N,_
 6000,grain,plant+food,N,_
