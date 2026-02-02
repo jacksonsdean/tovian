@@ -7,7 +7,7 @@ A constructed language by Jackson Dean with a complete phonological system, gram
 Tovian is a conlang featuring:
 - **Phonology**: 24 consonants and 5 vowels with complex phonotactics
 - **Grammar**: Case and mood marking, multiple voice types, and rich morphology
-- **Dictionary**: 2000+ words built from roots, compounds, and borrowed words
+- **Dictionary**: 1000+ words built from roots, compounds, and borrowed words
 - **Historical Development**: Sound changes tracked across 15,000 years of diachronic evolution
 - **Interactive Tools**: Dictionary builder, IPA mapper, and diachronic word tracker
 
