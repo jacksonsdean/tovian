@@ -1,6 +1,9 @@
 # auto built site
 docs/
 
+# Eleventy build output (site/)
+_site/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

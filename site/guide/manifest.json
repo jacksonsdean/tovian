@@ -53,5 +53,11 @@
     "path": "adjectives.html",
     "title": "Attributive Nouns (Adjectives)",
     "summary": "Descriptive qualities are expressed as nouns placed after the noun they modify. Order matters."
+  },
+  {
+    "id": "examples",
+    "path": "examples.html",
+    "title": "Examples",
+    "summary": "Practical examples of Tovian organized by complexity: basics, sentences, questions, and emphasis."
   }
 ]

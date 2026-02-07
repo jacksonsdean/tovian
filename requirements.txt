@@ -1,0 +1,3 @@
+# Tovian - Python Dependencies
+# The build_dictionary.py script uses only Python standard library modules
+# No external dependencies required
