@@ -25,17 +25,22 @@ plural_marker = 'e'
 light_morphemes = ['fe', 'la', 're', 'li']
 
 
-def find_syllables(word: str) -> list[str]:
-    pattern = fr'([{consonants}]*[{vowels}][{consonants}]*)'
+def _char_class(chars: str) -> str:
+    """Escape characters for safe inclusion inside a regex character class []."""
+    return re.escape(chars)
+
+
+def find_syllables(word: str, consonant_inventory: str = consonants, vowel_inventory: str = vowels) -> list[str]:
+    pattern = fr'([{_char_class(consonant_inventory)}]*[{_char_class(vowel_inventory)}][{_char_class(consonant_inventory)}]*)'
     return re.findall(pattern, word)
 
 
-def count_syllables(word: str) -> int:
-    return len(find_syllables(word))
+def count_syllables(word: str, consonant_inventory: str = consonants, vowel_inventory: str = vowels) -> int:
+    return len(find_syllables(word, consonant_inventory=consonant_inventory, vowel_inventory=vowel_inventory))
 
 
-def mark_syllable_boundaries(word: str) -> str:
-    syllables = find_syllables(word)
+def mark_syllable_boundaries(word: str, consonant_inventory: str = consonants, vowel_inventory: str = vowels) -> str:
+    syllables = find_syllables(word, consonant_inventory=consonant_inventory, vowel_inventory=vowel_inventory)
     if len(syllables) == 0:
         return word
     return '.'.join(syllables)

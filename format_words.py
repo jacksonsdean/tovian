@@ -3,6 +3,7 @@ import re
 from sound_changes import (
     find_syllables,
     mark_stress,
+    mark_syllable_boundaries,
     stress_mark,
     unmark_stress,
     vowels,
@@ -98,6 +99,8 @@ def get_dictionary_latex(history, translation, roots, pos, notes) -> str:
     text += rf'\\noindent {{\\tovian \\fontsize{{{FONT_SIZE}}}{{10pt}} \\textbf{{{romanization(raw_word)}}} }}'
     text += r'\\\\' + '\n'
     text += rf'\\noindent /{format_for_latex(mark_stress(raw_word))}/'
+    text += r'\\\\' + '\n'
+    text += rf'\\noindent Syllables: {mark_syllable_boundaries(raw_word)}'
     text += r'\\\\' + '\n'
     if roots != '_':
         text += rf'\\noindent lit. {roots}'
