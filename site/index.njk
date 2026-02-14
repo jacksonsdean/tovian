@@ -7,6 +7,8 @@ title: Tovian | Learn, Search, Ask
     <div>
       <div data-reveal>
         <h1>Learn Tovian</h1>
+        <h3 title="If we should speak the truth, we will make peace."><i>{% tovscript "we aux_1_sbj_sim_prs speech def.acc.abs-truth, we aux_1_sim_fut make acc.abs-peace" %}</i></h3>
+        <h3 title="If we should speak the truth, we will make peace."><i>{% tovc "we aux_1_sbj_sim_prs speech def.acc.abs-truth, we aux_1_sim_fut make acc.abs-peace" %}</i></h3>
         <p>Search the dictionary or browse the complete guide. Quick navigation: <a href="#dictionary">Dictionary</a> · <a href="{{ '/guide/index.html' | url }}">Guide</a></p>
       </div>
       <div data-reveal>
@@ -29,7 +31,7 @@ title: Tovian | Learn, Search, Ask
 <section id="dictionary" class="section">
   <div class="container">
     <div class="row between center">
-      <h2>Dictionary <span id="dictBadge" class="chip" aria-live="polite">0</span></h2>
+      <h2>Dictionary <span id="dictBadge" class="chip" aria-live="polite" title="Loading unique Tovian word count...">0</span></h2>
       <div class="row gap">
         <input id="dictSearch" class="input" placeholder="Filter entries..." />
         <button id="favoritesBtn" class="btn toggle" aria-pressed="false">Favorites ★</button>

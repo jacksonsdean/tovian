@@ -128,10 +128,10 @@ skin,anad,ˈan.ad,skin
 scales,anad,ˈan.ad,scales
 make,sil,sˈil,make
 create,sil,sˈil,create
-eye,meril,mˈer.il,eye
-sight,meril,mˈer.il,sight
-seeing,meril,mˈer.il,seeing
-watching,meril,mˈer.il,watching
+eye,mril,mrˈil,eye
+sight,mril,mrˈil,sight
+seeing,mril,mrˈil,seeing
+watching,mril,mrˈil,watching
 small,nin,nˈin,small
 air,rith,rˈiθ,air
 fire,kesh,kˈeʃ,fire
@@ -312,8 +312,8 @@ it_inanimate,lod,lˈod,it (inanimate)
 them_inanimate,lode,lˈod.e,them (inanimate)
 ancient,nan,nˈan,ancient
 old,nan,nˈan,old
-darkness,meral,mˈer.al,darkness
-dark,meral,mˈer.al,dark
+darkness,mral,mrˈal,darkness
+dark,mral,mrˈal,dark
 proximity,sor,sˈor,proximity
 closeness,sor,sˈor,closeness
 closure,tam,tˈam,closure
@@ -480,9 +480,11 @@ where,ti-lhan,tˈi.ɬan,where
 when,tu-lhan,tˈu.ɬan,when
 why,lhu-lhan,ɬˈu.ɬan,why
 how,si-lhan,sˈi.ɬan,how
+him,yu-ta,jˈu.ta,him
+her,yu-ta,jˈu.ta,her
 your,hi-wa,hˈi.wa,your
 his,hi-ta,hˈi.ta,his
-her,hi-ta,hˈi.ta,her
+her_2,hi-ta,hˈi.ta,her
 their,hi-ta,hˈi.ta,their
 its,hi-lota,hi.lˈot.a,its
 our,hi-ne,hˈi.ne,our
@@ -561,8 +563,8 @@ january,loetush,lo.ˈet.uʃ,January
 january_31,???,???,January 31
 32_of_winter,tushuthok,tuʃ.ˈuθ.ok,32 of winter
 january_32,tushuthok,tuʃ.ˈuθ.ok,January 32
-33_of_winter,meralrem,mer.ˈalr.em,33 of winter
-january_33,meralrem,mer.ˈalr.em,January 33
+33_of_winter,mralrem,mrˈalr.em,33 of winter
+january_33,mralrem,mrˈalr.em,January 33
 34_of_winter,shashanin,ʃaʃ.ˈan.in,34 of winter
 january_34,shashanin,ʃaʃ.ˈan.in,January 34
 35_of_winter,selshith,sˈelʃ.iθ,35 of winter
@@ -605,14 +607,14 @@ january_52,lanalor,lan.ˈal.or,January 52
 january_53,shalor,ʃˈal.or,January 53
 54_of_winter,kelusyaleth,kel.usj.ˈal.eθ,54 of winter
 january_54,kelusyaleth,kel.usj.ˈal.eθ,January 54
-55_of_winter,meralesh,mer.ˈal.eʃ,55 of winter
-january_55,meralesh,mer.ˈal.eʃ,January 55
+55_of_winter,mralesh,mrˈal.eʃ,55 of winter
+january_55,mralesh,mrˈal.eʃ,January 55
 56_of_winter,nanad,nˈan.ad,56 of winter
 january_56,nanad,nˈan.ad,January 56
 57_of_winter,yisaglar,jis.ˈagl.ar,57 of winter
 january_57,yisaglar,jis.ˈagl.ar,January 57
-58_of_winter,mer,mˈer,58 of winter
-january_58,mer,mˈer,January 58
+58_of_winter,mr,mr,58 of winter
+january_58,mr,mr,January 58
 59_of_winter,varefethr,var.ˈef.eθr,59 of winter
 january_59,varefethr,var.ˈef.eθr,January 59
 60_of_winter,nanadyethil,nan.adj.ˈeθ.il,60 of winter
@@ -622,8 +624,8 @@ february,femush,fˈem.uʃ,February
 february_1,tushulor,tuʃ.ˈul.or,February 1
 62_of_winter,thokmramen,θokmr.ˈam.en,62 of winter
 february_2,thokmramen,θokmr.ˈam.en,February 2
-63_of_winter,meralingtlun,mer.al.ˈiŋƛ.un,63 of winter
-february_3,meralingtlun,mer.al.ˈiŋƛ.un,February 3
+63_of_winter,mralingtlun,mral.ˈiŋƛ.un,63 of winter
+february_3,mralingtlun,mral.ˈiŋƛ.un,February 3
 64_of_winter,nanamen,nan.ˈam.en,64 of winter
 february_4,nanamen,nan.ˈam.en,February 4
 65_of_winter,yisanon,jis.ˈan.on,65 of winter
@@ -632,8 +634,8 @@ february_5,yisanon,jis.ˈan.on,February 5
 february_6,lhenashotl,ɬen.ˈaʃ.oƛ,February 6
 67_of_winter,menlor,mˈenl.or,67 of winter
 february_7,menlor,mˈenl.or,February 7
-68_of_winter,mersyaleth,mersj.ˈal.eθ,68 of winter
-february_8,mersyaleth,mersj.ˈal.eθ,February 8
+68_of_winter,mrsyaleth,mrsjˈal.eθ,68 of winter
+february_8,mrsyaleth,mrsjˈal.eθ,February 8
 69_of_winter,shalhen,ʃˈaɬ.en,69 of winter
 february_9,shalhen,ʃˈaɬ.en,February 9
 70_of_winter,tushuthan,tuʃ.ˈuθ.an,70 of winter
@@ -642,10 +644,10 @@ february_10,tushuthan,tuʃ.ˈuθ.an,February 10
 february_11,thanramen,θanr.ˈam.en,February 11
 72_of_winter,numvar,nˈumv.ar,72 of winter
 february_12,numvar,nˈumv.ar,February 12
-73_of_winter,meramen,mer.ˈam.en,73 of winter
-february_13,meramen,mer.ˈam.en,February 13
-74_of_winter,merfor,mˈerf.or,74 of winter
-february_14,merfor,mˈerf.or,February 14
+73_of_winter,mramen,mrˈam.en,73 of winter
+february_13,mramen,mrˈam.en,February 13
+74_of_winter,mrfor,mrfˈor,74 of winter
+february_14,mrfor,mrfˈor,February 14
 75_of_winter,shashol,ʃˈaʃ.ol,75 of winter
 february_15,shashol,ʃˈaʃ.ol,February 15
 76_of_winter,namen,nˈam.en,76 of winter
@@ -656,8 +658,8 @@ february_17,lhenamen,ɬen.ˈam.en,February 17
 february_18,yisdeshol,jisd.ˈeʃ.ol,February 18
 79_of_winter,nanalhen,nan.ˈaɬ.en,79 of winter
 february_19,nanalhen,nan.ˈaɬ.en,February 19
-80_of_winter,merathan,mer.ˈaθ.an,80 of winter
-february_20,merathan,mer.ˈaθ.an,February 20
+80_of_winter,mrathan,mrˈaθ.an,80 of winter
+february_20,mrathan,mrˈaθ.an,February 20
 81_of_winter,duremen,dur.ˈem.en,81 of winter
 february_1_2,duremen,dur.ˈem.en,February 1
 82_of_winter,siyalethanan,sij.al.eθ.ˈan.an,82 of winter
@@ -670,8 +672,8 @@ february_24,meloanamen,mel.o.an.ˈam.en,February 24
 february_25,nanatan,nan.ˈat.an,February 25
 86_of_winter,lanamen,lan.ˈam.en,86 of winter
 february_26,lanamen,lan.ˈam.en,February 26
-87_of_winter,meramen,mer.ˈam.en,87 of winter
-february_27,meramen,mer.ˈam.en,February 27
+87_of_winter,mramen,mrˈam.en,87 of winter
+february_27,mramen,mrˈam.en,February 27
 88_of_winter,lan,lˈan,88 of winter
 february_28,lan,lˈan,February 28
 89_of_winter,tleshmen,ƛˈeʃm.en,89 of winter
@@ -691,8 +693,8 @@ march_4,duremrem,dur.ˈemr.em,March 4
 march_5,lurithan,lur.ˈiθ.an,March 5
 6_of_spring,shimilor,ʃim.ˈil.or,6 of spring
 march_6,shimilor,ʃim.ˈil.or,March 6
-7_of_spring,merilamen,mer.il.ˈam.en,7 of spring
-march_7,merilamen,mer.il.ˈam.en,March 7
+7_of_spring,mrilamen,mril.ˈam.en,7 of spring
+march_7,mrilamen,mril.ˈam.en,March 7
 8_of_spring,todakesh,tod.ˈak.eʃ,8 of spring
 march_8,todakesh,tod.ˈak.eʃ,March 8
 9_of_spring,todawen,tod.ˈaw.en,9 of spring
@@ -709,8 +711,8 @@ march_13,tushudol,tuʃ.ˈud.ol,March 13
 march_14,menan,mˈen.an,March 14
 15_of_spring,rithilekel,riθ.il.ˈek.el,15 of spring
 march_15,rithilekel,riθ.il.ˈek.el,March 15
-16_of_spring,merawen,mer.ˈaw.en,16 of spring
-march_16,merawen,mer.ˈaw.en,March 16
+16_of_spring,mrawen,mrˈaw.en,16 of spring
+march_16,mrawen,mrˈaw.en,March 16
 17_of_spring,tlafor,ƛˈaf.or,17 of spring
 march_17,tlafor,ƛˈaf.or,March 17
 18_of_spring,nanamel,nan.ˈam.el,18 of spring
@@ -729,8 +731,8 @@ march_23,shasith,ʃˈas.iθ,March 23
 march_24,nanadrem,nan.ˈadr.em,March 24
 25_of_spring,lurithan,lur.ˈiθ.an,25 of spring
 march_25,lurithan,lur.ˈiθ.an,March 25
-26_of_spring,meramlorelhen,mer.aml.or.ˈeɬ.en,26 of spring
-march_26,meramlorelhen,mer.aml.or.ˈeɬ.en,March 26
+26_of_spring,mramlorelhen,mraml.or.ˈeɬ.en,26 of spring
+march_26,mramlorelhen,mraml.or.ˈeɬ.en,March 26
 27_of_spring,gadrem,gˈadr.em,27 of spring
 march_27,gadrem,gˈadr.em,March 27
 28_of_spring,lushol,lˈuʃ.ol,28 of spring
@@ -754,8 +756,8 @@ april_5,lurithay,lur.ˈiθ.aj,April 5
 april_6,teshglar,tˈeʃgl.ar,April 6
 37_of_spring,duremshol,dur.ˈemʃ.ol,37 of spring
 april_7,duremshol,dur.ˈemʃ.ol,April 7
-38_of_spring,meraladlel,mer.al.ˈadl.el,38 of spring
-april_8,meraladlel,mer.al.ˈadl.el,April 8
+38_of_spring,mraladlel,mral.ˈadl.el,38 of spring
+april_8,mraladlel,mral.ˈadl.el,April 8
 39_of_spring,yeolaglar,je.ol.ˈagl.ar,39 of spring
 april_9,yeolaglar,je.ol.ˈagl.ar,April 9
 40_of_spring,rithilenum,riθ.il.ˈen.um,40 of spring
@@ -763,8 +765,8 @@ april_9,yeolaglar,je.ol.ˈagl.ar,April 9
 april_11,lanatan,lan.ˈat.an,April 11
 42_of_spring,yisotel,jis.ˈot.el,42 of spring
 april_12,yisotel,jis.ˈot.el,April 12
-43_of_spring,merilaglar,mer.il.ˈagl.ar,43 of spring
-april_13,merilaglar,mer.il.ˈagl.ar,April 13
+43_of_spring,mrilaglar,mril.ˈagl.ar,43 of spring
+april_13,mrilaglar,mril.ˈagl.ar,April 13
 44_of_spring,rithilefethr,riθ.il.ˈef.eθr,44 of spring
 april_14,rithilefethr,riθ.il.ˈef.eθr,April 14
 45_of_spring,lurithitan,lur.iθ.ˈit.an,45 of spring
@@ -781,16 +783,16 @@ april_19,nanashol,nan.ˈaʃ.ol,April 19
 april_20,nanamnan,nan.ˈamn.an,April 20
 51_of_spring,shimisel,ʃim.ˈis.el,51 of spring
 april_21,shimisel,ʃim.ˈis.el,April 21
-52_of_spring,meralshanin,mer.alʃ.ˈan.in,52 of spring
-april_22,meralshanin,mer.alʃ.ˈan.in,April 22
+52_of_spring,mralshanin,mralʃ.ˈan.in,52 of spring
+april_22,mralshanin,mralʃ.ˈan.in,April 22
 53_of_spring,femlor,fˈeml.or,53 of spring
 april_23,femlor,fˈeml.or,April 23
 54_of_spring,lunum,lˈun.um,54 of spring
 april_24,lunum,lˈun.um,April 24
 55_of_spring,rithiletlan,riθ.il.ˈeƛ.an,55 of spring
 april_25,rithiletlan,riθ.il.ˈeƛ.an,April 25
-56_of_spring,meralsyalethashol,mer.alsj.al.eθ.ˈaʃ.ol,56 of spring
-april_26,meralsyalethashol,mer.alsj.al.eθ.ˈaʃ.ol,April 26
+56_of_spring,mralsyalethashol,mralsj.al.eθ.ˈaʃ.ol,56 of spring
+april_26,mralsyalethashol,mralsj.al.eθ.ˈaʃ.ol,April 26
 57_of_spring,yelathan,jel.ˈaθ.an,57 of spring
 april_27,yelathan,jel.ˈaθ.an,April 27
 58_of_spring,yisol,jˈis.ol,58 of spring
@@ -820,8 +822,8 @@ may_8,munorhanalor,mun.orħ.an.ˈal.or,May 8
 may_9,teleaglar,tel.e.ˈagl.ar,May 9
 70_of_spring,shotlol,ʃˈoƛ.ol,70 of spring
 may_10,shotlol,ʃˈoƛ.ol,May 10
-71_of_spring,meramlorean,mer.aml.or.ˈe.an,71 of spring
-may_11,meramlorean,mer.aml.or.ˈe.an,May 11
+71_of_spring,mramlorean,mraml.or.ˈe.an,71 of spring
+may_11,mramlorean,mraml.or.ˈe.an,May 11
 72_of_spring,duleleon,dul.el.ˈe.on,72 of spring
 may_12,duleleon,dul.el.ˈe.on,May 12
 73_of_spring,???,???,73 of spring
@@ -834,8 +836,8 @@ may_15,aysan,ˈajs.an,May 15
 may_16,rithilesyaleth,riθ.il.esj.ˈal.eθ,May 16
 77_of_spring,kelueon,kel.u.ˈe.on,77 of spring
 may_17,kelueon,kel.u.ˈe.on,May 17
-78_of_spring,meralel,mer.ˈal.el,78 of spring
-may_18,meralel,mer.ˈal.el,May 18
+78_of_spring,mralel,mrˈal.el,78 of spring
+may_18,mralel,mrˈal.el,May 18
 79_of_spring,yisor,jˈis.or,79 of spring
 may_19,yisor,jˈis.or,May 19
 80_of_spring,shotlrleth,ʃˈoƛrl.eθ,80 of spring
@@ -885,8 +887,8 @@ june_10,yethilemnan,jeθ.il.ˈemn.an,June 10
 june_11,thuvglar,θˈuvgl.ar,June 11
 12_of_summer,nador,nˈad.or,12 of summer
 june_12,nador,nˈad.or,June 12
-13_of_summer,meralsyaleth,mer.alsj.ˈal.eθ,13 of summer
-june_13,meralsyaleth,mer.alsj.ˈal.eθ,June 13
+13_of_summer,mralsyaleth,mralsj.ˈal.eθ,13 of summer
+june_13,mralsyaleth,mralsj.ˈal.eθ,June 13
 14_of_summer,luriskwil,lur.ˈiskw.il,14 of summer
 june_14,luriskwil,lur.ˈiskw.il,June 14
 15_of_summer,forengothr,for.ˈeŋ.oθr,15 of summer
@@ -895,8 +897,8 @@ june_15,forengothr,for.ˈeŋ.oθr,June 15
 june_16,semlor,sˈeml.or,June 16
 17_of_summer,gaglar,gˈagl.ar,17 of summer
 june_17,gaglar,gˈagl.ar,June 17
-18_of_summer,merallhenadrem,mer.alɬ.en.ˈadr.em,18 of summer
-june_18,merallhenadrem,mer.alɬ.en.ˈadr.em,June 18
+18_of_summer,mrallhenadrem,mralɬ.en.ˈadr.em,18 of summer
+june_18,mrallhenadrem,mralɬ.en.ˈadr.em,June 18
 19_of_summer,tomomen,tom.ˈom.en,19 of summer
 june_19,tomomen,tom.ˈom.en,June 19
 20_of_summer,holadyethil,ħol.adj.ˈeθ.il,20 of summer
@@ -917,8 +919,8 @@ june_26,dolithor,dol.ˈiθ.or,June 26
 june_27,lurithdrem,lur.ˈiθdr.em,June 27
 28_of_summer,ithrem,ˈiθr.em,28 of summer
 june_28,ithrem,ˈiθr.em,June 28
-29_of_summer,meralshol,mer.ˈalʃ.ol,29 of summer
-june_29,meralshol,mer.ˈalʃ.ol,June 29
+29_of_summer,mralshol,mrˈalʃ.ol,29 of summer
+june_29,mralshol,mrˈalʃ.ol,June 29
 30_of_summer,melor,mˈel.or,30 of summer
 june_30,melor,mˈel.or,June 30
 july,loethulef,lo.eθ.ˈul.ef,July
@@ -964,16 +966,16 @@ july_19,dolaglar,dol.ˈagl.ar,July 19
 july_20,selyethil,selj.ˈeθ.il,July 20
 51_of_summer,felakorim,fel.ak.ˈor.im,51 of summer
 july_21,felakorim,fel.ak.ˈor.im,July 21
-52_of_summer,meralshol,mer.ˈalʃ.ol,52 of summer
-july_22,meralshol,mer.ˈalʃ.ol,July 22
+52_of_summer,mralshol,mrˈalʃ.ol,52 of summer
+july_22,mralshol,mrˈalʃ.ol,July 22
 53_of_summer,yisayeol,jis.aj.ˈe.ol,53 of summer
 july_23,yisayeol,jis.aj.ˈe.ol,July 23
 54_of_summer,kelulor,kel.ˈul.or,54 of summer
 july_24,kelulor,kel.ˈul.or,July 24
 55_of_summer,sethan,sˈeθ.an,55 of summer
 july_25,sethan,sˈeθ.an,July 25
-56_of_summer,meramlor,mer.ˈaml.or,56 of summer
-july_26,meramlor,mer.ˈaml.or,July 26
+56_of_summer,mramlor,mrˈaml.or,56 of summer
+july_26,mramlor,mrˈaml.or,July 26
 57_of_summer,varedrem,var.ˈedr.em,57 of summer
 july_27,varedrem,var.ˈedr.em,July 27
 58_of_summer,yisdmfed,jˈisdmf.ed,58 of summer
@@ -991,8 +993,8 @@ august_2,teshaglar,teʃ.ˈagl.ar,August 2
 august_3,munanilor,mun.an.ˈil.or,August 3
 64_of_summer,kelushith,kel.ˈuʃ.iθ,64 of summer
 august_4,kelushith,kel.ˈuʃ.iθ,August 4
-65_of_summer,meral,mˈer.al,65 of summer
-august_5,meral,mˈer.al,August 5
+65_of_summer,mral,mrˈal,65 of summer
+august_5,mral,mrˈal,August 5
 66_of_summer,lhenathan,ɬen.ˈaθ.an,66 of summer
 august_6,lhenathan,ɬen.ˈaθ.an,August 6
 67_of_summer,aysdrem,ˈajsdr.em,67 of summer
@@ -1019,8 +1021,8 @@ august_16,melrem,mˈelr.em,August 16
 august_17,keluthan,kel.ˈuθ.an,August 17
 78_of_summer,varetlun,var.ˈeƛ.un,78 of summer
 august_18,varetlun,var.ˈeƛ.un,August 18
-79_of_summer,meralaysor,mer.al.ˈajs.or,79 of summer
-august_19,meralaysor,mer.al.ˈajs.or,August 19
+79_of_summer,mralaysor,mral.ˈajs.or,79 of summer
+august_19,mralaysor,mral.ˈajs.or,August 19
 80_of_summer,thangethan,θaŋ.ˈeθ.an,80 of summer
 august_20,thangethan,θaŋ.ˈeθ.an,August 20
 81_of_summer,lhenashotlodrem,ɬen.aʃ.oƛ.ˈodr.em,81 of summer
@@ -1037,8 +1039,8 @@ august_25,yiselom,jis.ˈel.om,August 25
 august_26,keshaglar,keʃ.ˈagl.ar,August 26
 87_of_summer,rithenalor,riθ.en.ˈal.or,87 of summer
 august_27,rithenalor,riθ.en.ˈal.or,August 27
-88_of_summer,meralor,mer.ˈal.or,88 of summer
-august_28,meralor,mer.ˈal.or,August 28
+88_of_summer,mralor,mrˈal.or,88 of summer
+august_28,mralor,mrˈal.or,August 28
 89_of_summer,fidol,fˈid.ol,89 of summer
 august_29,fidol,fˈid.ol,August 29
 90_of_summer,falnan,fˈaln.an,90 of summer
@@ -1048,8 +1050,8 @@ september,lorlesh,lˈorl.eʃ,September
 september_1,keluloresyaleth,kel.ul.or.esj.ˈal.eθ,September 1
 2_of_autumn,yisoresyaleth,jis.or.esj.ˈal.eθ,2 of autumn
 september_2,yisoresyaleth,jis.or.esj.ˈal.eθ,September 2
-3_of_autumn,meralaysm,mer.ˈal.ajsm,3 of autumn
-september_3,meralaysm,mer.ˈal.ajsm,September 3
+3_of_autumn,mralaysm,mrˈal.ajsm,3 of autumn
+september_3,mralaysm,mrˈal.ajsm,September 3
 4_of_autumn,???,???,4 of autumn
 september_4,???,???,September 4
 5_of_autumn,nanamen,nan.ˈam.en,5 of autumn
@@ -1086,8 +1088,8 @@ september_19,lushanin,luʃ.ˈan.in,September 19
 september_20,tilethil,til.ˈeθ.il,September 20
 21_of_autumn,riskel,rˈisk.el,21 of autumn
 september_21,riskel,rˈisk.el,September 21
-22_of_autumn,meraltlun,mer.ˈalƛ.un,22 of autumn
-september_22,meraltlun,mer.ˈalƛ.un,September 22
+22_of_autumn,mraltlun,mrˈalƛ.un,22 of autumn
+september_22,mraltlun,mrˈalƛ.un,September 22
 23_of_autumn,kelushol,kel.ˈuʃ.ol,23 of autumn
 september_23,kelushol,kel.ˈuʃ.ol,September 23
 24_of_autumn,meloanamen,mel.o.an.ˈam.en,24 of autumn
@@ -1121,8 +1123,8 @@ october_6,yisnal,jˈisn.al,October 6
 october_7,hol,ħˈol,October 7
 38_of_autumn,lhenadrem,ɬen.ˈadr.em,38 of autumn
 october_8,lhenadrem,ɬen.ˈadr.em,October 8
-39_of_autumn,meralaglar,mer.al.ˈagl.ar,39 of autumn
-october_9,meralaglar,mer.al.ˈagl.ar,October 9
+39_of_autumn,mralaglar,mral.ˈagl.ar,39 of autumn
+october_9,mralaglar,mral.ˈagl.ar,October 9
 40_of_autumn,nanathan,nan.ˈaθ.an,40 of autumn
 october_10,nanathan,nan.ˈaθ.an,October 10
 41_of_autumn,yisanin,jis.ˈan.in,41 of autumn
@@ -1184,8 +1186,8 @@ november_7,lhuloresyaleth,ɬul.or.esj.ˈal.eθ,November 7
 november_8,dolag,dˈol.ag,November 8
 69_of_autumn,rithtom,rˈiθt.om,69 of autumn
 november_9,rithtom,rˈiθt.om,November 9
-70_of_autumn,merallhenathan,mer.alɬ.en.ˈaθ.an,70 of autumn
-november_10,merallhenathan,mer.alɬ.en.ˈaθ.an,November 10
+70_of_autumn,mrallhenathan,mralɬ.en.ˈaθ.an,70 of autumn
+november_10,mrallhenathan,mralɬ.en.ˈaθ.an,November 10
 71_of_autumn,shithanin,ʃiθ.ˈan.in,71 of autumn
 november_11,shithanin,ʃiθ.ˈan.in,November 11
 72_of_autumn,lethileaglar,leθ.il.e.ˈagl.ar,72 of autumn

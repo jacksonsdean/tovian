@@ -72,6 +72,22 @@
       return entries.filter(e => !e.isAuxiliary);
     }
 
+    function getUniqueTovianWordCount(entries) {
+      const unique = new Set();
+      entries.forEach((e) => {
+        const word = (e.tovian || '').trim().toLowerCase();
+        if (word) unique.add(word);
+      });
+      return unique.size;
+    }
+
+    function updateDictionaryBadgeTooltip(entries) {
+      const badge = document.getElementById('dictBadge');
+      if (!badge) return;
+      const uniqueCount = getUniqueTovianWordCount(entries || []);
+      badge.title = `${uniqueCount} unique Tovian words`;
+    }
+
     function withSearchFields(entries) {
       return entries.map((e) => {
         const en = (e.english || '');
@@ -212,6 +228,7 @@
       state.dictEntries = applyAuxFilter(state.entries, state.includeAuxiliaries);
       state.fuseDict = new Fuse(state.dictEntries, { keys: ['english', 'tovian', 'ipa', 'roots', 'search'], threshold: 0.3 });
       renderDictCards(state.dictEntries);
+      updateDictionaryBadgeTooltip(state.dictEntries);
       // Handle hash scrolling after dynamic content affects layout
       function scrollToHashIfAny() {
         if (!location.hash) return;
@@ -270,6 +287,7 @@
           badge.textContent = '0';
           countUp(badge, state.dictEntries.length, 800);
         }
+        updateDictionaryBadgeTooltip(state.dictEntries);
         // Chip with today label next to WOTD heading
         const chip = document.getElementById('wotdChip');
         if (chip) {
@@ -442,6 +460,7 @@
         try {
           const badge = document.getElementById('dictBadge');
           if (badge) badge.textContent = String(state.dictEntries.length);
+          updateDictionaryBadgeTooltip(state.dictEntries);
           const target = document.getElementById('dictCount');
           if (target) target.textContent = String(state.dictEntries.length);
         } catch {}

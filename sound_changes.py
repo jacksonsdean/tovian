@@ -491,6 +491,9 @@ def epenthesis_in_all_initial_clusters(word: str) -> str:
     return first + epenthetic + second + word[2:]
 
 
+def initial_mer_to_mr(word: str) -> str:
+    return re.sub(r'^mer', 'mr', word)
+
 def simplify_lθ_to_θ(word: str) -> str:
     return re.sub(r'lθ', 'θ', word)
 
@@ -635,6 +638,7 @@ sound_changes = [
     {'rule': 14006, 'description': 'Voiceless glottal fricative h to pharyngeal fricative ħ', 'function': h_to_ħ},
     {'rule': 15000, 'description': 'No repeated consonants', 'function': no_double_consonants},
     {'rule': 16001, 'description': 'Epenthesis in all initial clusters (u default, e with nasals, i with glides)', 'function': epenthesis_in_all_initial_clusters},
+    {'rule': 16002, 'description': 'No e between m and r word initially.', 'function': initial_mer_to_mr},
 ]
 
 
