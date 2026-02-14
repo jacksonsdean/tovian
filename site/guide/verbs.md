@@ -27,27 +27,27 @@ Tovian uses a conjugated auxiliary + a bare main verb. The main verb stays uninf
     <tr><th>Aspect</th><th>Aux root</th><th>Present example</th></tr>
   </thead>
   <tbody>
-    <tr><td>Simple</td><td><code>f-</code></td><td><code>fa mril</code> “see(s)”</td></tr>
-    <tr><td>Imperfective</td><td><code>th-</code></td><td><code>tha mril</code> “be seeing”</td></tr>
-    <tr><td>Perfect</td><td><code>lh-</code></td><td><code>lha mril</code> “have seen”</td></tr>
-    <tr><td>Near</td><td><code>tl-</code></td><td><code>tla mril</code> “about to see”</td></tr>
-    <tr><td>Immediate</td><td><code>k-</code></td><td><code>ka mril</code> “seeing now”</td></tr>
-    <tr><td>Habitual</td><td><code>m-</code></td><td><code>ma mril</code> “see(s) regularly”</td></tr>
-    <tr><td>Progressive</td><td><code>s-</code></td><td><code>sa mril</code> “be seeing now”</td></tr>
-    <tr><td>Continuous</td><td><code>sh-</code></td><td><code>sha mril</code> “be seeing”</td></tr>
-    <tr><td>Iterative</td><td><code>n-</code></td><td><code>na mril</code> “see(s) repeatedly”</td></tr>
-    <tr><td>Inceptive</td><td><code>y-</code></td><td><code>ya mril</code> “begin seeing”</td></tr>
-    <tr><td>Cessative</td><td><code>p-</code></td><td><code>pa mril</code> “stop seeing”</td></tr>
-    <tr><td>Remote</td><td><code>h-</code></td><td><code>ha mril</code> “see(s) (remote)”</td></tr>
+    <tr><td>Simple</td><td><code>f-</code></td><td>{% tovc "aux_3_sim_prs sight" %} “see(s)”</td></tr>
+    <tr><td>Imperfective</td><td><code>th-</code></td><td>{% tovc "aux_3_ipf_prs sight" %} “be seeing”</td></tr>
+    <tr><td>Perfect</td><td><code>lh-</code></td><td>{% tovc "aux_3_prf_prs sight" %} “have seen”</td></tr>
+    <tr><td>Near</td><td><code>tl-</code></td><td>{% tovc "aux_3_nea_prs sight" %} “about to see”</td></tr>
+    <tr><td>Immediate</td><td><code>k-</code></td><td>{% tovc "aux_3_imm_prs sight" %} “seeing now”</td></tr>
+    <tr><td>Habitual</td><td><code>m-</code></td><td>{% tovc "aux_3_hab_prs sight" %} “see(s) regularly”</td></tr>
+    <tr><td>Progressive</td><td><code>s-</code></td><td>{% tovc "aux_3_pro_prs sight" %} “be seeing now”</td></tr>
+    <tr><td>Continuous</td><td><code>sh-</code></td><td>{% tovc "aux_3_cnt_prs sight" %} “be seeing”</td></tr>
+    <tr><td>Iterative</td><td><code>n-</code></td><td>{% tovc "aux_3_itr_prs sight" %} “see(s) repeatedly”</td></tr>
+    <tr><td>Inceptive</td><td><code>y-</code></td><td>{% tovc "aux_3_inc_prs sight" %} “begin seeing”</td></tr>
+    <tr><td>Cessative</td><td><code>p-</code></td><td>{% tovc "aux_3_ces_prs sight" %} “stop seeing”</td></tr>
+    <tr><td>Remote</td><td><code>h-</code></td><td>{% tovc "aux_3_rem_prs sight" %} “see(s) (remote)”</td></tr>
   </tbody>
 </table>
 
 ## Examples
 
-- <code>fa mril.</code> — English: [He/She] sees. (simple present)
-- <code>sha fethr.</code> — English: is speaking. (continuous present)
-- <code>tlotema …</code> — English: should habitually … (obligative + habitual present)
-- <code>osefa gith.</code> — English: Return! (2nd person imperative; person + mood on auxiliary)
+- {% tovc "aux_3_sim_prs sight" %}. — English: [He/She] sees. (simple present)
+- {% tovc "aux_3_cnt_prs speech" %}. — English: is speaking. (continuous present)
+- {% tovc "aux_3_obl_hab_prs" %} … — English: should habitually … (obligative + habitual present)
+- {% tovc "aux_2_imp_sim_prs returning" %}. — English: Return! (2nd person imperative; person + mood on auxiliary)
 
 Agreement (subject person on auxiliary)
 
@@ -56,9 +56,9 @@ Agreement (subject person on auxiliary)
     <tr><th>Person</th><th>Auxiliary prefix</th><th>Example</th></tr>
   </thead>
   <tbody>
-    <tr><td>1st</td><td><code>i-</code></td><td><code>ifa mril</code> “I/we see”</td></tr>
-    <tr><td>2nd</td><td><code>o-</code></td><td><code>ofa fethr</code> “you speak”</td></tr>
-    <tr><td>3rd</td><td><em>unmarked</em> (optionally <code>a-</code>)</td><td><code>fa mril</code> “he/she/they see”</td></tr>
+    <tr><td>1st</td><td><code>i-</code></td><td>{% tovc "aux_1_sim_prs sight" %} “I/we see”</td></tr>
+    <tr><td>2nd</td><td><code>o-</code></td><td>{% tovc "aux_2_sim_prs speech" %} “you speak”</td></tr>
+    <tr><td>3rd</td><td><em>unmarked</em> (optionally <code>a-</code>)</td><td>{% tovc "aux_3_sim_prs sight" %} “he/she/they see”</td></tr>
   </tbody>
 </table>
 

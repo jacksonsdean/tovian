@@ -7,15 +7,15 @@ title: Numbers & Ordinals | Tovian Guide
 
 ## Plurals
 
-Plural nouns take <code>-e</code>. Verbs do not agree with number.
+Plural nouns take {% tovc "pl" %}. Verbs do not agree with number.
 
 <table>
   <thead>
     <tr><th>Singular</th><th>Plural</th></tr>
   </thead>
   <tbody>
-    <tr><td><code>nor</code> “sea”</td><td><code>nore</code> “seas”</td></tr>
-    <tr><td><code>yel</code> “person”</td><td><code>yele</code> “people”</td></tr>
+    <tr><td>{% tovc "sea" %}: “sea”</td><td>{% tovc "sea+pl"%}: “seas”</td></tr>
+    <tr><td>{% tovc "person" %}: “person”</td><td> {% tovc "person+pl"%}: “people”</td></tr>
   </tbody>
 </table>
 

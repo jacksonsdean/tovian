@@ -1,16 +1,66 @@
 English,Tovian,IPA,Category
-the person,la-yel,/ la.ˈjel /,Basics
-the city,lo-shithil,/ lo.ʃˈiθ.il /,Basics
-sees,fa mril,/ fa mrˈil /,Basics
-speaking,fethr,/ fˈeθr /,Basics
-The person sees.,la-yel fa mril.,/ la.ˈjel fa mrˈil /,Simple Sentence
-The person sees in the city.,i-la-yel fa mril a-ti-lo-shithil.,/ i.la.ˈjel fa mrˈil a.ti.lo.ʃˈiθ.il /,Simple Sentence
-Do you speak?,lhan wa ofa fethr?,/ ɬˈan wa ˈof.a fˈeθr /,Question
-the big person,la-yel mot,/ la.ˈjel mˈot /,Attributive Noun
-The big person sees in the city.,ti-lo-shithil mot la-yel fa mril.,/ ti.lo.ʃˈiθ.il mˈot la.ˈjel fa mrˈil /,Attributive Noun
-In the city, the person sees.,ti-lo-shithil la-yel fa mril.,/ ti.lo.ʃˈiθ.il la.ˈjel fa mrˈil /,Emphasis/Fronting
-How did he speak?,si-lhan ta fe fethr?,/ si.ɬˈan ta fe fˈeθr /,Question with Case
-Where does he speak?,ti-lhan ta fa fethr?,/ ti.ɬˈan ta fa fˈeθr /,Question with Case
-
-The friend is speaking in the daytime.,i-la-yelalh sha fethr a-tu-lo-twimen.,/ i.la.ˈjel.aɬ ʃa fˈeθr a.tu.lo.twˈim.en /,Simple Sentence
-
+"the person","{% tovc ""ani-person"" %}","{% tovipa ""ani.person"" %}",Basics
+"the city","{% tovc ""inan-city"" %}","{% tovipa ""inan.city"" %}",Basics
+"sees","{% tovc ""aux_3_sim_prs sight"" %}","{% tovipa ""aux_3_sim_prs sight"" %}",Basics
+"speaking","{% tovc ""speech"" %}","{% tovipa ""speech"" %}",Basics
+"The person sees.","{% tovc ""ani-person aux_3_sim_prs sight"" %}","{% tovipa ""ani.person aux_3_sim_prs sight"" %}",Simple Sentence
+"The person sees in the city.","{% tovc ""nom.ani-person aux_3_sim_prs sight def.loc.inan-city"" %}","{% tovipa ""nom.ani.person aux_3_sim_prs sight def.loc.inan.city"" %}",Simple Sentence
+"Do you speak?","{% tovc ""int you aux_2_sim_prs speech"" %}","{% tovipa ""int you aux_2_sim_prs speech"" %}",Question
+"the big person","{% tovc ""ani-person large"" %}","{% tovipa ""ani.person large"" %}",Attributive Noun
+"The big person sees in the city.","{% tovc ""loc.inan-city large ani-person aux_3_sim_prs sight"" %}","{% tovipa ""loc.inan.city large ani.person aux_3_sim_prs sight"" %}",Attributive Noun
+"In the city, the person sees.","{% tovc ""loc.inan-city ani-person aux_3_sim_prs sight"" %}","{% tovipa ""loc.inan.city ani.person aux_3_sim_prs sight"" %}",Emphasis/Fronting
+"How did he speak?","{% tovc ""ins-what he aux_3_sim_pst speech"" %}","{% tovipa ""ins.what he aux_3_sim_pst speech"" %}",Question with Case
+"Where does he speak?","{% tovc ""loc-what he aux_3_sim_prs speech"" %}","{% tovipa ""loc.what he aux_3_sim_prs speech"" %}",Question with Case
+"The friend is speaking in the daytime.","{% tovc ""nom.ani-friend aux_3_cnt_prs speech def.temp.inan-daytime"" %}","{% tovipa ""nom.ani.friend aux_3_cnt_prs speech def.temp.inan.daytime"" %}",Simple Sentence
+"A friend is speaking in the daytime.","{% tovc ""indef.ani-friend aux_3_cnt_prs speech def.temp.inan-daytime"" %}","{% tovipa ""indef.ani.friend aux_3_cnt_prs speech def.temp.inan.daytime"" %}",Simple Sentence
+"Friends speak in the daytime.","{% tovc ""indef.abs-friend aux_3_hab_prs speech def.temp.inan-daytime"" %}","{% tovipa ""indef.abs.friend aux_3_hab_prs speech def.temp.inan.daytime"" %}",Simple Sentence
+"Your friend is speaking in the daytime.","{% tovc ""nom.ani-friend your aux_3_cnt_prs speech def.temp.inan-daytime"" %}","{% tovipa ""nom.ani.friend aux_3_cnt_prs speech def.temp.inan.daytime"" %}",Simple Sentence
+"Their friend is speaking in the daytime.","{% tovc ""nom.ani-friend their aux_3_cnt_prs speech def.temp.inan-daytime"" %}","{% tovipa ""nom.ani.friend aux_3_cnt_prs speech def.temp.inan.daytime"" %}",Simple Sentence
+"The child sees the moon.","{% tovc ""nom.ani-child aux_3_sim_prs sight def.acc.inan-moon"" %}","{% tovipa ""nom.ani.child aux_3_sim_prs sight def.acc.inan.moon"" %}",Simple Sentence
+"The mother is eating food.","{% tovc ""nom.ani-mother aux_3_cnt_prs eating def.acc.inan-food"" %}","{% tovipa ""nom.ani.mother aux_3_cnt_prs eating def.acc.inan.food"" %}",Simple Sentence
+"The dog is running in the forest.","{% tovc ""nom.ani-dog aux_3_cnt_prs running loc.inan-forest"" %}","{% tovipa ""nom.ani.dog aux_3_cnt_prs running loc.inan.forest"" %}",Simple Sentence
+"The boat is going on the river.","{% tovc ""nom.inan-boat aux_3_cnt_prs going def.loc.inan-river"" %}","{% tovipa ""nom.inan.boat aux_3_cnt_prs going def.loc.inan.river"" %}",Simple Sentence
+"The father is watching the stars.","{% tovc ""nom.ani-father aux_3_cnt_prs watching def.acc.inan-star+pl"" %}","{% tovipa ""nom.ani.father aux_3_cnt_prs watching def.acc.inan.star+pl"" %}",Simple Sentence
+"We are thinking at night.","{% tovc ""we aux_1_cnt_prs thinking def.temp.inan-night"" %}","{% tovipa ""we aux_1_cnt_prs thinking def.temp.inan.night"" %}",Simple Sentence
+"The child is sleeping at home.","{% tovc ""nom.ani-child aux_3_cnt_prs sleep def.loc.inan-home"" %}","{% tovipa ""nom.ani.child aux_3_cnt_prs sleep def.loc.inan.home"" %}",Simple Sentence
+"The father is carrying water.","{% tovc ""nom.ani-father aux_3_cnt_prs carrying acc.inan-water"" %}","{% tovipa ""nom.ani.father aux_3_cnt_prs carrying acc.inan.water"" %}",Simple Sentence
+"The child is walking to the village.","{% tovc ""nom.ani-child aux_3_cnt_prs walking def.all.inan-village"" %}","{% tovipa ""nom.ani.child aux_3_cnt_prs walking def.all.inan.village"" %}",Simple Sentence
+"The child is walking to a village.","{% tovc ""nom.ani-child aux_3_cnt_prs walking indef.all.inan-village"" %}","{% tovipa ""nom.ani.child aux_3_cnt_prs walking indef.all.inan.village"" %}",Simple Sentence
+"The mother is writing this morning.","{% tovc ""nom.ani-mother aux_3_cnt_prs writing def.temp.inan-morning"" %}","{% tovipa ""nom.ani.mother aux_3_cnt_prs writing def.temp.inan.morning"" %}",Simple Sentence
+"The mother usually writes in the mornings.","{% tovc ""nom.ani-mother aux_3_hab_prs writing indef.temp.inan-morning"" %}","{% tovipa ""nom.ani.mother aux_3_hab_prs writing indef.temp.inan.morning"" %}",Simple Sentence
+"The council is speaking.","{% tovc ""nom.inan-council aux_3_cnt_prs speaking"" %}","{% tovipa ""nom.inan.council aux_3_cnt_prs speaking"" %}",Simple Sentence
+"The child is carrying a knife.","{% tovc ""nom.ani-child aux_3_cnt_prs carrying indef.acc.inan-knife"" %}","{% tovipa ""nom.ani.child aux_3_cnt_prs carrying indef.acc.inan.knife"" %}",Simple Sentence
+"The canoe is going on the lake.","{% tovc ""nom.inan-canoe aux_3_cnt_prs going loc.inan-lake"" %}","{% tovipa ""nom.inan.canoe aux_3_cnt_prs going loc.inan.lake"" %}",Simple Sentence
+"The fog is covering the village.","{% tovc ""nom.inan-fog aux_3_cnt_prs covering def.acc.inan-village"" %}","{% tovipa ""nom.inan.fog aux_3_cnt_prs covering def.acc.inan.village"" %}",Simple Sentence
+"The thunder is returning.","{% tovc ""nom.inan-thunder aux_3_cnt_prs returning"" %}","{% tovipa ""nom.inan.thunder aux_3_cnt_prs returning"" %}",Simple Sentence
+"The enemy is running to the desert.","{% tovc ""nom.ani-enemy aux_3_cnt_prs running all.inan-desert"" %}","{% tovipa ""nom.ani.enemy aux_3_cnt_prs running all.inan.desert"" %}",Simple Sentence
+"The father is teaching the child.","{% tovc ""nom.ani-father aux_3_cnt_prs teaching def.acc-ani-child"" %}","{% tovipa ""nom.ani.father aux_3_cnt_prs teaching def.acc.ani.child"" %}",Simple Sentence
+"We are making peace.","{% tovc ""we aux_1_cnt_prs make acc-abs-peace"" %}","{% tovipa ""we aux_1_cnt_prs make acc.abs.peace"" %}",Simple Sentence
+"The mother is speaking the truth.","{% tovc ""nom.ani-mother aux_3_cnt_prs speaking def.acc.abs-truth"" %}","{% tovipa ""nom.ani.mother aux_3_cnt_prs speaking def.acc.abs.truth"" %}",Simple Sentence
+"The child is watching the sun.","{% tovc ""nom.ani-child aux_3_cnt_prs watching def.acc.inan-sun"" %}","{% tovipa ""nom.ani.child aux_3_cnt_prs watching def.acc.inan.sun"" %}",Simple Sentence
+"Children watch the sun.","{% tovc ""indef.nom.ani-child aux_3_hab_prs watching def.acc.inan-sun"" %}","{% tovipa ""indef.nom.ani.child aux_3_hab_prs watching def.acc.inan.sun"" %}",Simple Sentence
+"The child is speaking at night.","{% tovc ""nom.ani-child aux_3_cnt_prs speech def.temp.inan-night"" %}","{% tovipa ""nom.ani.child aux_3_cnt_prs speech def.temp.inan.night"" %}",Simple Sentence
+"The mother sees the city.","{% tovc ""nom.ani-mother aux_3_sim_prs sight def.acc.inan-city"" %}","{% tovipa ""nom.ani.mother aux_3_sim_prs sight def.acc.inan.city"" %}",Simple Sentence
+"The father is going to the forest.","{% tovc ""nom.ani-father aux_3_cnt_prs going def.all.inan-forest"" %}","{% tovipa ""nom.ani.father aux_3_cnt_prs going def.all.inan.forest"" %}",Simple Sentence
+"The friend is walking in the city.","{% tovc ""nom.ani-friend aux_3_cnt_prs walking def.loc.inan-city"" %}","{% tovipa ""nom.ani.friend aux_3_cnt_prs walking def.loc.inan.city"" %}",Simple Sentence
+"The enemy sees the boat.","{% tovc ""nom.ani-enemy aux_3_sim_prs sight def.acc.inan-boat"" %}","{% tovipa ""nom.ani.enemy aux_3_sim_prs sight def.acc.inan.boat"" %}",Simple Sentence
+"The council is watching the river.","{% tovc ""nom.inan-council aux_3_cnt_prs watching def.acc.inan-river"" %}","{% tovipa ""nom.inan.council aux_3_cnt_prs watching def.acc.inan.river"" %}",Simple Sentence
+"The dog is sleeping in the village.","{% tovc ""nom.ani-dog aux_3_cnt_prs sleep def.loc.inan-village"" %}","{% tovipa ""nom.ani.dog aux_3_cnt_prs sleep def.loc.inan.village"" %}",Simple Sentence
+"The canoe is returning to the lake.","{% tovc ""nom.inan-canoe aux_3_cnt_prs returning def.all.inan-lake"" %}","{% tovipa ""nom.inan.canoe aux_3_cnt_prs returning def.all.inan.lake"" %}",Simple Sentence
+"The fog is covering the forest.","{% tovc ""nom.inan-fog aux_3_cnt_prs covering def.acc.inan-forest"" %}","{% tovipa ""nom.inan.fog aux_3_cnt_prs covering def.acc.inan.forest"" %}",Simple Sentence
+"We are speaking the truth.","{% tovc ""we aux_1_cnt_prs speech def.acc.abs-truth"" %}","{% tovipa ""we aux_1_cnt_prs speech def.acc.abs.truth"" %}",Simple Sentence
+"We are making peace at night.","{% tovc ""we aux_1_cnt_prs make acc.abs-peace def.temp.inan-night"" %}","{% tovipa ""we aux_1_cnt_prs make acc.abs.peace def.temp.inan.night"" %}",Simple Sentence
+"The mother is teaching the child.","{% tovc ""nom.ani-mother aux_3_cnt_prs teaching def.acc.ani-child"" %}","{% tovipa ""nom.ani.mother aux_3_cnt_prs teaching def.acc.ani.child"" %}",Simple Sentence
+"A child is writing this morning.","{% tovc ""indef.ani-child aux_3_cnt_prs writing def.temp.inan-morning"" %}","{% tovipa ""indef.ani.child aux_3_cnt_prs writing def.temp.inan.morning"" %}",Simple Sentence
+"The father is carrying a knife.","{% tovc ""nom.ani-father aux_3_cnt_prs carrying indef.acc.inan-knife"" %}","{% tovipa ""nom.ani.father aux_3_cnt_prs carrying indef.acc.inan.knife"" %}",Simple Sentence
+"Friends are running to the city.","{% tovc ""indef.abs-friend aux_3_cnt_prs running all.inan-city"" %}","{% tovipa ""indef.abs.friend aux_3_cnt_prs running all.inan.city"" %}",Simple Sentence
+"The child sees the moon and the mother is speaking.","{% tovc ""nom.ani-child aux_3_sim_prs sight def.acc.inan-moon, nom.ani-mother aux_3_cnt_prs speech"" %}","{% tovipa ""nom.ani.child aux_3_sim_prs sight def.acc.inan.moon, nom.ani.mother aux_3_cnt_prs speech"" %}",Compound Sentences
+"The father is carrying water and the dog is running in the forest.","{% tovc ""nom.ani-father aux_3_cnt_prs carrying acc.inan-water, nom.ani-dog aux_3_cnt_prs running loc.inan-forest"" %}","{% tovipa ""nom.ani.father aux_3_cnt_prs carrying acc.inan.water, nom.ani.dog aux_3_cnt_prs running loc.inan.forest"" %}",Compound Sentences
+"The friend is speaking in the daytime but the child is watching the sun.","{% tovc ""nom.ani-friend aux_3_cnt_prs speech def.temp.inan-daytime, nom.ani-child aux_3_cnt_prs watching def.acc.inan-sun"" %}","{% tovipa ""nom.ani.friend aux_3_cnt_prs speech def.temp.inan.daytime, nom.ani.child aux_3_cnt_prs watching def.acc.inan.sun"" %}",Compound Sentences
+"The mother is writing this morning and the father is teaching the child.","{% tovc ""nom.ani-mother aux_3_cnt_prs writing def.temp.inan-morning, nom.ani-father aux_3_cnt_prs teaching def.acc.ani-child"" %}","{% tovipa ""nom.ani.mother aux_3_cnt_prs writing def.temp.inan.morning, nom.ani.father aux_3_cnt_prs teaching def.acc.ani.child"" %}",Compound Sentences
+"The canoe is going on the lake and the fog is covering the forest.","{% tovc ""nom.inan-canoe aux_3_cnt_prs going loc.inan-lake, nom.inan-fog aux_3_cnt_prs covering def.acc.inan-forest"" %}","{% tovipa ""nom.inan.canoe aux_3_cnt_prs going loc.inan.lake, nom.inan.fog aux_3_cnt_prs covering def.acc.inan.forest"" %}",Compound Sentences
+"The enemy is running to the desert and the council is watching the river.","{% tovc ""nom.ani-enemy aux_3_cnt_prs running all.inan-desert, nom.inan-council aux_3_cnt_prs watching def.acc.inan-river"" %}","{% tovipa ""nom.ani.enemy aux_3_cnt_prs running all.inan.desert, nom.inan.council aux_3_cnt_prs watching def.acc.inan.river"" %}",Compound Sentences
+"We are speaking the truth and we are making peace.","{% tovc ""we aux_1_cnt_prs speech def.acc.abs-truth, we aux_1_cnt_prs make acc.abs-peace"" %}","{% tovipa ""we aux_1_cnt_prs speech def.acc.abs.truth, we aux_1_cnt_prs make acc.abs.peace"" %}",Compound Sentences
+"The person sees in the city and the friend is walking in the city.","{% tovc ""nom.ani-person aux_3_sim_prs sight def.loc.inan-city, nom.ani-friend aux_3_cnt_prs walking def.loc.inan-city"" %}","{% tovipa ""nom.ani.person aux_3_sim_prs sight def.loc.inan.city, nom.ani.friend aux_3_cnt_prs walking def.loc.inan.city"" %}",Compound Sentences
+"The thunder is returning and the boat is going on the river.","{% tovc ""nom.inan-thunder aux_3_cnt_prs returning, nom.inan-boat aux_3_cnt_prs going def.loc.inan-river"" %}","{% tovipa ""nom.inan.thunder aux_3_cnt_prs returning, nom.inan.boat aux_3_cnt_prs going def.loc.inan.river"" %}",Compound Sentences
+"A friend is speaking in the daytime and children watch the sun.","{% tovc ""indef.ani-friend aux_3_cnt_prs speech def.temp.inan-daytime, indef.nom.ani-child aux_3_hab_prs watching def.acc.inan-sun"" %}","{% tovipa ""indef.ani.friend aux_3_cnt_prs speech def.temp.inan.daytime, indef.nom.ani.child aux_3_hab_prs watching def.acc.inan.sun"" %}",Compound Sentences

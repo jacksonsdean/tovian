@@ -12,16 +12,16 @@ Year,Word,Translation,Roots,POS,Note
 -1,ji-,COM/comitative case marker/with/together with,_,CASE,_
 -1,su-,ALL/allative case marker,_,CASE,_
 -1,pu-,ESS/essive case marker,_,CASE,_
--1,-e,plural marker,_,PLURAL,_
--1,la-,animate noun class,_,CLASS,_
--1,lo-,inanimate noun class,_,CLASS,_
--1,le-,abstract noun class,_,CLASS,_
+-1,-e,PL/plural marker,_,PLURAL,_
+-1,la-,ANI/animate noun class,_,CLASS,_
+-1,lo-,INAN/inanimate noun class,_,CLASS,_
+-1,le-,ABS/abstract noun class,_,CLASS,_
 -1,wi-,SUB/subjunctive mood marker,_,MOOD,_
 -1,se-,IMP/imperative mood marker,_,MOOD,_
 -1,ko-,COND/conditional mood marker,_,MOOD,_
--1,ks-o,COUNTER/counterfactual mood marker,_,MOOD,_
+-1,kso-,COUNTER/counterfactual mood marker,_,MOOD,_
 -1,ɬe-,OPT/optative mood marker,_,MOOD,_
--1,ƛ0-,OBL/obligative mood marker,_,MOOD,_
+-1,ƛo-,OBL/obligative mood marker,_,MOOD,_
 -1,ʃo-,POT/potential mood marker,_,MOOD,_
 -1,te-,REFL/reflexive voice marker,_,VOICE,_
 -1,pa-,PASS/passive voice marker,_,VOICE,_
@@ -29,6 +29,8 @@ Year,Word,Translation,Roots,POS,Note
 -1,ke-,CAUS/causative voice marker,_,VOICE,_
 -1,ra-,REC/reciprocal voice marker,_,VOICE,_
 
+-1,i-,DEF/definite marker,_,ARTICLE,_
+-1,e-,INDEF/indefinite marker,_,ARTICLE,_
 
 
 
@@ -51,7 +53,7 @@ Year,Word,Translation,Roots,POS,Note
 0,tiel,thing,_,N,_
 0,mot,big/large,_,N,_
 0,ðul,top/height,_,N,_
-0,zul,bottom/shallows/shortness,_,N,_
+0,zul,shallows/shortness,_,N,_
 0,drenpok,flower,_,N,_
 0,aklare,tree,_,N,_
 0,ƛuna,joining,_,N,_
@@ -170,12 +172,7 @@ Year,Word,Translation,Roots,POS,Note
 0,tir,ten/10,_,N,_
 0,bejar,eleven/11,_,N,_
 0,ɬija,twelve/12,_,N,_
-0,ɬan,who,_,INT,_
-0,ɬan,what,_,INT,_
-0,ɬan,where,_,INT,_
-0,ɬan,when,_,INT,_
-0,ɬan,why,_,INT,_
-0,ɬan,how,_,INT,_
+0,ɬan,question/INT,_,INT,_
 0,na,me/I,_,P,_
 0,ne,us/we,_,Ps,_
 0,wa,you,_,P,_
@@ -189,7 +186,7 @@ Year,Word,Translation,Roots,POS,Note
 0,sor,proximity/closeness,_,N,_
 0,tanum,closure/shutting,_,N,_
 0,ɬonum,day,_,N,Period of time
-0,tuimena,day/daytime,_,N,Time of day
+0,tuimena,daytime,_,N,Time of day
 0,aɬetinla,night/nighttime,_,N,Time of day
 0,benani,shelter/protection/covering,_,N,_
 0,mari,mother,_,N,_

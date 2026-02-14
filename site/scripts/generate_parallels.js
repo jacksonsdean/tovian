@@ -1,4 +1,6 @@
-// Load examples from CSV and populate subpages
+const fs = require('fs');
+const path = require('path');
+
 function parseCSV(text) {
   const rows = [];
   let row = [];
@@ -43,6 +45,18 @@ function parseCSV(text) {
   }
 
   return rows;
+}
+
+function toCSV(rows) {
+  return rows
+    .map((cols) => cols.map((value) => {
+      const v = value == null ? '' : String(value);
+      if (/[",\n\r]/.test(v)) {
+        return `"${v.replace(/"/g, '""')}"`;
+      }
+      return v;
+    }).join(','))
+    .join('\n') + '\n';
 }
 
 function normalizeTemplateToken(token) {
@@ -90,7 +104,6 @@ function buildTemplateResolver(replacements, options = {}) {
 
   function resolveSegment(rawSegment) {
     if (!rawSegment) return '';
-
     const { leading, core, trailing } = splitTokenAffixes(rawSegment);
     if (!core) return rawSegment;
 
@@ -127,16 +140,18 @@ function parseTemplateExpression(value) {
   return { name: m[1].toLowerCase(), tokenString: m[2] };
 }
 
-async function loadTemplateReplacementResolvers() {
-  const response = await fetch('/template_replacements.csv');
-  const csv = await response.text();
-  const rows = parseCSV(csv);
-  const [, ...data] = rows;
+function main() {
+  const root = path.resolve(__dirname, '..');
+  const examplesPath = path.join(root, 'examples.csv');
+  const replacementsPath = path.join(root, 'template_replacements.csv');
+  const outputPath = path.join(root, 'parallels.csv');
 
+  const replacementsRows = parseCSV(fs.readFileSync(replacementsPath, 'utf8'));
+  const [, ...replacementData] = replacementsRows;
   const tovianMap = new Map();
   const ipaMap = new Map();
 
-  data.forEach((r) => {
+  replacementData.forEach((r) => {
     const english = (r[0] || '').trim();
     const tovian = (r[1] || '').trim();
     const ipa = (r[2] || '').trim();
@@ -164,118 +179,33 @@ async function loadTemplateReplacementResolvers() {
     return `/${bare}/`;
   };
 
-  return { resolveTovian, resolveTovianHyphen, resolveIpa };
+  const examplesRows = parseCSV(fs.readFileSync(examplesPath, 'utf8'));
+  const [header, ...data] = examplesRows;
+
+  const outRows = [header];
+  data.forEach((r) => {
+    const english = r[0] || '';
+    const rawTovian = r[1] || '';
+    const rawIpa = r[2] || '';
+    const category = r[3] || '';
+
+    const tovExpr = parseTemplateExpression(rawTovian);
+    const ipaExpr = parseTemplateExpression(rawIpa);
+
+    const tovian = tovExpr
+      ? ((tovExpr.name === 'tovch' || tovExpr.name === 'tovph')
+          ? resolveTovianHyphen(tovExpr.tokenString)
+          : resolveTovian(tovExpr.tokenString))
+      : rawTovian;
+    const ipa = ipaExpr
+      ? (ipaExpr.name === 'tovipa' ? resolveIpa(ipaExpr.tokenString) : resolveTovian(ipaExpr.tokenString))
+      : rawIpa;
+
+    outRows.push([english, tovian, ipa, category]);
+  });
+
+  fs.writeFileSync(outputPath, toCSV(outRows), 'utf8');
+  console.log(`Wrote ${outputPath}`);
 }
 
-async function loadExamplesFromCSV() {
-  try {
-    // Prefer build-time resolved output to avoid runtime resolver drift.
-    const parallelsResponse = await fetch('/parallels.csv');
-    if (parallelsResponse.ok) {
-      const csv = await parallelsResponse.text();
-      const allRows = parseCSV(csv);
-      const rows = allRows.slice(1).map((values) => ({
-        english: values[0],
-        tovian: values[1],
-        ipa: values[2],
-        category: values[3]
-      }));
-
-      const grouped = {};
-      rows.forEach(row => {
-        if (!grouped[row.category]) grouped[row.category] = [];
-        grouped[row.category].push(row);
-      });
-
-      return { rows, grouped, categories: Object.keys(grouped) };
-    }
-
-    const [response, resolvers] = await Promise.all([
-      fetch('/examples.csv'),
-      loadTemplateReplacementResolvers()
-    ]);
-    const csv = await response.text();
-    
-    // Parse CSV
-    const allRows = parseCSV(csv);
-    const rows = allRows.slice(1).map((values) => {
-      const rawTovian = values[1] || '';
-      const rawIpa = values[2] || '';
-
-      const tovExpr = parseTemplateExpression(rawTovian);
-      const ipaExpr = parseTemplateExpression(rawIpa);
-
-      const tovian = tovExpr
-        ? ((tovExpr.name === 'tovch' || tovExpr.name === 'tovph')
-            ? resolvers.resolveTovianHyphen(tovExpr.tokenString)
-            : resolvers.resolveTovian(tovExpr.tokenString))
-        : rawTovian;
-      const ipa = ipaExpr
-        ? (ipaExpr.name === 'tovipa'
-            ? resolvers.resolveIpa(ipaExpr.tokenString)
-            : resolvers.resolveTovian(ipaExpr.tokenString))
-        : rawIpa;
-
-      return {
-        english: values[0],
-        tovian,
-        ipa,
-        category: values[3]
-      };
-    });
-    
-    // Group by category
-    const grouped = {};
-    rows.forEach(row => {
-      if (!grouped[row.category]) {
-        grouped[row.category] = [];
-      }
-      grouped[row.category].push(row);
-    });
-    
-    return { rows, grouped, categories: Object.keys(grouped) };
-  } catch (error) {
-    console.error('Error loading examples CSV:', error);
-    return null;
-  }
-}
-
-function escapeHtml(value = '') {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-function renderExampleCards(containerId, examples = []) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-
-  if (!examples.length) {
-    container.innerHTML = '<p><em>No examples available yet.</em></p>';
-    return;
-  }
-
-  const cards = examples.map((ex, index) => {
-    const tovian = escapeHtml(ex.tovian || '');
-    const ipa = escapeHtml(ex.ipa || '');
-    const english = escapeHtml(ex.english || '');
-
-    return `
-      <article class="example-card">
-        <div class="example-index">${index + 1}</div>
-        <p class="example-tovian"><strong>${tovian}</strong></p>
-        <p class="example-ipa">${ipa}</p>
-        <p class="example-english">${english}</p>
-      </article>
-    `;
-  }).join('');
-
-  container.innerHTML = `<div class="examples-grid">${cards}</div>`;
-}
-
-// For dynamically populating page content
-window.loadExamplesFromCSV = loadExamplesFromCSV;
-window.renderExampleCards = renderExampleCards;
+main();

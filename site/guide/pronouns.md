@@ -14,13 +14,13 @@ Person prefixes (on the auxiliary)
     <tr><th>Person</th><th>Prefix</th><th>Example</th></tr>
   </thead>
   <tbody>
-    <tr><td>1st</td><td><code>i-</code></td><td><code>isa nalh</code> “I/we think” (context decides number)</td></tr>
-    <tr><td>2nd</td><td><code>o-</code></td><td><code>osa nalh</code> “you think”</td></tr>
-    <tr><td>3rd</td><td><em>unmarked</em> (optionally <code>a-</code>)</td><td><code>sa nalh</code> “he/she/they think”</td></tr>
+    <tr><td>1st</td><td><code>i-</code></td><td>{% tovc "aux_1_pro_prs thinking" %} “I/we think” (context decides number)</td></tr>
+    <tr><td>2nd</td><td><code>o-</code></td><td>{% tovc "aux_2_pro_prs thinking" %} “you think”</td></tr>
+    <tr><td>3rd</td><td><em>unmarked</em> (optionally <code>a-</code>)</td><td>{% tovc "aux_3_pro_prs thinking" %} “he/she/they think”</td></tr>
   </tbody>
 </table>
 
 Notes
 
-- Plurality appears on nouns with <code>-e</code> (e.g., <code>lothr → lothre</code>), not on verbs.
+- Plurality appears on nouns with {% tovc "pl" %} (e.g., {% tovc "river" %} → {% tovc "river+pl" %}), not on verbs.
 - Full pronouns may precede the verb for emphasis in formal or contrastive contexts; otherwise, rely on verbal agreement.

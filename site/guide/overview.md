@@ -13,7 +13,7 @@ Welcome. This guide will help you learn to speak Tovian.
 - [Verbs and auxiliaries](verbs.html): how actions are expressed.
 - [Mood & voice](mood-voice.html): nuance and perspective.
 - [Questions](questions.html): yes/no and information questions.
-- [Attributive nouns](adjectives.html): adjectives.
+- [Attributive nouns (adjectives)](adjectives.html): adjectives.
 - [Syntax](syntax.html): word order and movement for focus.
 - [Culture](culture.html): introduction to the culture.
 

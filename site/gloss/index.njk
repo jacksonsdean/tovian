@@ -11,7 +11,8 @@ permalink: /gloss/index.html
     <div class="grid2" style="align-items:start;">
       <div class="box">
         <h3>Gloss Tovian</h3>
-        <textarea id="glossInput" class="input" rows="6" placeholder="Paste Tovian text… e.g., la-driel fa mril ti-lo-shithil."></textarea>
+        <div id="glossLoading" class="muted" style="margin-bottom:8px">Loading glosser data…</div>
+        <textarea id="glossInput" class="input" rows="6" placeholder="Tovian text… e.g., {% tov "ani-person aux_1_sim_prs sight loc-inan-city" %}"></textarea>
         <div class="row gap" style="margin-top:8px">
           <button id="glossBtn" class="btn primary">Gloss</button>
           <button id="clearGloss" class="btn ghost">Clear</button>
@@ -31,5 +32,5 @@ permalink: /gloss/index.html
     </div>
   </div>
 </section>
-<script src="{{ '/gloss/gloss.js' | url }}" defer></script>
+<script src="{{ '/gloss/gloss.js' | url }}?v=20260213b" defer></script>
 

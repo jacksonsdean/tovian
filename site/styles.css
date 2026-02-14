@@ -73,6 +73,13 @@
   }
   
   .tovian { font-family: 'tovian', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; font-size: 26px; line-height: 1.1; color: var(--text); }
+  .tovian-script {
+    display: inline-block;
+    line-height: 1.35;
+    vertical-align: baseline;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
+  }
   
   .row { display: flex; align-items: center; }
   .row.center { align-items: center; }
@@ -220,6 +227,67 @@
   .guide-mini-nav a.active, .guide-mini-nav a:hover { color: var(--text); border-color: var(--brand); }
   .guide-nav { margin-top: 16px; display: flex; justify-content: space-between; gap: 12px; }
   .guide-nav a { text-decoration: none; }
+
+  /* Examples pages: higher readability layout */
+  .examples-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 10px;
+  }
+  .example-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 12px;
+    row-gap: 6px;
+    align-items: start;
+    background: color-mix(in srgb, var(--panel) 88%, transparent);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .example-index {
+    grid-row: 1 / span 3;
+    min-width: 30px;
+    height: 30px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    display: grid;
+    place-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--bg) 65%, transparent);
+  }
+  .example-card p {
+    margin: 0;
+  }
+  .example-tovian {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--text);
+    word-break: break-word;
+  }
+  .example-ipa {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    color: color-mix(in srgb, var(--muted) 90%, var(--text) 10%);
+    word-break: break-word;
+  }
+  .example-english {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--text) 88%, var(--muted) 12%);
+    font-style: italic;
+  }
+  @media (max-width: 640px) {
+    .example-card {
+      grid-template-columns: 1fr;
+    }
+    .example-index {
+      grid-row: auto;
+    }
+  }
 
   /* Hero: make Word of the Day span full height */
   .hero .grid2 > .card { height: 100%; display: flex; flex-direction: column; }

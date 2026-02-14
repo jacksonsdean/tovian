@@ -2,10 +2,17 @@
 (function(){
   window.addEventListener('DOMContentLoaded', async () => {
     try {
-      const base = location.pathname.includes('/guide/') ? '' : 'guide/';
-      const pages = await fetch(base + 'manifest.json').then(r => r.json());
+      const isGuideSection = location.pathname.includes('/guide/');
+      const isExamplesSection = location.pathname.includes('/examples/');
+      const sectionLabel = isExamplesSection ? 'EXAMPLES' : 'GUIDE';
+      const manifestPath = isGuideSection
+        ? 'manifest.json'
+        : isExamplesSection
+          ? '../examples/manifest.json'
+          : 'guide/manifest.json';
+      const pages = await fetch(manifestPath).then(r => r.json());
       // Normalize current path to '/guide/<file>.html' regardless of site base
-      const match = location.pathname.match(/\/guide\/[^?#]*/);
+      const match = location.pathname.match(/\/(guide|examples)\/[^?#]*/);
       const currentPath = match ? match[0] : location.pathname; // e.g., '/guide/verbs.html'
 
       // Sidebar
@@ -25,7 +32,7 @@
         aside.innerHTML = '<div></div>'; // clear
         const guide_title = document.createElement('h4', { className: 'section-title' });
 
-        guide_title.textContent = 'GUIDE';        
+        guide_title.textContent = sectionLabel;
         guide_title.className = 'section-title';
         // add space
         guide_title.style.marginTop = '1em';
