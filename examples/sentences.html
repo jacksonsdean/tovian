@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Attributive Nouns | Tovian Guide</title>
+    <title>Simple Sentences | Tovian Examples</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,9 +23,7 @@
       
       
       
-        
-      
-      <a href="/tovian/guide/index.html">Guide <span aria-hidden="true">🏷️</span></a>
+      <a href="/tovian/guide/index.html">Guide</a>
       <a href="/tovian/index.html#ask">Ask</a>
       <a href="/tovian/gloss/index.html">Translator</a>
       <a href="/tovian/examples/index.html">Examples</a>
@@ -47,67 +45,28 @@
     <aside id="guideSidebar" class="guide-sidebar" data-reveal></aside>
     <article class="guide-content" data-reveal>
       <nav id="guideMiniNav" class="guide-mini-nav" aria-label="Guide pages"></nav>
-      <h1>Attributive Nouns (adjectives)</h1>
-<p>Descriptive qualities are expressed as nouns placed directly after the noun they modify. Order matters.</p>
+      <h1>Simple Sentences</h1>
+<p>Building basic declarative and descriptive sentences.</p>
+<h2>Core Structures</h2>
+<div id="sentencesContent">
+  <p><em>Loading examples...</em></p>
+</div>
+<h2>Word Order</h2>
 <ul>
-<li>
-<pre>yu-lo-shithil <b><u> mot </u></b> la-yel fa mril</pre> 
-<ul>
-<li><span class="tovian tovian-script">yu-lo-shithil mot la-yel fa mril</span></li>
-<li><code>/jˈu-lˈo-ʃˈiθ.il mˈot lˈa-jˈel fˈa mrˈil/</code></li>
-<li>English: The person sees the <strong>big</strong> city.</li>
+<li><strong>Basic order</strong>: Subject — Verb — Object/Locative</li>
+<li><strong>Attributive nouns</strong> (adjectives) follow directly after the noun they modify</li>
+<li><strong>Case markers</strong> attach to the beginning of noun phrases to indicate grammatical role</li>
 </ul>
-</li>
-<li>
-<pre>yu-lo-shithil la-yel <b><u> mot </u></b> fa mril</pre>
-<ul>
-<li><span class="tovian tovian-script">yu-lo-shithil la-yel mot fa mril</span></li>
-<li><code>/jˈu-lˈo-ʃˈiθ.il lˈa-jˈel mˈot fˈa mrˈil/</code></li>
-<li>English: The <strong>big</strong> person sees the city. (meaning changes)</li>
-</ul>
-</li>
-</ul>
-<h2>Colors</h2>
-<table>
-<thead>
-<tr>
-<th>English</th>
-<th>Tovian</th>
-<th>Script</th>
-<th>IPA</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>red</td>
-<td>lhod</td>
-<td><span class="tovian tovian-script">lhod</span></td>
-<td><code>/ɬˈod/</code></td>
-</tr>
-<tr>
-<td>blue</td>
-<td>dor</td>
-<td><span class="tovian tovian-script">dor</span></td>
-<td><code>/dˈor/</code></td>
-</tr>
-<tr>
-<td>green</td>
-<td>klat</td>
-<td><span class="tovian tovian-script">klat</span></td>
-<td><code>/klˈat/</code></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>
-<pre>yu-lo-men <b><u> lhod </u></b> la-yel fa mril</pre>
-<ul>
-<li><span class="tovian tovian-script">yu-lo-men lhod la-yel fa mril</span></li>
-<li><code>/jˈu-lˈo-mˈen ɬˈod lˈa-jˈel fˈa mrˈil/</code></li>
-<li>English: The person sees the <strong>red</strong> stone.</li>
-</ul>
-</li>
-</ul>
+<script src="/examples.js"></script>
+<script>
+window.loadExamplesFromCSV().then(data => {
+  if (!data) return;
+  
+  const sentenceExamples = data.rows.filter(ex => ex.category === 'Simple Sentence');
+
+  window.renderExampleCards('sentencesContent', sentenceExamples);
+});
+</script>
 
       <div id="guideNav" class="guide-nav" data-reveal></div>
     </article>

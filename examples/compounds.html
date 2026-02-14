@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Forming Questions | Examples | Tovian Guide</title>
+    <title>Compound Sentences | Tovian Examples</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,12 +23,10 @@
       
       
       
-        
-      
       <a href="/tovian/guide/index.html">Guide</a>
       <a href="/tovian/index.html#ask">Ask</a>
       <a href="/tovian/gloss/index.html">Translator</a>
-      <a href="/tovian/guide/examples.html">Examples</a>
+      <a href="/tovian/examples/index.html">Examples</a>
       <a href="/tovian/index.html#about">About</a>
     </nav>
     <div class="row gap" style="flex:1; justify-content:flex-end;">
@@ -47,36 +45,20 @@
     <aside id="guideSidebar" class="guide-sidebar" data-reveal></aside>
     <article class="guide-content" data-reveal>
       <nav id="guideMiniNav" class="guide-mini-nav" aria-label="Guide pages"></nav>
-      <h1>Forming Questions</h1>
-<p>Building yes/no and information questions in Tovian.</p>
-<h2>Examples</h2>
-<div id="questionsContent">
-  <p><em>Loading examples from CSV...</em></p>
+      <h1>Compound Sentences</h1>
+<p>Building linked and multi-clause sentence patterns.</p>
+<h2>Core Structures</h2>
+<div id="compoundsContent">
+  <p><em>Loading examples...</em></p>
 </div>
-<h2>Question Words</h2>
-<p>The root <code>lhan</code> combines with case markers:</p>
-<ul>
-<li><code>si-lhan</code> — how (instrumental case)</li>
-<li><code>ti-lhan</code> — where (locative case)</li>
-<li><code>tu-lhan</code> — when (temporal case)</li>
-<li><code>hi-lhan</code> — whose/of whom (genitive case)</li>
-</ul>
 <script src="/examples.js"></script>
 <script>
 window.loadExamplesFromCSV().then(data => {
   if (!data) return;
   
-  const questionExamples = data.rows.filter(ex => 
-    ex.category === 'Question' || ex.category === 'Question with Case'
-  );
-  let html = '<ul>\n';
-  
-  questionExamples.forEach(ex => {
-    html += `<li><strong><code>${ex.tovian}</code></strong><br/>${ex.ipa}<br/><em>${ex.english}</em></li>\n`;
-  });
-  
-  html += '</ul>';
-  document.getElementById('questionsContent').innerHTML = html;
+  const sentenceExamples = data.rows.filter(ex => ex.category === 'Compound Sentences');
+
+  window.renderExampleCards('compoundsContent', sentenceExamples);
 });
 </script>
 

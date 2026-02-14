@@ -26,7 +26,7 @@
       <a href="/tovian/guide/index.html">Guide</a>
       <a href="/tovian/index.html#ask">Ask</a>
       <a href="/tovian/gloss/index.html">Translator</a>
-      <a href="/tovian/guide/examples.html">Examples</a>
+      <a href="/tovian/examples/index.html">Examples</a>
       <a href="/tovian/index.html#about">About</a>
     </nav>
     <div class="row gap" style="flex:1; justify-content:flex-end;">
@@ -48,7 +48,11 @@
     <div class="grid2" style="align-items:start;">
       <div class="box">
         <h3>Gloss Tovian</h3>
-        <textarea id="glossInput" class="input" rows="6" placeholder="Paste Tovian text… e.g., la-driel fa mril ti-lo-shithil."></textarea>
+        <div id="glossLoading" class="loading-banner" role="status" aria-live="polite" style="margin-bottom:8px">
+          <span class="loading-spinner" aria-hidden="true"></span>
+          <span id="glossLoadingText">Loading glosser data…</span>
+        </div>
+        <textarea id="glossInput" class="input" rows="6" placeholder="Tovian text… e.g., ani-person aux_1_sim_prs sight loc-inan-city"></textarea>
         <div class="row gap" style="margin-top:8px">
           <button id="glossBtn" class="btn primary">Gloss</button>
           <button id="clearGloss" class="btn ghost">Clear</button>
@@ -68,7 +72,7 @@
     </div>
   </div>
 </section>
-<script src="/tovian/gloss/gloss.js" defer></script>
+<script src="/tovian/gloss/gloss.js?v=20260213e" defer></script>
 
 
     </main>

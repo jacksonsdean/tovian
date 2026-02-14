@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Examples | Tovian Guide</title>
+    <title>Emphasis &amp; Word Order | Tovian Examples</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,12 +23,10 @@
       
       
       
-        
-      
-      <a href="/tovian/guide/index.html">Guide <span aria-hidden="true">🧪</span></a>
+      <a href="/tovian/guide/index.html">Guide</a>
       <a href="/tovian/index.html#ask">Ask</a>
       <a href="/tovian/gloss/index.html">Translator</a>
-      <a href="/tovian/guide/examples.html">Examples</a>
+      <a href="/tovian/examples/index.html">Examples</a>
       <a href="/tovian/index.html#about">About</a>
     </nav>
     <div class="row gap" style="flex:1; justify-content:flex-end;">
@@ -47,43 +45,31 @@
     <aside id="guideSidebar" class="guide-sidebar" data-reveal></aside>
     <article class="guide-content" data-reveal>
       <nav id="guideMiniNav" class="guide-mini-nav" aria-label="Guide pages"></nav>
-      <h1>Examples</h1>
-<p>This section contains practical examples of Tovian in use, organized by complexity and context.</p>
-<h2>Browse by Topic</h2>
+      <h1>Emphasis &amp; Word Order</h1>
+<p>Using fronting and word order for emphasis and clarity.</p>
+<h2>Examples</h2>
+<div id="emphasisContent">
+  <p><em>Loading examples...</em></p>
+</div>
+<h2>Principles</h2>
 <ul>
-<li><strong><a href="/guide/examples/basics.html">Basic Phrases</a></strong> — Essential vocabulary and short phrases</li>
-<li><strong><a href="/guide/examples/sentences.html">Simple Sentences</a></strong> — Subject-verb patterns and word order</li>
-<li><strong><a href="/guide/examples/questions.html">Forming Questions</a></strong> — Yes/no and information questions</li>
-<li><strong><a href="/guide/examples/emphasis.html">Emphasis &amp; Word Order</a></strong> — Fronting and stylistic variation</li>
+<li>Move elements to the beginning of the sentence for focus</li>
+<li>Case marking preserves grammatical role after fronting</li>
+<li>Attributive nouns (adjectives) follow the noun they modify</li>
+<li>These techniques create stylistic variation while maintaining meaning</li>
 </ul>
-<h2>Quick Reference</h2>
-<h3>Basics</h3>
-<ul>
-<li><code>la-yel</code> — the person</li>
-<li><code>lo-shithil</code> — the city</li>
-<li><code>fa mril</code> — see(s) (present)</li>
-<li><code>fethr</code> — speech/speaking</li>
-</ul>
-<h3>Simple Sentences</h3>
-<ul>
-<li><code>la-yel fa mril.</code> — The person sees.</li>
-<li><code>i-la-yel fa mril a-ti-lo-shithil.</code> — The person sees in the city.</li>
-<li><code>lhan wa ofa fethr?</code> — Do you speak?</li>
-</ul>
-<h3>Attributive Nouns</h3>
-<ul>
-<li><code>la-yel mot</code> — the big person</li>
-<li><code>ti-lo-shithil mot la-yel fa mril.</code> — The big person sees in the city.</li>
-</ul>
-<h3>Fronting for Emphasis</h3>
-<ul>
-<li><code>ti-lo-shithil la-yel fa mril.</code> — In the city, the person sees.</li>
-</ul>
-<h3>Questions with Case Markers</h3>
-<ul>
-<li><code>si-lhan ta fe fethr?</code> — How did he speak?</li>
-<li><code>ti-lhan ta fa fethr?</code> — Where does he speak?</li>
-</ul>
+<script src="/examples.js"></script>
+<script>
+window.loadExamplesFromCSV().then(data => {
+  if (!data) return;
+  
+  const emphasisExamples = data.rows.filter(ex => 
+    ex.category === 'Emphasis/Fronting' || ex.category === 'Attributive Noun'
+  );
+
+  window.renderExampleCards('emphasisContent', emphasisExamples);
+});
+</script>
 
       <div id="guideNav" class="guide-nav" data-reveal></div>
     </article>

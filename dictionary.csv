@@ -91,7 +91,6 @@ blue,dor, / dˈor / ,_
 blueness,dor, / dˈor / ,_
 boat,sith, / sˈiθ / ,water + traveling
 body,adlel, / ˈadl.el / ,_
-bottom,sul, / sˈul / ,_
 bottom,thok, / θˈok / ,_
 branch,kel, / kˈel / ,_
 breath,lrith, / lrˈiθ / ,movement + COM + air
@@ -131,7 +130,6 @@ dark,mral, / mrˈal / ,_
 darkness,mral, / mrˈal / ,_
 dawn,mloan, / mlˈo.an / ,first + light
 day,lhom, / ɬˈom / ,_
-day,twimen, / twˈim.en / ,_
 daytime,twimen, / twˈim.en / ,_
 death,dol, / dˈol / ,_
 december 1,lrithdrem, / lrˈiθdr.em / ,breath + flower
@@ -165,7 +163,9 @@ december 7,mloanathan, / mlo.an.ˈaθ.an / ,morning + tool
 december 8,dolrem, / dˈolr.em / ,death + flower
 december 9,lrithaglar, / lriθ.ˈagl.ar / ,breath + tree
 December,lotush, / lˈot.uʃ / ,one + cold
-demonstrate,led, / lˈed / ,action + showing
+DEF,i-, / ˈi / ,_
+definite marker,i-, / ˈi / ,_
+demonstration,led, / lˈed / ,action + showing
 denseness,lhul, / ɬˈul / ,_
 desert,tlil, / ƛˈil / ,sand + place
 discovery,sahyeol, / saħj.ˈe.ol / ,make + wisdom
@@ -206,7 +206,7 @@ February 16,namen, / nˈam.en / ,light + stone
 February 17,lhenamen, / ɬen.ˈam.en / ,dream + earth
 February 18,ysdeshol, / jsdˈeʃ.ol / ,moon + showing + fruit
 February 19,nanalhen, / nan.ˈaɬ.en / ,star + dream
-February 2,sulramen, / sulr.ˈam.en / ,bottom + darkness + stone
+February 2,thokmramen, / θokmr.ˈam.en / ,bottom + darkness + stone
 February 20,mrathan, / mrˈaθ.an / ,darkness + tool
 February 22,syalethanan, / sjal.eθ.ˈan.an / ,food + star
 February 23,aymen, / ˈajm.en / ,moon + stone
@@ -278,21 +278,27 @@ he,ta, / tˈa / ,_
 head,dan, / dˈan / ,_
 heat,ag, / ˈag / ,_
 height,thul, / θˈul / ,_
+her,hi-ta, / hˈi.ta / ,GEN + she
 hide,anad, / ˈan.ad / ,_
 hiding,dum, / dˈum / ,bbu
+his,hi-ta, / hˈi.ta / ,GEN + she
 hoe,leth, / lˈeθ / ,plant + tool
 hollow,remi, / rˈem.i / ,_
 home,yethil, / jˈeθ.il / ,person + place
 hotness,ag, / ˈag / ,_
 house,yethil, / jˈeθ.il / ,person + place
-how,lhan, / ɬˈan / ,_
+how,si-lhan, / sˈi.ɬan / ,INS + INT
 I,na, / nˈa / ,_
 ice,shush, / ʃˈuʃ / ,_
 importance,gad, / gˈad / ,_
 in (obsolete),tid, / tˈid / ,_
+INDEF,e-, / ˈe / ,_
+indefinite marker,e-, / ˈe / ,_
 instrument,teshan, / tˈeʃ.an / ,sound + tool
+INT,lhan, / ɬˈan / ,_
 it (inanimate),lod, / lˈod / ,_
 it,lod, / lˈod / ,_
+its,hi-lota, / hi.lˈot.a / ,GEN + it
 January 20,shush, / ʃˈuʃ / ,ice + ???
 January 31,???, / ??? / ,???
 January 32,tushuthok, / tuʃ.ˈuθ.ok / ,cold + ground
@@ -471,6 +477,7 @@ meat,athir, / ˈaθ.ir / ,tasting + GEN + blood
 memory,elom, / ˈel.om / ,_
 memory-soul,korim, / kˈor.im / ,_
 metal,men, / mˈen / ,tool + GEN + rock
+mine,hi-na, / hˈi.na / ,GEN + I
 mist,tlurinin, / ƛur.ˈin.in / ,fog + small
 month,nunalom, / nun.ˈal.om / ,small + small + cycle
 moon,ay, / ˈaj / ,_
@@ -559,6 +566,8 @@ one,lo, / lˈo / ,_
 openness,dam, / dˈam / ,not + closure
 opposite,do, / dˈo / ,_
 orphan,remhedyel, / remħ.ˈedj.el / ,abandoned + person
+our,hi-ne, / hˈi.ne / ,GEN + we
+ours,hi-ne, / hˈi.ne / ,GEN + we
 overwhelming,ngam, / ŋˈam / ,_
 pain,har, / ħˈar / ,_
 painting,for, / fˈor / ,showing + action
@@ -577,11 +586,11 @@ plant,melor, / mˈel.or / ,life + action
 pondering,nalh, / nˈaɬ / ,_
 possession,el, / ˈel / ,_
 possibility,sho, / ʃˈo / ,_
-present,led, / lˈed / ,action + showing
 present,nume, / nˈum.e / ,path + center
 protection,munan, / mˈun.an / ,_
 proximity,sor, / sˈor / ,_
 putting,man, / mˈan / ,_
+question,lhan, / ɬˈan / ,_
 reaching,kith, / kˈiθ / ,_
 rebirth,mloelhaswan, / mlo.eɬ.ˈasw.an / ,second + birth
 red,lhod, / ɬˈod / ,_
@@ -685,9 +694,12 @@ tar,tlun, / ƛˈun / ,stickiness + joining
 tasting,leth, / lˈeθ / ,_
 teaching,lhad, / ɬˈad / ,knowledge + showing
 ten,tir, / tˈir / ,_
+their,hi-ta, / hˈi.ta / ,GEN + she
+their,hi-ta-e, / hi.tˈa.e / ,GEN + they
 them (inanimate),lode, / lˈod.e / ,_
 them,ta, / tˈa / ,_
 they (plural),te, / tˈe / ,_
+they,ta-e, / tˈa.e / ,she + PL
 thickness,lhul, / ɬˈul / ,_
 thing,l, / l / ,_
 thinking,nalh, / nˈaɬ / ,_
@@ -718,7 +730,7 @@ twenty,lhyath, / ɬjˈaθ / ,twelve + eight
 twilight,lan, / lˈan / ,darkness + light
 two,loe, / lˈo.e / ,_
 un-,do, / dˈo / ,_
-undershine,hi-sulan, / ħi.sˈul.an / ,GEN + bottom + light
+undershine,hi-thokan, / ħi.θˈok.an / ,GEN + bottom + light
 underside,thok, / θˈok / ,_
 unknown,shim, / ʃˈim / ,_
 up,ther, / θˈer / ,_
@@ -739,12 +751,16 @@ we,ne, / nˈe / ,_
 week,tirlhom, / tˈirɬ.om / ,ten + day
 weight,tlem, / ƛˈem / ,_
 west,fil, / fˈil / ,_
-what,lhan, / ɬˈan / ,_
-when,lhan, / ɬˈan / ,_
-where,lhan, / ɬˈan / ,_
-who,lhan, / ɬˈan / ,_
+what,lo-lhan, / lˈo.ɬan / ,INAN + INT
+when,tu-lhan, / tˈu.ɬan / ,TEMP + INT
+where,ti-lhan, / tˈi.ɬan / ,LOC + INT
+whichever,hi-lhanshimi, / hi.ɬanʃ.ˈim.i / ,GEN + INT + unknown
+who,i-lhan, / ˈi.ɬan / ,NOM + INT
+whoever,hi-lhanshimi, / hi.ɬanʃ.ˈim.i / ,GEN + INT + unknown
 wholeness,om, / ˈom / ,_
-why,lhan, / ɬˈan / ,_
+whom,yu-lhan, / jˈu.ɬan / ,ACC + INT
+whose,hi-lhan, / hˈi.ɬan / ,GEN + INT
+why,lhu-lhan, / ɬˈu.ɬan / ,PUR + INT
 wickedness,yal, / jˈal / ,_
 width,shad, / ʃˈad / ,_
 wind,lrith, / lrˈiθ / ,movement + COM + air
@@ -758,14 +774,17 @@ year,nalom, / nˈal.om / ,small + cycle
 you (plural),we, / wˈe / ,_
 you,wa, / wˈa / ,_
 young,don, / dˈon / ,not + old
+your,hi-wa, / hˈi.wa / ,GEN + you
 ???,???, / ??? / ,_
 ABL,di-, / dˈi / ,_
 ablative case marker,di-, / dˈi / ,_
+ABS,le-, / lˈe / ,_
 abstract noun class,le-, / lˈe / ,_
 ACC,yu-, / jˈu / ,_
 accusative case marker,yu-, / jˈu / ,_
 ALL,su-, / sˈu / ,_
 allative case marker,su-, / sˈu / ,_
+ANI,la-, / lˈa / ,_
 animate noun class,la-, / lˈa / ,_
 auxiliary-form: 1st causative cessative (future),ikepo, / ik.ˈep.o / ,_
 auxiliary-form: 1st causative cessative (past),ikepe, / ik.ˈep.e / ,_
@@ -7722,8 +7741,8 @@ COM,yi-, / jˈi / ,_
 comitative case marker,yi-, / jˈi / ,_
 COND,ko-, / kˈo / ,_
 conditional mood marker,ko-, / kˈo / ,_
-COUNTER,ks-o, / ˈo / ,_
-counterfactual mood marker,ks-o, / ˈo / ,_
+COUNTER,kso-, / ksˈo / ,_
+counterfactual mood marker,kso-, / ksˈo / ,_
 DAT,mi-, / mˈi / ,_
 dative case marker,mi-, / mˈi / ,_
 ESS,pu-, / pˈu / ,_
@@ -7733,6 +7752,7 @@ GEN,hi-, / hˈi / ,_
 genitive case marker,hi-, / hˈi / ,_
 IMP,se-, / sˈe / ,_
 imperative mood marker,se-, / sˈe / ,_
+INAN,lo-, / lˈo / ,_
 inanimate noun class,lo-, / lˈo / ,_
 INS,si-, / sˈi / ,_
 instrumental case marker,si-, / sˈi / ,_
@@ -7742,12 +7762,13 @@ MID,mo-, / mˈo / ,_
 middle voice marker,mo-, / mˈo / ,_
 NOM,i-, / ˈi / ,_
 nomative case marker,i-, / ˈi / ,_
-OBL,tl0-, / ƛ0- / ,_
-obligative mood marker,tl0-, / ƛ0- / ,_
+OBL,tlo-, / ƛˈo / ,_
+obligative mood marker,tlo-, / ƛˈo / ,_
 OPT,lhe-, / ɬˈe / ,_
 optative mood marker,lhe-, / ɬˈe / ,_
 PASS,pa-, / pˈa / ,_
 passive voice marker,pa-, / pˈa / ,_
+PL,-e, / ˈe / ,_
 plural marker,-e, / ˈe / ,_
 POT,sho-, / ʃˈo / ,_
 potential mood marker,sho-, / ʃˈo / ,_
@@ -8019,7 +8040,7 @@ with,yi-, / jˈi / ,_
 62 of autumn,lhoman, / ɬˈom.an / ,day + light
 62 of spring,meloresel, / mel.or.ˈes.el / ,plant + water
 62 of summer,teshaglar, / teʃ.ˈagl.ar / ,sound + tree
-62 of winter,sulramen, / sulr.ˈam.en / ,bottom + darkness + stone
+62 of winter,thokmramen, / θokmr.ˈam.en / ,bottom + darkness + stone
 63 of autumn,haralor, / ħar.ˈal.or / ,pain + plant
 63 of spring,shotlen, / ʃˈoƛ.en / ,flowing + dream
 63 of summer,munanilor, / mun.an.ˈil.or / ,covering + plant

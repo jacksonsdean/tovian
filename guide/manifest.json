@@ -52,7 +52,7 @@
   {
     "id": "adjectives",
     "path": "adjectives.html",
-    "title": "Attributive Nouns",
+    "title": "Attributive Nouns (adjectives)",
     "summary": "Describing nouns using other nouns."
   },
   
@@ -61,6 +61,13 @@
     "path": "syntax.html",
     "title": "Syntax & Word Order",
     "summary": "Canonical order and emphatic alternatives."
+  },
+  
+  {
+    "id": "coordination",
+    "path": "coordination.html",
+    "title": "Asyndetic Coordination",
+    "summary": "How Tovian links clauses without overt coordinators."
   },
   
   {
@@ -81,21 +88,14 @@
     "id": "numbers",
     "path": "numbers.html",
     "title": "Numbers & Ordinals",
-    "summary": "Counting and order (auto from dictionary)."
+    "summary": "Counting and order."
   },
   
   {
     "id": "calendar",
     "path": "calendar.html",
-    "title": "Calendar",
-    "summary": "Months and named dates (auto from dictionary)."
-  },
-  
-  {
-    "id": "examples",
-    "path": "examples.html",
-    "title": "Examples",
-    "summary": "Examples of increasing complexity."
+    "title": "Time and Calendar",
+    "summary": "Months and named dates."
   }
   
 ]

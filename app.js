@@ -166,7 +166,7 @@
             if (!example[g] && w.replace(/['-]/g,'').includes(needle)) example[g] = e.tovian;
           });
         });
-        const body = map.map(({g, ipa}) => `<tr><td>${g}</td><td class=\"tovian\">${g}</td><td>/${ipa}/</td><td>${example[g]||''}</td></tr>`).join('');
+        const body = map.map(({g, ipa}) => `<tr><td>${g}</td><td class=\"tovian\">${g}</td><td>/${ipa}/</td><td>${example[g] || '<i>No modern example</i>'}</td></tr>`).join('');
         host.innerHTML = `<table><thead><tr><th>Romanization</th><th>Tovian</th><th>IPA</th><th>Example</th></tr></thead><tbody>${body}</tbody></table>`;
       } catch (e) {}
     }
@@ -277,8 +277,9 @@
         }
       }
   
-      // Guide manifest → build list and include titles in search index
+      // Guide + examples manifests → build lists and include titles in search index
       let guideList = [];
+      let examplesList = [];
       try {
         guideList = await fetch(base + 'guide/manifest.json').then((r) => r.json());
         const resolveGuideHref = (p) => {
@@ -300,6 +301,27 @@
             a.href = resolveGuideHref(p.path);
             a.innerHTML = `<h3><span style="margin-right:6px">${icon}</span>${p.title}</h3>${summary ? `<p class="muted">${summary}</p>` : ''}`;
             gl.appendChild(a);
+          });
+        }
+      } catch (e) {}
+
+      try {
+        examplesList = await fetch(base + 'examples/manifest.json').then((r) => r.json());
+        const resolveExamplesHref = (p) => {
+          if (!p) return '';
+          if (p.startsWith('/')) return (BASE + p.replace(/^\//, ''));
+          return (BASE + 'examples/') + p;
+        };
+        const elinks = document.getElementById('examplesLinks');
+        if (elinks) {
+          elinks.innerHTML = '';
+          examplesList.forEach(p => {
+            const a = document.createElement('a');
+            const summary = p.summary || '';
+            a.className = 'card';
+            a.href = resolveExamplesHref(p.path);
+            a.innerHTML = `<h3>🧪 ${p.title}</h3>${summary ? `<p class="muted">${summary}</p>` : ''}`;
+            elinks.appendChild(a);
           });
         }
       } catch (e) {}
@@ -333,7 +355,8 @@
         text: `${e.english} ${expandEnglishVariants(e.english)} ${e.tovian} ${e.roots} ${e.ipa}`
       }));
       const guideDocs = (guideList || []).map((g) => ({ type: 'guide', ref: g, text: `${g.title}` }));
-      const all = [...vocabDocs, ...guideDocs];
+      const examplesDocs = (examplesList || []).map((g) => ({ type: 'example', ref: g, text: `${g.title}` }));
+      const all = [...vocabDocs, ...guideDocs, ...examplesDocs];
       state.fuseAll = new Fuse(all, { keys: ['text'], threshold: 0.35, includeScore: true });
   
       // Quick search (hero) — search combined grammar + vocab
@@ -358,7 +381,8 @@
           else {
             const ICONS = { 'overview':'📘', 'phonology':'🔤', 'nouns-cases':'📦', 'pronouns':'🗣️', 'verbs':'⚙️', 'mood-voice':'🎛️', 'questions':'❓', 'adjectives':'🏷️', 'syntax':'🧭', 'introductions':'👋', 'memory-dreams':'💭', 'numbers':'🔢', 'calendar':'📅', 'examples':'🧪' };
             const icon = ICONS[ref.id] || '📄';
-            const href = ref.path && ref.path.startsWith('/') ? (BASE + ref.path.replace(/^\//, '')) : (isGuide ? '' : 'guide/') + (ref.path || '');
+            const prefix = type === 'example' ? (BASE + 'examples/') : (BASE + 'guide/');
+            const href = ref.path && ref.path.startsWith('/') ? (BASE + ref.path.replace(/^\//, '')) : prefix + (ref.path || '');
             quickOut.appendChild(el(`<div class="list-item"><a href="${href}"><b><span style="margin-right:6px">${icon}</span>${ref.title}</b></a></div>`));
           }
         });
@@ -521,10 +545,11 @@
         askOut.innerHTML = '';
         if (!hits.length) { askOut.appendChild(el('<div class="muted">No results.</div>')); showAsk(); return; }
         hits.forEach(({item}) => {
-          if (item.type === 'guide') {
+          if (item.type === 'guide' || item.type === 'example') {
             const ICONS = { 'overview':'📘', 'nouns-cases':'📦', 'pronouns':'🗣️', 'verbs':'⚙️', 'mood-voice':'🎛️', 'questions':'❓', 'adjectives':'🏷️', 'syntax':'🧭', 'introductions':'👋', 'memory-dreams':'💭', 'numbers':'🔢', 'calendar':'📅', 'examples':'🧪' };
             const icon = ICONS[item.ref.id] || '📄';
-            const href = item.ref.path && item.ref.path.startsWith('/') ? (BASE + item.ref.path.replace(/^\//, '')) : (isGuide ? '' : 'guide/') + (item.ref.path || '');
+            const prefix = item.type === 'example' ? (BASE + 'examples/') : (BASE + 'guide/');
+            const href = item.ref.path && item.ref.path.startsWith('/') ? (BASE + item.ref.path.replace(/^\//, '')) : prefix + (item.ref.path || '');
             askOut.appendChild(el(`<div class="list-item"><a href="${href}"><b><span style="margin-right:6px">${icon}</span>${item.ref.title}</b></a></div>`));
           } else {
             askOut.appendChild(renderCard(item.ref));

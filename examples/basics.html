@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Basic Phrases | Examples | Tovian Guide</title>
+    <title>Basic Phrases | Tovian Examples</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,12 +23,10 @@
       
       
       
-        
-      
       <a href="/tovian/guide/index.html">Guide</a>
       <a href="/tovian/index.html#ask">Ask</a>
       <a href="/tovian/gloss/index.html">Translator</a>
-      <a href="/tovian/guide/examples.html">Examples</a>
+      <a href="/tovian/examples/index.html">Examples</a>
       <a href="/tovian/index.html#about">About</a>
     </nav>
     <div class="row gap" style="flex:1; justify-content:flex-end;">
@@ -50,7 +48,7 @@
       <h1>Basic Phrases</h1>
 <p>Simple vocabulary and short phrases to get started.</p>
 <div id="basicsContent">
-  <p><em>Loading examples from CSV...</em></p>
+  <p><em>Loading examples...</em></p>
 </div>
 <script src="/examples.js"></script>
 <script>
@@ -58,14 +56,8 @@ window.loadExamplesFromCSV().then(data => {
   if (!data) return;
   
   const basicExamples = data.rows.filter(ex => ex.category === 'Basics');
-  let html = '<table>\n<tr><th>Tovian</th><th>IPA</th><th>English</th></tr>\n';
-  
-  basicExamples.forEach(ex => {
-    html += `<tr><td><code>${ex.tovian}</code></td><td>${ex.ipa}</td><td>${ex.english}</td></tr>\n`;
-  });
-  
-  html += '</table>';
-  document.getElementById('basicsContent').innerHTML = html;
+
+  window.renderExampleCards('basicsContent', basicExamples);
 });
 </script>
 
