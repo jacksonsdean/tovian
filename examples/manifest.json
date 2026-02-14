@@ -29,6 +29,13 @@
   },
   
   {
+    "id": "examples-complex",
+    "path": "complex.html",
+    "title": "Complex Sentences",
+    "summary": "Conditional, hypothetical, and nested clause patterns."
+  },
+  
+  {
     "id": "examples-questions",
     "path": "questions.html",
     "title": "Forming Questions",

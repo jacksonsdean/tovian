@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Examples | Tovian</title>
+    <title>Complex Sentences | Tovian Examples</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -45,44 +45,27 @@
     <aside id="guideSidebar" class="guide-sidebar" data-reveal></aside>
     <article class="guide-content" data-reveal>
       <nav id="guideMiniNav" class="guide-mini-nav" aria-label="Guide pages"></nav>
-      <h1>Examples</h1>
-<p>This section contains practical examples of Tovian in use, organized by complexity and context.</p>
-<h2>Browse by Topic</h2>
+      <h1>Complex Sentences</h1>
+<p>Conditional, hypothetical, and nested-clause patterns.</p>
+<h2>Examples</h2>
+<div id="complexContent">
+  <p><em>Loading examples...</em></p>
+</div>
+<h2>Notes</h2>
 <ul>
-<li><strong><a href="/tovian/examples/basics.html">Basic Phrases</a></strong> — Essential vocabulary and short phrases</li>
-<li><strong><a href="/tovian/examples/sentences.html">Simple Sentences</a></strong> — Subject-verb patterns and word order</li>
-<li><strong><a href="/tovian/examples/complex.html">Complex Sentences</a></strong> — Conditionals, hypotheticals, and multi-layer clauses</li>
-<li><strong><a href="/tovian/examples/questions.html">Forming Questions</a></strong> — Yes/no and information questions</li>
-<li><strong><a href="/tovian/examples/emphasis.html">Emphasis &amp; Word Order</a></strong> — Fronting and stylistic variation</li>
+<li>Tovian commonly uses clause chaining and punctuation for complex relations.</li>
+<li>Hypothetical meaning can be expressed with counterfactual auxiliary forms.</li>
+<li>Overt coordinators/subordinators are currently limited, so context and ordering matter.</li>
 </ul>
-<h2>Quick Reference</h2>
-<h3>Basics</h3>
-<ul>
-<li><code>la-yel</code> — the person</li>
-<li><code>lo-shithil</code> — the city</li>
-<li><code>fa mril</code> — see(s) (present)</li>
-<li><code>fethr</code> — speech/speaking</li>
-</ul>
-<h3>Simple Sentences</h3>
-<ul>
-<li><code>la-yel fa mril</code>. — The person sees.</li>
-<li><code>i-la-yel fa mril ti-lo-shithil</code>. — The person sees in the city.</li>
-<li><code>lolhan wa ofa fethr</code>? — Do you speak?</li>
-</ul>
-<h3>Attributive Nouns (Adjectives)</h3>
-<ul>
-<li><code>la-yel mot</code> — the big person</li>
-<li><code>ti-lo-shithil mot la-yel fa mril</code>. — The big person sees in the city.</li>
-</ul>
-<h3>Fronting for Emphasis</h3>
-<ul>
-<li><code>ti-lo-shithil la-yel fa mril</code>. — In the city, the person sees.</li>
-</ul>
-<h3>Questions with Case Markers</h3>
-<ul>
-<li><code>si-lolhan ta fe fethr</code>? — How did he speak?</li>
-<li><code>ti-lolhan ta fa fethr</code>? — Where does he speak?</li>
-</ul>
+<script src="/tovian/examples.js"></script>
+<script>
+window.loadExamplesFromCSV().then(data => {
+  if (!data) return;
+
+  const complexExamples = data.rows.filter(ex => ex.category === 'Complex Sentences');
+  window.renderExampleCards('complexContent', complexExamples);
+});
+</script>
 
       <div id="guideNav" class="guide-nav" data-reveal></div>
     </article>

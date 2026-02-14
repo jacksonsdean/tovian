@@ -9,10 +9,10 @@ ancient,nan, / nˈan / ,_
 animal,tlan, / ƛˈan / ,_
 April 1,rithileshol, / riθ.il.ˈeʃ.ol / ,sky + fruit
 April 11,lanatan, / lan.ˈat.an / ,twilight + face
-April 12,ysotel, / jsˈot.el / ,moon + lake
+April 12,yisotel, / jis.ˈot.el / ,moon + lake
 April 13,mrilaglar, / mril.ˈagl.ar / ,sight + tree
 April 14,rithilefethr, / riθ.il.ˈef.eθr / ,sky + speech
-April 15,lrithitan, / lriθ.ˈit.an / ,storm + bird
+April 15,lurithitan, / lur.iθ.ˈit.an / ,storm + bird
 April 16,nanatom, / nan.ˈat.om / ,star + root
 April 17,shasel, / ʃˈas.el / ,ice + water
 April 18,shagang, / ʃˈag.aŋ / ,ice + tooth
@@ -26,25 +26,25 @@ April 24,lunum, / lˈun.um / ,sun + TEMP + present
 April 25,rithiletlan, / riθ.il.ˈeƛ.an / ,sky + animal
 April 26,mralsyalethashol, / mralsj.al.eθ.ˈaʃ.ol / ,darkness + food + fruit
 April 27,yelathan, / jel.ˈaθ.an / ,person + tool
-April 28,ysol, / jsˈol / ,moon + fruit
+April 28,yisol, / jˈis.ol / ,moon + fruit
 April 29,keluaglar, / kel.u.ˈagl.ar / ,branch + tree
-April 3,lrithwen, / lrˈiθw.en / ,storm + beauty
+April 3,lurithwen, / lur.ˈiθw.en / ,storm + beauty
 April 30,rithilekwil, / riθ.il.ˈekw.il / ,sky + movement
-April 4,dlelaglar, / dlel.ˈagl.ar / ,body + tree
-April 5,lrithay, / lrˈiθ.aj / ,storm + feather
+April 4,dulelaglar, / dul.el.ˈagl.ar / ,body + tree
+April 5,lurithay, / lur.ˈiθ.aj / ,storm + feather
 April 6,teshglar, / tˈeʃgl.ar / ,sound + woods
-April 7,dremshol, / drˈemʃ.ol / ,flower + fruit
+April 7,duremshol, / dur.ˈemʃ.ol / ,flower + fruit
 April 8,mraladlel, / mral.ˈadl.el / ,darkness + body
 April 9,yeolaglar, / je.ol.ˈagl.ar / ,truth + tree
 April,loelor, / lo.ˈel.or / ,two + plant
 arm,kel, / kˈel / ,_
 arriving,kith, / kˈiθ / ,_
-August 1,mloanadrem, / mlo.an.ˈadr.em / ,morning + flower
+August 1,meloanadrem, / mel.o.an.ˈadr.em / ,morning + flower
 August 10,nanalor, / nan.ˈal.or / ,star + action
 August 11,lanathan, / lan.ˈaθ.an / ,twilight + tool
-August 12,mloanatesh, / mlo.an.ˈat.eʃ / ,morning + sound
+August 12,meloanatesh, / mel.o.an.ˈat.eʃ / ,morning + sound
 August 13,efan, / ˈef.an / ,sun + tool
-August 14,glaretesh, / glar.ˈet.eʃ / ,tree + sound
+August 14,gularetesh, / gul.ar.ˈet.eʃ / ,tree + sound
 August 15,holalor, / ħol.ˈal.or / ,sweet + action
 August 16,melrem, / mˈelr.em / ,life + flower
 August 17,keluthan, / kel.ˈuθ.an / ,branch + tool
@@ -56,7 +56,7 @@ August 21,lhenashotlodrem, / ɬen.aʃ.oƛ.ˈodr.em / ,dream + flowing + flower
 August 22,munorhanatesh, / mun.orħ.an.ˈat.eʃ / ,dusk + sound
 August 23,yelan, / jˈel.an / ,person + light
 August 24,lhenaglar, / ɬen.ˈagl.ar / ,dream + tree
-August 25,yselom, / jsˈel.om / ,moon + memory
+August 25,yiselom, / jis.ˈel.om / ,moon + memory
 August 26,keshaglar, / keʃ.ˈagl.ar / ,fire + tree
 August 27,rithenalor, / riθ.en.ˈal.or / ,air + dream + plant
 August 28,mralor, / mrˈal.or / ,darkness + blue
@@ -70,7 +70,7 @@ August 7,aysdrem, / ˈajsdr.em / ,moon + flower
 August 8,menrunan, / menr.ˈun.an / ,earth + hat
 August 9,selrem, / sˈelr.em / ,water + flower
 August,femthulef, / femθ.ˈul.ef / ,three + height + sun
-Autumn,mlherlesh, / mɬˈerl.eʃ / ,present + harvest
+Autumn,melherlesh, / meɬ.ˈerl.eʃ / ,present + harvest
 badness,yal, / jˈal / ,_
 balance,kar, / kˈar / ,_
 beast,tlan, / ƛˈan / ,_
@@ -85,7 +85,7 @@ big,mot, / mˈot / ,_
 bind,nalor, / nˈal.or / ,joining + action
 bird,rithan, / rˈiθ.an / ,air + animal
 birth,lhaswan, / ɬˈasw.an / ,bringing + ALL + light
-blood,drik, / drˈik / ,_
+blood,durik, / dˈur.ik / ,_
 bloom,med, / mˈed / ,flower + showing
 blue,dor, / dˈor / ,_
 blueness,dor, / dˈor / ,_
@@ -93,7 +93,8 @@ boat,sith, / sˈiθ / ,water + traveling
 body,adlel, / ˈadl.el / ,_
 bottom,thok, / θˈok / ,_
 branch,kel, / kˈel / ,_
-breath,lrith, / lrˈiθ / ,movement + COM + air
+breath,lurith, / lˈur.iθ / ,movement + COM + air
+brick,men, / mˈen / ,fire + rock
 bringing,lhog, / ɬˈog / ,_
 burning,kesh, / kˈeʃ / ,_
 calm,tla, / ƛˈa / ,_
@@ -114,7 +115,7 @@ commonness,yal, / jˈal / ,_
 comparison,lad, / lˈad / ,_
 completeness,om, / ˈom / ,_
 confession,yeolfethr, / je.ˈolf.eθr / ,truth + speech
-conflict,glor, / glˈor / ,_
+conflict,gulor, / gˈul.or / ,_
 consumption,leth, / lˈeθ / ,_
 container,lhom, / ɬˈom / ,_
 council,lhun, / ɬˈun / ,thinking + joining
@@ -122,29 +123,29 @@ covering,munan, / mˈun.an / ,_
 create,sil, / sˈil / ,_
 created thing,sil, / sˈil / ,_
 creature,tlan, / ƛˈan / ,_
-curiosity,thraf, / θrˈaf / ,_
+curiosity,thuraf, / θˈur.af / ,_
 cutting,shith, / ʃˈiθ / ,_
 cycle,elakorim, / el.ak.ˈor.im / ,_
 dance,lor, / lˈor / ,movement + action
 dark,mral, / mrˈal / ,_
 darkness,mral, / mrˈal / ,_
-dawn,mloan, / mlˈo.an / ,first + light
+dawn,meloan, / mel.ˈo.an / ,first + light
 day,lhom, / ɬˈom / ,_
-daytime,twimen, / twˈim.en / ,_
+daytime,tiwimen, / tiw.ˈim.en / ,_
 death,dol, / dˈol / ,_
-december 1,lrithdrem, / lrˈiθdr.em / ,breath + flower
-december 10,lriskwil, / lrˈiskw.il / ,breath + movement
+december 1,lurithdrem, / lur.ˈiθdr.em / ,breath + flower
+december 10,luriskwil, / lur.ˈiskw.il / ,breath + movement
 december 11,fedrlad, / fˈedrl.ad / ,showing + jealousy
 december 12,rithaglar, / riθ.ˈagl.ar / ,air + tree
 december 13,shotlan, / ʃˈoƛ.an / ,flowing + tool
 december 14,fedetush, / fed.ˈet.uʃ / ,showing + cold
-december 15,lrithen, / lrˈiθ.en / ,breath + dream
+december 15,lurithen, / lur.ˈiθ.en / ,breath + dream
 december 16,loreayeol, / lor.e.aj.ˈe.ol / ,dance + wisdom
 december 17,lanam, / lˈan.am / ,twilight + bloom
 december 18,nanalor, / nan.ˈal.or / ,star + plant
 december 19,ayswen, / ˈajsw.en / ,moon + beauty
 december 2,dolshanin, / dolʃ.ˈan.in / ,death + berry
-december 20,lrithun, / lrˈiθ.un / ,breath + joining
+december 20,lurithun, / lur.ˈiθ.un / ,breath + joining
 december 21,lhilaglar, / ɬil.ˈagl.ar / ,night + tree
 december 22,lan, / lˈan / ,twilight + ???
 december 23,lanasyaleth, / lan.asj.ˈal.eθ / ,twilight + food
@@ -152,22 +153,24 @@ december 24,lhonrem, / ɬˈonr.em / ,day + flower
 december 25,nan, / nˈan / ,star + ???
 december 26,shotlodrem, / ʃoƛ.ˈodr.em / ,flowing + flower
 december 27,doraklrith, / dor.ˈaklr.iθ / ,blue + breath
-december 28,klumloremlan, / kluml.or.ˈeml.an / ,vine + twilight
+december 28,kulumloremlan, / kul.uml.or.ˈeml.an / ,vine + twilight
 december 29,ayskesh, / ˈajsk.eʃ / ,moon + fire
 december 3,???, / ??? / ,???
-december 30,lrith, / lrˈiθ / ,breath + ???
+december 30,lurith, / lˈur.iθ / ,breath + ???
 december 4,???, / ??? / ,???
-december 5,lrithan, / lrˈiθ.an / ,breath + tool
+december 5,lurithan, / lur.ˈiθ.an / ,breath + tool
 december 6,shotltom, / ʃˈoƛt.om / ,flowing + root
-december 7,mloanathan, / mlo.an.ˈaθ.an / ,morning + tool
+december 7,meloanathan, / mel.o.an.ˈaθ.an / ,morning + tool
 december 8,dolrem, / dˈolr.em / ,death + flower
-december 9,lrithaglar, / lriθ.ˈagl.ar / ,breath + tree
+december 9,lurithaglar, / lur.iθ.ˈagl.ar / ,breath + tree
 December,lotush, / lˈot.uʃ / ,one + cold
 DEF,i-, / ˈi / ,_
 definite marker,i-, / ˈi / ,_
 demonstration,led, / lˈed / ,action + showing
 denseness,lhul, / ɬˈul / ,_
-desert,tlil, / ƛˈil / ,sand + place
+desert,shil, / ʃˈil / ,sand + place
+desire,tenod, / tˈen.od / ,_
+desk,foretum, / for.ˈet.um / ,writing + flatness
 discovery,sahyeol, / saħj.ˈe.ol / ,make + wisdom
 dog,anon, / ˈan.on / ,_
 doing,lor, / lˈor / ,_
@@ -181,7 +184,7 @@ earth,men, / mˈen / ,_
 east,tal, / tˈal / ,_
 eating,leth, / lˈeθ / ,_
 eight,ath, / ˈaθ / ,_
-eleven,myar, / mjˈar / ,_
+eleven,miyar, / mˈij.ar / ,_
 empty,remi, / rˈem.i / ,_
 end,par, / pˈar / ,_
 enemy,yey, / jˈej / ,GEN + person + evil
@@ -194,23 +197,23 @@ eye,mril, / mrˈil / ,_
 face,tan, / tˈan / ,_
 father,pan, / pˈan / ,_
 feather,ay, / ˈaj / ,_
-February 1,dremen, / drˈem.en / ,flower + stone
+February 1,duremen, / dur.ˈem.en / ,flower + stone
 February 1,tushulor, / tuʃ.ˈul.or / ,cold + plant
 February 10,tushuthan, / tuʃ.ˈuθ.an / ,cold + tool
 February 11,thanramen, / θanr.ˈam.en / ,tool + darkness + stone
 February 12,numvar, / nˈumv.ar / ,path + value
 February 13,mramen, / mrˈam.en / ,darkness + stone
-February 14,menmen, / mˈenm.en / ,earth + stone
+February 14,mrfor, / mrfˈor / ,earth + writing
 February 15,shashol, / ʃˈaʃ.ol / ,ice + fruit
 February 16,namen, / nˈam.en / ,light + stone
 February 17,lhenamen, / ɬen.ˈam.en / ,dream + earth
-February 18,ysdeshol, / jsdˈeʃ.ol / ,moon + showing + fruit
+February 18,yisdeshol, / jisd.ˈeʃ.ol / ,moon + showing + fruit
 February 19,nanalhen, / nan.ˈaɬ.en / ,star + dream
 February 2,thokmramen, / θokmr.ˈam.en / ,bottom + darkness + stone
 February 20,mrathan, / mrˈaθ.an / ,darkness + tool
-February 22,syalethanan, / sjal.eθ.ˈan.an / ,food + star
+February 22,siyalethanan, / sij.al.eθ.ˈan.an / ,food + star
 February 23,aymen, / ˈajm.en / ,moon + stone
-February 24,mloanamen, / mlo.an.ˈam.en / ,morning + metal
+February 24,meloanamen, / mel.o.an.ˈam.en / ,morning + metal
 February 25,nanatan, / nan.ˈat.an / ,star + face
 February 26,lanamen, / lan.ˈam.en / ,twilight + metal
 February 27,mramen, / mrˈam.en / ,darkness + metal
@@ -219,14 +222,14 @@ February 29,tleshmen, / ƛˈeʃm.en / ,speed + metal
 February 3,mralingtlun, / mral.ˈiŋƛ.un / ,darkness + tar
 February 30,shathan, / ʃˈaθ.an / ,ice + tool
 February 4,nanamen, / nan.ˈam.en / ,star + stone
-February 5,ysanon, / jsˈan.on / ,moon + dog
+February 5,yisanon, / jis.ˈan.on / ,moon + dog
 February 6,lhenashotl, / ɬen.ˈaʃ.oƛ / ,dream + flow
 February 7,menlor, / mˈenl.or / ,earth + plant
-February 8,mersyaleth, / mersj.ˈal.eθ / ,earth + food
+February 8,mrsyaleth, / mrsjˈal.eθ / ,earth + food
 February 9,shalhen, / ʃˈaɬ.en / ,ice + dream
 February,femush, / fˈem.uʃ / ,three + cold
-fifteen,lhyam, / ɬjˈam / ,twelve + three
-fighting,glor, / glˈor / ,_
+fifteen,lhiyam, / ɬˈij.am / ,twelve + three
+fighting,gulor, / gˈul.or / ,_
 final,par, / pˈar / ,_
 finger,tom, / tˈom / ,_
 fire,kesh, / kˈeʃ / ,_
@@ -235,16 +238,17 @@ five,rem, / rˈem / ,_
 flatness,tum, / tˈum / ,consistency / stability
 floor,thok, / θˈok / ,down + foot
 flow,shotl, / ʃˈoƛ / ,_
-flower,drem, / drˈem / ,_
+flower,durem, / dˈur.em / ,_
 flowing,shotl, / ʃˈoƛ / ,_
+flying,lharis, / ɬˈar.is / ,_
 fog,tlurith, / ƛˈur.iθ / ,tar + air
-food,syaleth, / sjˈal.eθ / ,INS + eating
+food,siyaleth, / sij.ˈal.eθ / ,INS + eating
 foot,shot, / ʃˈot / ,_
 forest,lethil, / lˈeθ.il / ,tree + place
 forever,tod, / tˈod / ,_
 forty eight,tev, / tˈev / ,four + twelve
 four,tev, / tˈev / ,_
-fourteen,lhyalo, / ɬjˈal.o / ,twelve + two
+fourteen,lhiyalo, / ɬij.ˈal.o / ,twelve + two
 friend,yelalh, / jˈel.aɬ / ,GEN + person + goodness
 friendship,yelalh, / jˈel.aɬ / ,GEN + person + goodness
 front,heth, / ħˈeθ / ,_
@@ -264,8 +268,8 @@ grandfather,nan, / nˈan / ,old + father
 grandness,gad, / gˈad / ,_
 grasp,lothr, / lˈoθr / ,_
 greatness,gad, / gˈad / ,_
-green,klat, / klˈat / ,_
-greenness,klat, / klˈat / ,_
+green,kulat, / kˈul.at / ,_
+greenness,kulat, / kˈul.at / ,_
 ground,thok, / θˈok / ,down + foot
 hair,amal, / ˈam.al / ,_
 hand,thang, / θˈaŋ / ,_
@@ -273,14 +277,16 @@ hanging,nither, / nˈiθ.er / ,putting + up
 happy,mat, / mˈat / ,_
 hardness,lha, / ɬˈa / ,_
 harvest,lesh, / lˈeʃ / ,plant + cutting
-hat,drunan, / drˈun.an / ,head + covering
+hat,durunan, / dur.ˈun.an / ,head + covering
 he,ta, / tˈa / ,_
 head,dan, / dˈan / ,_
 heat,ag, / ˈag / ,_
 height,thul, / θˈul / ,_
 her,hi-ta, / hˈi.ta / ,GEN + she
+her,yu-ta, / jˈu.ta / ,ACC + she
 hide,anad, / ˈan.ad / ,_
 hiding,dum, / dˈum / ,bbu
+him,yu-ta, / jˈu.ta / ,ACC + he
 his,hi-ta, / hˈi.ta / ,GEN + she
 hoe,leth, / lˈeθ / ,plant + tool
 hollow,remi, / rˈem.i / ,_
@@ -305,7 +311,7 @@ January 32,tushuthok, / tuʃ.ˈuθ.ok / ,cold + ground
 January 33,mralrem, / mrˈalr.em / ,darkness + flower
 January 34,shashanin, / ʃaʃ.ˈan.in / ,ice + berry
 January 35,selshith, / sˈelʃ.iθ / ,water + sharpness
-January 36,klumloreshud, / kluml.or.ˈeʃ.ud / ,vine + ice
+January 36,kulumloreshud, / kul.uml.or.ˈeʃ.ud / ,vine + ice
 January 37,aysel, / ˈajs.el / ,moon + center
 January 38,fol, / fˈol / ,sun + sweet
 January 39,lhenashanin, / ɬen.aʃ.ˈan.in / ,spirit + berry
@@ -317,7 +323,7 @@ January 44,shakel, / ʃˈak.el / ,ice + branch
 January 45,rishwen, / rˈiʃw.en / ,kindness + beauty
 January 46,thatlun, / θˈaƛ.un / ,tool + joining
 January 47,???, / ??? / ,???
-January 48,klumloretush, / kluml.or.ˈet.uʃ / ,vine + cold
+January 48,kulumloretush, / kul.uml.or.ˈet.uʃ / ,vine + cold
 January 49,aymen, / ˈajm.en / ,moon + earth
 January 51,nanaglar, / nan.ˈagl.ar / ,star + tree
 January 52,lanalor, / lan.ˈal.or / ,twilight + plant
@@ -325,8 +331,8 @@ January 53,shalor, / ʃˈal.or / ,ice + plant
 January 54,kelusyaleth, / kel.usj.ˈal.eθ / ,branch + food
 January 55,mralesh, / mrˈal.eʃ / ,darkness + sound
 January 56,nanad, / nˈan.ad / ,star + showing
-January 57,ysaglar, / jsˈagl.ar / ,moon + tree
-January 58,mer, / mˈer / ,earth + showing
+January 57,yisaglar, / jis.ˈagl.ar / ,moon + tree
+January 58,mr, / mr / ,earth + showing
 January 59,varefethr, / var.ˈef.eθr / ,value + speaking
 January 60,nanadyethil, / nan.adj.ˈeθ.il / ,star + home
 January,loetush, / lo.ˈet.uʃ / ,two + cold
@@ -336,7 +342,7 @@ July 1,lhenananaloresyaleth, / ɬen.an.an.al.or.esj.ˈal.eθ / ,dream + star + g
 July 10,selnan, / sˈeln.an / ,water + protection
 July 11,melsyaleth, / melsj.ˈal.eθ / ,life + food
 July 12,nomen, / nˈom.en / ,sea + stone
-July 13,mloanafor, / mlo.an.ˈaf.or / ,morning + writing
+July 13,meloanafor, / mel.o.an.ˈaf.or / ,morning + writing
 July 14,thangekel, / θaŋ.ˈek.el / ,leaf + branch
 July 15,lhenaysan, / ɬen.ˈajs.an / ,dream + moon + animal
 July 16,lhenalor, / ɬen.ˈal.or / ,dream + plant
@@ -347,28 +353,28 @@ July 2,yeomlor, / je.ˈoml.or / ,wisdom + plant
 July 20,selyethil, / selj.ˈeθ.il / ,water + home
 July 21,felakorim, / fel.ak.ˈor.im / ,sun + cycle
 July 22,mralshol, / mrˈalʃ.ol / ,dark + fruit
-July 23,ysayeol, / jsaj.ˈe.ol / ,moon + wisdom
+July 23,yisayeol, / jis.aj.ˈe.ol / ,moon + wisdom
 July 24,kelulor, / kel.ˈul.or / ,branch + plant
 July 25,sethan, / sˈeθ.an / ,water + tool
 July 26,mramlor, / mrˈaml.or / ,darkness + plant
 July 27,varedrem, / var.ˈedr.em / ,value + flower
-July 28,ysdmfed, / jsdmfˈed / ,moon + bloom
+July 28,yisdmfed, / jˈisdmf.ed / ,moon + bloom
 July 29,rithiledyel, / riθ.il.ˈedj.el / ,sky + person
-July 3,llhenashol, / lɬen.ˈaʃ.ol / ,sun + dream + fruit
+July 3,lulhenashol, / luɬ.en.ˈaʃ.ol / ,sun + dream + fruit
 July 30,lhenumlhen, / ɬen.ˈumɬ.en / ,center + path + dream
 July 4,melorethanglar, / mel.or.eθ.ˈaŋl.ar / ,plant + tool + woods
 July 5,lhomtlan, / ɬˈomƛ.an / ,day + animal
-July 6,mloanalor, / mlo.an.ˈal.or / ,dawn + plant
+July 6,meloanalor, / mel.o.an.ˈal.or / ,dawn + plant
 July 7,lhenamral, / ɬen.ˈamr.al / ,dream + darkness
-July 8,llhenalor, / lɬen.ˈal.or / ,sun + dream + plant
+July 8,lulhenalor, / luɬ.en.ˈal.or / ,sun + dream + plant
 July 9,shaninalhil, / ʃan.in.ˈaɬ.il / ,berry + night
 July,loethulef, / lo.eθ.ˈul.ef / ,two + height + sun
-June 1,mloanam, / mlo.ˈan.am / ,morning + bloom
+June 1,meloanam, / mel.o.ˈan.am / ,morning + bloom
 June 10,yethilemnan, / jeθ.il.ˈemn.an / ,home + protection
 June 11,thuvglar, / θˈuvgl.ar / ,sword + woods
 June 12,nador, / nˈad.or / ,light + blue
 June 13,mralsyaleth, / mralsj.ˈal.eθ / ,darkness + food
-June 14,lriskwil, / lrˈiskw.il / ,wind + movement
+June 14,luriskwil, / lur.ˈiskw.il / ,wind + movement
 June 15,forengothr, / for.ˈeŋ.oθr / ,writing + time
 June 16,semlor, / sˈeml.or / ,water + plant
 June 17,gaglar, / gˈagl.ar / ,warmth + tree
@@ -382,15 +388,15 @@ June 23,melaglar, / mel.ˈagl.ar / ,life + tree
 June 24,tleshor, / ƛˈeʃ.or / ,speed + plant
 June 25,rithileay, / riθ.il.ˈe.aj / ,sky + feather
 June 26,dolithor, / dol.ˈiθ.or / ,death + smell
-June 27,lrithdrem, / lrˈiθdr.em / ,wind + flower
+June 27,lurithdrem, / lur.ˈiθdr.em / ,wind + flower
 June 28,ithrem, / ˈiθr.em / ,thought + flower
 June 29,mralshol, / mrˈalʃ.ol / ,darkness + fruit
 June 3,aysan, / ˈajs.an / ,moon + tool
 June 30,melor, / mˈel.or / ,plant + ???
 June 4,lel, / lˈel / ,sun + branch
-June 5,mloanatlan, / mlo.an.ˈaƛ.an / ,morning + animal
+June 5,meloanatlan, / mel.o.an.ˈaƛ.an / ,morning + animal
 June 6,meloreathang, / mel.or.e.ˈaθ.aŋ / ,plant + leaf
-June 7,glarenan, / glar.ˈen.an / ,tree + star
+June 7,gularenan, / gul.ar.ˈen.an / ,tree + star
 June 8,nalhom, / nˈaɬ.om / ,light + container
 June 9,temen, / tˈem.en / ,sound + stone
 June,lothulef, / loθ.ˈul.ef / ,one + height + sun
@@ -409,11 +415,12 @@ leg,kel, / kˈel / ,_
 life,mel, / mˈel / ,_
 light,an, / ˈan / ,_
 limb,kel, / kˈel / ,_
+love,talh, / tˈaɬ / ,_
 make,sil, / sˈil / ,_
-March 1,ysklumlor, / jsklˈuml.or / ,moon + vine
-March 10,todawen, / tod.ˈaw.en / ,eternal + beauty
-March 11,mralm, / mrˈalm / ,darkness + bloom
-March 12,mloelhaswanalor, / mlo.eɬ.asw.an.ˈal.or / ,rebirth + plant
+March 1,yisklumlor, / jiskl.ˈuml.or / ,moon + vine
+March 10,todatalh, / tod.ˈat.aɬ / ,eternal + love
+March 11,efith, / ˈef.iθ / ,sun + storm
+March 12,meloelhaswanalor, / mel.o.eɬ.asw.an.ˈal.or / ,rebirth + plant
 March 13,tushudol, / tuʃ.ˈud.ol / ,cold + fruit
 March 14,menan, / mˈen.an / ,silver + ???
 March 15,rithilekel, / riθ.il.ˈek.el / ,sky + branch
@@ -423,45 +430,45 @@ March 18,nanamel, / nan.ˈam.el / ,star + life
 March 19,efem, / ˈef.em / ,sun + flower
 March 2,efith, / ˈef.iθ / ,sun + sharpness
 March 20,nanashith, / nan.ˈaʃ.iθ / ,star + sharpness
-March 21,dremlor, / drˈeml.or / ,flower + plant
+March 21,duremlor, / dur.ˈeml.or / ,flower + plant
 March 22,rithiledrem, / riθ.il.ˈedr.em / ,sky + flower
 March 23,shasith, / ʃˈas.iθ / ,ice + ship
 March 24,nanadrem, / nan.ˈadr.em / ,star + flower
-March 25,lrithan, / lrˈiθ.an / ,storm + animal
+March 25,lurithan, / lur.ˈiθ.an / ,storm + animal
 March 26,mramlorelhen, / mraml.or.ˈeɬ.en / ,darkness + plant + dream
 March 27,gadrem, / gˈadr.em / ,hotness + flower
-March 28,lshol, / lʃˈol / ,sun + fruit
+March 28,lushol, / lˈuʃ.ol / ,sun + fruit
 March 29,nanaloresyaleth, / nan.al.or.esj.ˈal.eθ / ,star + grain
 March 3,thanshol, / θˈanʃ.ol / ,tool + fruit
 March 30,shimilhom, / ʃim.ˈiɬ.om / ,mystery + container
-March 4,dremrem, / drˈemr.em / ,flower + flower
-March 5,lrithan, / lrˈiθ.an / ,wind + animal
+March 4,duremrem, / dur.ˈemr.em / ,flower + flower
+March 5,lurithan, / lur.ˈiθ.an / ,wind + animal
 March 6,shimilor, / ʃim.ˈil.or / ,mystery + plant
 March 7,mrilamen, / mril.ˈam.en / ,sight + stone
 March 8,todakesh, / tod.ˈak.eʃ / ,eternal + fire
-March 9,shatom, / ʃˈat.om / ,ice + root
+March 9,todawen, / tod.ˈaw.en / ,eternal + beauty
 March,lor, / lˈor / ,one + plant
 May 1,selaglar, / sel.ˈagl.ar / ,water + tree
 May 10,shotlol, / ʃˈoƛ.ol / ,flowing + fruit
 May 11,mramlorean, / mraml.or.ˈe.an / ,darkness + plant + light
-May 12,dleleon, / dlel.ˈe.on / ,trunk + mouth
+May 12,duleleon, / dul.el.ˈe.on / ,trunk + mouth
 May 13,???, / ??? / ,???
 May 14,shotl, / ʃˈoƛ / ,flowing + ???
 May 15,aysan, / ˈajs.an / ,moon + animal
 May 16,rithilesyaleth, / riθ.il.esj.ˈal.eθ / ,sky + food
 May 17,kelueon, / kel.u.ˈe.on / ,branch + mouth
 May 18,mralel, / mrˈal.el / ,darkness + branch
-May 19,ysor, / jsˈor / ,moon + plant
+May 19,yisor, / jˈis.or / ,moon + plant
 May 2,meloresel, / mel.or.ˈes.el / ,plant + water
 May 20,shotlrleth, / ʃˈoƛrl.eθ / ,flowing + hoe
 May 21,sethok, / sˈeθ.ok / ,water + down
 May 22,shotlom, / ʃˈoƛ.om / ,flowing + bloom
-May 23,mloanalor, / mlo.an.ˈal.or / ,morning + plant
+May 23,meloanalor, / mel.o.an.ˈal.or / ,morning + plant
 May 24,selumlor, / sel.ˈuml.or / ,water + vine
 May 25,nanatlan, / nan.ˈaƛ.an / ,star + animal
 May 26,dolor, / dˈol.or / ,death + blue
-May 27,yskel, / jskˈel / ,moon + branch
-May 28,mloanakel, / mlo.an.ˈak.el / ,dawn + branch
+May 27,yiskel, / jˈisk.el / ,moon + branch
+May 28,meloanakel, / mel.o.an.ˈak.el / ,dawn + branch
 May 29,shotleon, / ʃoƛ.ˈe.on / ,flowing + mouth
 May 3,shotlen, / ʃˈoƛ.en / ,flowing + dream
 May 30,shakwil, / ʃˈakw.il / ,ice + movement
@@ -481,10 +488,10 @@ mine,hi-na, / hˈi.na / ,GEN + I
 mist,tlurinin, / ƛur.ˈin.in / ,fog + small
 month,nunalom, / nun.ˈal.om / ,small + small + cycle
 moon,ay, / ˈaj / ,_
-morning,mloan, / mlˈo.an / ,first + light
+morning,meloan, / mel.ˈo.an / ,first + light
 mother,mar, / mˈar / ,_
 mouth,eon, / ˈe.on / ,_
-movement,kwil, / kwˈil / ,_
+movement,kiwil, / kˈiw.il / ,_
 moving quickly,sethr, / sˈeθr / ,_
 mundanity,yal, / jˈal / ,_
 mystery,shim, / ʃˈim / ,_
@@ -504,7 +511,7 @@ November 11,shithanin, / ʃiθ.ˈan.in / ,sharpness + berry
 November 12,lethileaglar, / leθ.il.e.ˈagl.ar / ,forest + tree
 November 13,kanaithr, / kan.ˈa.iθr / ,change + thought
 November 14,sillhum, / sˈilɬ.um / ,existence + goodness
-November 15,mloanarithan, / mlo.an.ar.ˈiθ.an / ,morning + bird
+November 15,meloanarithan, / mel.o.an.ar.ˈiθ.an / ,morning + bird
 November 16,fedemralrem, / fed.emr.ˈalr.em / ,showing + darkness + flower
 November 17,lhiladrem, / ɬil.ˈadr.em / ,night + flower
 November 18,lhenakel, / ɬen.ˈak.el / ,dream + branch
@@ -517,7 +524,7 @@ November 23,holamel, / ħol.ˈam.el / ,sweet + life
 November 24,rithdrem, / rˈiθdr.em / ,air + flower
 November 25,lhenarith, / ɬen.ˈar.iθ / ,dream + air
 November 26,nunasil, / nun.ˈas.il / ,small + existence
-November 27,ysen, / jsˈen / ,moon + dream
+November 27,yisen, / jˈis.en / ,moon + dream
 November 28,engothr, / ˈeŋ.oθr / ,sun + time
 November 29,haradrem, / ħar.ˈadr.em / ,pain + flower
 November 3,haralor, / ħar.ˈal.or / ,pain + plant
@@ -531,16 +538,16 @@ November 9,rithtom, / rˈiθt.om / ,air + root
 November,ferlesh, / fˈerl.eʃ / ,three + harvest
 October 1,leshol, / lˈeʃ.ol / ,harvest + fruit
 October 10,nanathan, / nan.ˈaθ.an / ,star + tool
-October 11,ysanin, / jsˈan.in / ,moon + berry
+October 11,yisanin, / jis.ˈan.in / ,moon + berry
 October 12,kelumral, / kel.ˈumr.al / ,branch + darkness
 October 13,shithol, / ʃˈiθ.ol / ,sharpness + sweet
 October 14,munorhanashol, / mun.orħ.an.ˈaʃ.ol / ,dusk + fruit
 October 15,???, / ??? / ,???
 October 16,for, / fˈor / ,sun + action
 October 17,lenan, / lˈen.an / ,hoe + covering
-October 18,mloanashith, / mlo.an.ˈaʃ.iθ / ,morning + sharpness
+October 18,meloanashith, / mel.o.an.ˈaʃ.iθ / ,morning + sharpness
 October 19,varethan, / var.ˈeθ.an / ,value + tool
-October 2,klumloreloresyaleth, / kluml.or.el.or.esj.ˈal.eθ / ,vine + grain
+October 2,kulumloreloresyaleth, / kul.uml.or.el.or.esj.ˈal.eθ / ,vine + grain
 October 20,harathan, / ħar.ˈaθ.an / ,pain + tool
 October 21,lethiledrem, / leθ.il.ˈedr.em / ,forest + flower
 October 22,lhenaysol, / ɬen.ˈajs.ol / ,dream + moon + fruit
@@ -549,19 +556,19 @@ October 24,meloresyalethavar, / mel.or.esj.al.eθ.ˈav.ar / ,grain + value
 October 25,shotlesh, / ʃˈoƛ.eʃ / ,river + sound
 October 26,haraon, / ħar.ˈa.on / ,pain + mouth
 October 27,lethilekel, / leθ.il.ˈek.el / ,forest + branch
-October 28,mlor, / mlˈor / ,sun + plant
-October 29,glareshol, / glar.ˈeʃ.ol / ,tree + fruit
+October 28,melor, / mˈel.or / ,sun + plant
+October 29,gulareshol, / gul.ar.ˈeʃ.ol / ,tree + fruit
 October 3,???, / ??? / ,???
 October 30,leshor, / lˈeʃ.or / ,harvest + action
 October 4,lhilaloresyaleth, / ɬil.al.or.esj.ˈal.eθ / ,night + grain
 October 5,shotlan, / ʃˈoƛ.an / ,river + light
-October 6,ysnal, / jsnˈal / ,moon + sharing
+October 6,yisnal, / jˈisn.al / ,moon + sharing
 October 7,hol, / ħˈol / ,sweet + ???
 October 8,lhenadrem, / ɬen.ˈadr.em / ,dream + flower
 October 9,mralaglar, / mral.ˈagl.ar / ,darkness + tree
 October,loerlesh, / lo.ˈerl.eʃ / ,two + harvest
 old,nan, / nˈan / ,_
-one hundred forty four,lhyalh, / ɬjˈaɬ / ,twelve + twelve
+one hundred forty four,lhiyalh, / ɬˈij.aɬ / ,twelve + twelve
 one,lo, / lˈo / ,_
 openness,dam, / dˈam / ,not + closure
 opposite,do, / dˈo / ,_
@@ -577,12 +584,13 @@ peace,tla, / ƛˈa / ,_
 peacefulness,tla, / ƛˈa / ,_
 permanent,tod, / tˈod / ,_
 person hair,amal, / ˈam.al / ,_
-person skin,trel, / trˈel / ,_
+person skin,turel, / tˈur.el / ,_
 person,yel, / jˈel / ,_
 place,thil, / θˈil / ,_
 placing,man, / mˈan / ,_
 plain,til, / tˈil / ,flatness + place
 plant,melor, / mˈel.or / ,life + action
+playing,kog, / kˈog / ,_
 pondering,nalh, / nˈaɬ / ,_
 possession,el, / ˈel / ,_
 possibility,sho, / ʃˈo / ,_
@@ -592,13 +600,13 @@ proximity,sor, / sˈor / ,_
 putting,man, / mˈan / ,_
 question,lhan, / ɬˈan / ,_
 reaching,kith, / kˈiθ / ,_
-rebirth,mloelhaswan, / mlo.eɬ.ˈasw.an / ,second + birth
+rebirth,meloelhaswan, / mel.o.eɬ.ˈasw.an / ,second + birth
 red,lhod, / ɬˈod / ,_
 redness,lhod, / ɬˈod / ,_
 repitition,lenum, / lˈen.um / ,action + future
 report,yeolfethr, / je.ˈolf.eθr / ,truth + speech
 returning,gith, / gˈiθ / ,not + arriving
-right,lhya, / ɬjˈa / ,_
+right,lhiya, / ɬˈij.a / ,_
 river,shotl, / ʃˈoƛ / ,flow + water
 rock,men, / mˈen / ,_
 root,tom, / tˈom / ,_
@@ -606,11 +614,11 @@ rotate,lelom, / lˈel.om / ,movement + cycle
 running,sethr, / sˈeθr / ,_
 rushing,sethr, / sˈeθr / ,_
 sad,lur, / lˈur / ,_
-sand,shotl, / ʃˈoƛ / ,flow + ground
+sand,thoksh, / θˈokʃ / ,ground + flow
 scales,anad, / ˈan.ad / ,_
 sea,nor, / nˈor / ,_
 season,rithagom, / riθ.ˈag.om / ,air + cycle
-second,mloe, / mlˈo.e / ,ESS + two
+second,meloe, / mel.ˈo.e / ,ESS + two
 seeing,mril, / mrˈil / ,_
 September 1,keluloresyaleth, / kel.ul.or.esj.ˈal.eθ / ,branch + grain
 September 10,nanathuv, / nan.ˈaθ.uv / ,star + sword
@@ -622,13 +630,13 @@ September 15,???, / ??? / ,???
 September 16,rithol, / rˈiθ.ol / ,air + sweet
 September 17,sholalhum, / ʃol.ˈaɬ.um / ,fruit + goodness
 September 18,sholaglar, / ʃol.ˈagl.ar / ,fruit + tree
-September 19,lshanin, / lʃˈan.in / ,sun + berry
-September 2,ysoresyaleth, / jsor.esj.ˈal.eθ / ,moon + grain
+September 19,lushanin, / luʃ.ˈan.in / ,sun + berry
+September 2,yisoresyaleth, / jis.or.esj.ˈal.eθ / ,moon + grain
 September 20,tilethil, / til.ˈeθ.il / ,plain + place
 September 21,riskel, / rˈisk.el / ,air + branch
 September 22,mraltlun, / mrˈalƛ.un / ,darkness + joining
 September 23,kelushol, / kel.ˈuʃ.ol / ,branch + fruit
-September 24,mloanamen, / mlo.an.ˈam.en / ,morning + earth
+September 24,meloanamen, / mel.o.an.ˈam.en / ,morning + earth
 September 25,???, / ??? / ,???
 September 26,melorelor, / mel.or.ˈel.or / ,plant + plant
 September 27,thullhen, / θˈulɬ.en / ,top + dream
@@ -658,7 +666,7 @@ shutting,tam, / tˈam / ,_
 sight,mril, / mrˈil / ,_
 silver,menan, / mˈen.an / ,metal + light
 six,tem, / tˈem / ,_
-sixteen,lhyatev, / ɬjˈat.ev / ,twelve + four
+sixteen,lhiyatev, / ɬij.ˈat.ev / ,twelve + four
 skin,anad, / ˈan.ad / ,_
 sky,rithil, / rˈiθ.il / ,air + place
 sleep,lheth, / ɬˈeθ / ,_
@@ -675,24 +683,26 @@ speech,fethr, / fˈeθr / ,_
 speed,tlesh, / ƛˈeʃ / ,_
 spirit,lhen, / ɬˈen / ,_
 spring vegetable,ledul, / lˈed.ul / ,plant + first
-Spring,mlhelor, / mɬˈel.or / ,present + plant
+Spring,melhelor, / meɬ.ˈel.or / ,present + plant
 star,nan, / nˈan / ,small + light
 starting,lon, / lˈon / ,_
 stickiness,ing, / ˈiŋ / ,_
 stomach,lor, / lˈor / ,_
 stone,men, / mˈen / ,_
 stopping,pal, / pˈal / ,_
-storm,lrith, / lrˈiθ / ,wind + water
+storm,lurith, / lˈur.iθ / ,wind + water
 strength,lha, / ɬˈa / ,_
-Summer,mlheag, / mɬˈe.ag / ,present + heat
+Summer,melheag, / meɬ.ˈe.ag / ,present + heat
 sun,ef, / ˈef / ,_
 sunset,munorhan, / mun.ˈorħ.an / ,last + light
+sunshower,efwyrith, / ˈefwjr.iθ / ,sun + storm
 surpassing,ngam, / ŋˈam / ,_
 sweet,hol, / ħˈol / ,GEN + fruit
 sword,thuv, / θˈuv / ,tool + PUR + killing
 tar,tlun, / ƛˈun / ,stickiness + joining
 tasting,leth, / lˈeθ / ,_
 teaching,lhad, / ɬˈad / ,knowledge + showing
+tease,kogyal, / kˈogj.al / ,playing + evil
 ten,tir, / tˈir / ,_
 their,hi-ta, / hˈi.ta / ,GEN + she
 their,hi-ta-e, / hi.tˈa.e / ,GEN + they
@@ -703,13 +713,13 @@ they,ta-e, / tˈa.e / ,she + PL
 thickness,lhul, / ɬˈul / ,_
 thing,l, / l / ,_
 thinking,nalh, / nˈaɬ / ,_
-thirteen,lhyal, / ɬjˈal / ,twelve + one
+thirteen,lhiyal, / ɬˈij.al / ,twelve + one
 thirty six,femlh, / fˈemɬ / ,three + twelve
 thirty,loelhyatem, / lo.eɬj.ˈat.em / ,twenty four + six
 thought,ithr, / ˈiθr / ,_
 three,fem, / fˈem / ,_
-throwing,ysha, / jʃˈa / ,_
-thunder,lrithesh, / lrˈiθ.eʃ / ,storm + sound
+throwing,yisha, / jˈiʃ.a / ,_
+thunder,lurithesh, / lur.ˈiθ.eʃ / ,storm + sound
 tie,nalor, / nˈal.or / ,joining + action
 time,ngothr, / ŋˈoθr / ,_
 tool,than, / θˈan / ,_
@@ -718,15 +728,15 @@ top,thul, / θˈul / ,_
 town,pel, / pˈel / ,_
 trance,lheth, / ɬˈeθ / ,_
 traveling,kith, / kˈiθ / ,_
-tree,glar, / glˈar / ,_
+tree,gular, / gˈul.ar / ,_
 trunk,adlel, / ˈadl.el / ,_
 truth,yeol, / jˈe.ol / ,_
 turn,lelom, / lˈel.om / ,movement + cycle
-twelve,lhya, / ɬjˈa / ,_
+twelve,lhiya, / ɬˈij.a / ,_
 twenty five,loelhyal, / lo.ˈeɬj.al / ,twenty four + one
 twenty four,loelh, / lˈo.eɬ / ,two + twelve
 twenty six,loelhyalo, / lo.eɬj.ˈal.o / ,twenty four + two
-twenty,lhyath, / ɬjˈaθ / ,twelve + eight
+twenty,lhiyath, / ɬˈij.aθ / ,twelve + eight
 twilight,lan, / lˈan / ,darkness + light
 two,loe, / lˈo.e / ,_
 un-,do, / dˈo / ,_
@@ -738,7 +748,7 @@ us,ne, / nˈe / ,_
 value,var, / vˈar / ,_
 vessel,lhom, / ɬˈom / ,_
 village,pel, / pˈel / ,_
-vine,klumlor, / klˈuml.or / ,arm + plant
+vine,kulumlor, / kul.ˈuml.or / ,arm + plant
 virtue,lhum, / ɬˈum / ,_
 wakefulness,shith, / ʃˈiθ / ,_
 waking dreambringer,anshish, / ˈanʃ.iʃ / ,dream + COM + alertness
@@ -763,11 +773,11 @@ whose,hi-lhan, / hˈi.ɬan / ,GEN + INT
 why,lhu-lhan, / ɬˈu.ɬan / ,PUR + INT
 wickedness,yal, / jˈal / ,_
 width,shad, / ʃˈad / ,_
-wind,lrith, / lrˈiθ / ,movement + COM + air
-Winter,mlhetush, / mɬˈet.uʃ / ,present + cold
+wind,lurith, / lˈur.iθ / ,movement + COM + air
+Winter,melhetush, / meɬ.ˈet.uʃ / ,present + cold
 wisdom,yeol, / jˈe.ol / ,_
-wondering,thraf, / θrˈaf / ,_
-woods,glar, / glˈar / ,_
+wondering,thuraf, / θˈur.af / ,_
+woods,gular, / gˈul.ar / ,_
 world,han, / ħˈan / ,_
 writing,for, / fˈor / ,showing + action
 year,nalom, / nˈal.om / ,small + cycle
@@ -7785,46 +7795,46 @@ temporal case marker,tu-, / tˈu / ,_
 together with,yi-, / jˈi / ,_
 with,yi-, / jˈi / ,_
 1 of autumn,keluloresyaleth, / kel.ul.or.esj.ˈal.eθ / ,branch + grain
-1 of spring,ysklumlor, / jsklˈuml.or / ,moon + vine
-1 of summer,mloanam, / mlo.ˈan.am / ,morning + bloom
-1 of winter,lrithdrem, / lrˈiθdr.em / ,breath + flower
+1 of spring,yisklumlor, / jiskl.ˈuml.or / ,moon + vine
+1 of summer,meloanam, / mel.o.ˈan.am / ,morning + bloom
+1 of winter,lurithdrem, / lur.ˈiθdr.em / ,breath + flower
 1,lo, / lˈo / ,_
 10 of autumn,nanathuv, / nan.ˈaθ.uv / ,star + sword
-10 of spring,todawen, / tod.ˈaw.en / ,eternal + beauty
+10 of spring,todatalh, / tod.ˈat.aɬ / ,eternal + love
 10 of summer,yethilemnan, / jeθ.il.ˈemn.an / ,home + protection
-10 of winter,lriskwil, / lrˈiskw.il / ,breath + movement
+10 of winter,luriskwil, / lur.ˈiskw.il / ,breath + movement
 10,tir, / tˈir / ,_
 11 of autumn,???, / ??? / ,???
-11 of spring,mralm, / mrˈalm / ,darkness + bloom
+11 of spring,efith, / ˈef.iθ / ,sun + storm
 11 of summer,thuvglar, / θˈuvgl.ar / ,sword + woods
 11 of winter,fedrlad, / fˈedrl.ad / ,showing + jealousy
-11,myar, / mjˈar / ,_
+11,miyar, / mˈij.ar / ,_
 12 of autumn,thilethan, / θil.ˈeθ.an / ,place + tool
-12 of spring,mloelhaswanalor, / mlo.eɬ.asw.an.ˈal.or / ,rebirth + plant
+12 of spring,meloelhaswanalor, / mel.o.eɬ.asw.an.ˈal.or / ,rebirth + plant
 12 of summer,nador, / nˈad.or / ,light + blue
 12 of winter,rithaglar, / riθ.ˈagl.ar / ,air + tree
-12,lhya, / ɬjˈa / ,_
+12,lhiya, / ɬˈij.a / ,_
 13 of autumn,shithan, / ʃˈiθ.an / ,sharpness + tool
 13 of spring,tushudol, / tuʃ.ˈud.ol / ,cold + fruit
 13 of summer,mralsyaleth, / mralsj.ˈal.eθ / ,darkness + food
 13 of winter,shotlan, / ʃˈoƛ.an / ,flowing + tool
-13,lhyal, / ɬjˈal / ,twelve + one
+13,lhiyal, / ɬˈij.al / ,twelve + one
 14 of autumn,tlurinin, / ƛur.ˈin.in / ,mist + ???
 14 of spring,menan, / mˈen.an / ,silver + ???
-14 of summer,lriskwil, / lrˈiskw.il / ,wind + movement
+14 of summer,luriskwil, / lur.ˈiskw.il / ,wind + movement
 14 of winter,fedetush, / fed.ˈet.uʃ / ,showing + cold
-14,lhyalo, / ɬjˈal.o / ,twelve + two
-144,lhyalh, / ɬjˈaɬ / ,twelve + twelve
+14,lhiyalo, / ɬij.ˈal.o / ,twelve + two
+144,lhiyalh, / ɬˈij.aɬ / ,twelve + twelve
 15 of autumn,???, / ??? / ,???
 15 of spring,rithilekel, / riθ.il.ˈek.el / ,sky + branch
 15 of summer,forengothr, / for.ˈeŋ.oθr / ,writing + time
-15 of winter,lrithen, / lrˈiθ.en / ,breath + dream
-15,lhyam, / ɬjˈam / ,twelve + three
+15 of winter,lurithen, / lur.ˈiθ.en / ,breath + dream
+15,lhiyam, / ɬˈij.am / ,twelve + three
 16 of autumn,rithol, / rˈiθ.ol / ,air + sweet
 16 of spring,mrawen, / mrˈaw.en / ,darkness + beauty
 16 of summer,semlor, / sˈeml.or / ,water + plant
 16 of winter,loreayeol, / lor.e.aj.ˈe.ol / ,dance + wisdom
-16,lhyatev, / ɬjˈat.ev / ,twelve + four
+16,lhiyatev, / ɬij.ˈat.ev / ,twelve + four
 17 of autumn,sholalhum, / ʃol.ˈaɬ.um / ,fruit + goodness
 17 of spring,tlafor, / ƛˈaf.or / ,peace + plant
 17 of summer,gaglar, / gˈagl.ar / ,warmth + tree
@@ -7833,11 +7843,11 @@ with,yi-, / jˈi / ,_
 18 of spring,nanamel, / nan.ˈam.el / ,star + life
 18 of summer,mrallhenadrem, / mralɬ.en.ˈadr.em / ,darkness + dream + flower
 18 of winter,nanalor, / nan.ˈal.or / ,star + plant
-19 of autumn,lshanin, / lʃˈan.in / ,sun + berry
+19 of autumn,lushanin, / luʃ.ˈan.in / ,sun + berry
 19 of spring,efem, / ˈef.em / ,sun + flower
 19 of summer,tomomen, / tom.ˈom.en / ,root + earth
 19 of winter,ayswen, / ˈajsw.en / ,moon + beauty
-2 of autumn,ysoresyaleth, / jsor.esj.ˈal.eθ / ,moon + grain
+2 of autumn,yisoresyaleth, / jis.or.esj.ˈal.eθ / ,moon + grain
 2 of spring,efith, / ˈef.iθ / ,sun + sharpness
 2 of summer,rithileaglar, / riθ.il.e.ˈagl.ar / ,sky + tree
 2 of winter,dolshanin, / dolʃ.ˈan.in / ,death + berry
@@ -7845,11 +7855,11 @@ with,yi-, / jˈi / ,_
 20 of autumn,tilethil, / til.ˈeθ.il / ,plain + place
 20 of spring,nanashith, / nan.ˈaʃ.iθ / ,star + sharpness
 20 of summer,holadyethil, / ħol.adj.ˈeθ.il / ,sweet + home
-20 of winter,lrithun, / lrˈiθ.un / ,breath + joining
+20 of winter,lurithun, / lur.ˈiθ.un / ,breath + joining
 20 of winter,shush, / ʃˈuʃ / ,ice + ???
-20,lhyath, / ɬjˈaθ / ,twelve + eight
+20,lhiyath, / ɬˈij.aθ / ,twelve + eight
 21 of autumn,riskel, / rˈisk.el / ,air + branch
-21 of spring,dremlor, / drˈeml.or / ,flower + plant
+21 of spring,duremlor, / dur.ˈeml.or / ,flower + plant
 21 of summer,meloremnan, / mel.or.ˈemn.an / ,plant + protection
 21 of winter,lhilaglar, / ɬil.ˈagl.ar / ,night + tree
 22 of autumn,mraltlun, / mrˈalƛ.un / ,darkness + joining
@@ -7860,13 +7870,13 @@ with,yi-, / jˈi / ,_
 23 of spring,shasith, / ʃˈas.iθ / ,ice + ship
 23 of summer,melaglar, / mel.ˈagl.ar / ,life + tree
 23 of winter,lanasyaleth, / lan.asj.ˈal.eθ / ,twilight + food
-24 of autumn,mloanamen, / mlo.an.ˈam.en / ,morning + earth
+24 of autumn,meloanamen, / mel.o.an.ˈam.en / ,morning + earth
 24 of spring,nanadrem, / nan.ˈadr.em / ,star + flower
 24 of summer,tleshor, / ƛˈeʃ.or / ,speed + plant
 24 of winter,lhonrem, / ɬˈonr.em / ,day + flower
 24,loelh, / lˈo.eɬ / ,two + twelve
 25 of autumn,???, / ??? / ,???
-25 of spring,lrithan, / lrˈiθ.an / ,storm + animal
+25 of spring,lurithan, / lur.ˈiθ.an / ,storm + animal
 25 of summer,rithileay, / riθ.il.ˈe.aj / ,sky + feather
 25 of winter,nan, / nˈan / ,star + ???
 25,loelhyal, / lo.ˈeɬj.al / ,twenty four + one
@@ -7877,12 +7887,12 @@ with,yi-, / jˈi / ,_
 26,loelhyalo, / lo.eɬj.ˈal.o / ,twenty four + two
 27 of autumn,thullhen, / θˈulɬ.en / ,top + dream
 27 of spring,gadrem, / gˈadr.em / ,hotness + flower
-27 of summer,lrithdrem, / lrˈiθdr.em / ,wind + flower
+27 of summer,lurithdrem, / lur.ˈiθdr.em / ,wind + flower
 27 of winter,doraklrith, / dor.ˈaklr.iθ / ,blue + breath
 28 of autumn,???, / ??? / ,???
-28 of spring,lshol, / lʃˈol / ,sun + fruit
+28 of spring,lushol, / lˈuʃ.ol / ,sun + fruit
 28 of summer,ithrem, / ˈiθr.em / ,thought + flower
-28 of winter,klumloremlan, / kluml.or.ˈeml.an / ,vine + twilight
+28 of winter,kulumloremlan, / kul.uml.or.ˈeml.an / ,vine + twilight
 29 of autumn,vareloresyaleth, / var.el.or.esj.ˈal.eθ / ,value + grain
 29 of spring,nanaloresyaleth, / nan.al.or.esj.ˈal.eθ / ,star + grain
 29 of summer,mralshol, / mrˈalʃ.ol / ,darkness + fruit
@@ -7895,47 +7905,47 @@ with,yi-, / jˈi / ,_
 30 of autumn,rithtesh, / rˈiθt.eʃ / ,air + sound
 30 of spring,shimilhom, / ʃim.ˈiɬ.om / ,mystery + container
 30 of summer,melor, / mˈel.or / ,plant + ???
-30 of winter,lrith, / lrˈiθ / ,breath + ???
+30 of winter,lurith, / lˈur.iθ / ,breath + ???
 30,loelhyatem, / lo.eɬj.ˈat.em / ,twenty four + six
 31 of autumn,leshol, / lˈeʃ.ol / ,harvest + fruit
 31 of spring,rithileshol, / riθ.il.ˈeʃ.ol / ,sky + fruit
 31 of summer,lhenananaloresyaleth, / ɬen.an.an.al.or.esj.ˈal.eθ / ,dream + star + grain
 31 of winter,???, / ??? / ,???
-32 of autumn,klumloreloresyaleth, / kluml.or.el.or.esj.ˈal.eθ / ,vine + grain
+32 of autumn,kulumloreloresyaleth, / kul.uml.or.el.or.esj.ˈal.eθ / ,vine + grain
 32 of spring,aysith, / ˈajs.iθ / ,moon + sharpness
 32 of summer,yeomlor, / je.ˈoml.or / ,wisdom + plant
 32 of winter,tushuthok, / tuʃ.ˈuθ.ok / ,cold + ground
 33 of autumn,???, / ??? / ,???
-33 of spring,lrithwen, / lrˈiθw.en / ,storm + beauty
-33 of summer,llhenashol, / lɬen.ˈaʃ.ol / ,sun + dream + fruit
+33 of spring,lurithwen, / lur.ˈiθw.en / ,storm + beauty
+33 of summer,lulhenashol, / luɬ.en.ˈaʃ.ol / ,sun + dream + fruit
 33 of winter,mralrem, / mrˈalr.em / ,darkness + flower
 34 of autumn,lhilaloresyaleth, / ɬil.al.or.esj.ˈal.eθ / ,night + grain
-34 of spring,dlelaglar, / dlel.ˈagl.ar / ,body + tree
+34 of spring,dulelaglar, / dul.el.ˈagl.ar / ,body + tree
 34 of summer,melorethanglar, / mel.or.eθ.ˈaŋl.ar / ,plant + tool + woods
 34 of winter,shashanin, / ʃaʃ.ˈan.in / ,ice + berry
 35 of autumn,shotlan, / ʃˈoƛ.an / ,river + light
-35 of spring,lrithay, / lrˈiθ.aj / ,storm + feather
+35 of spring,lurithay, / lur.ˈiθ.aj / ,storm + feather
 35 of summer,lhomtlan, / ɬˈomƛ.an / ,day + animal
 35 of winter,selshith, / sˈelʃ.iθ / ,water + sharpness
-36 of autumn,ysnal, / jsnˈal / ,moon + sharing
+36 of autumn,yisnal, / jˈisn.al / ,moon + sharing
 36 of spring,teshglar, / tˈeʃgl.ar / ,sound + woods
-36 of summer,mloanalor, / mlo.an.ˈal.or / ,dawn + plant
-36 of winter,klumloreshud, / kluml.or.ˈeʃ.ud / ,vine + ice
+36 of summer,meloanalor, / mel.o.an.ˈal.or / ,dawn + plant
+36 of winter,kulumloreshud, / kul.uml.or.ˈeʃ.ud / ,vine + ice
 36,femlh, / fˈemɬ / ,three + twelve
 37 of autumn,hol, / ħˈol / ,sweet + ???
-37 of spring,dremshol, / drˈemʃ.ol / ,flower + fruit
+37 of spring,duremshol, / dur.ˈemʃ.ol / ,flower + fruit
 37 of summer,lhenamral, / ɬen.ˈamr.al / ,dream + darkness
 37 of winter,aysel, / ˈajs.el / ,moon + center
 38 of autumn,lhenadrem, / ɬen.ˈadr.em / ,dream + flower
 38 of spring,mraladlel, / mral.ˈadl.el / ,darkness + body
-38 of summer,llhenalor, / lɬen.ˈal.or / ,sun + dream + plant
+38 of summer,lulhenalor, / luɬ.en.ˈal.or / ,sun + dream + plant
 38 of winter,fol, / fˈol / ,sun + sweet
 39 of autumn,mralaglar, / mral.ˈagl.ar / ,darkness + tree
 39 of spring,yeolaglar, / je.ol.ˈagl.ar / ,truth + tree
 39 of summer,shaninalhil, / ʃan.in.ˈaɬ.il / ,berry + night
 39 of winter,lhenashanin, / ɬen.aʃ.ˈan.in / ,spirit + berry
 4 of autumn,???, / ??? / ,???
-4 of spring,dremrem, / drˈemr.em / ,flower + flower
+4 of spring,duremrem, / dur.ˈemr.em / ,flower + flower
 4 of summer,lel, / lˈel / ,sun + branch
 4 of winter,???, / ??? / ,???
 4,tev, / tˈev / ,_
@@ -7943,24 +7953,24 @@ with,yi-, / jˈi / ,_
 40 of spring,rithilenum, / riθ.il.ˈen.um / ,sky + path
 40 of summer,selnan, / sˈeln.an / ,water + protection
 40 of winter,shaingtlurith, / ʃa.iŋƛ.ˈur.iθ / ,ice + fog
-41 of autumn,ysanin, / jsˈan.in / ,moon + berry
+41 of autumn,yisanin, / jis.ˈan.in / ,moon + berry
 41 of spring,lanatan, / lan.ˈat.an / ,twilight + face
 41 of summer,melsyaleth, / melsj.ˈal.eθ / ,life + food
 41 of winter,nanaingtlun, / nan.a.ˈiŋƛ.un / ,star + tar
 42 of autumn,kelumral, / kel.ˈumr.al / ,branch + darkness
-42 of spring,ysotel, / jsˈot.el / ,moon + lake
+42 of spring,yisotel, / jis.ˈot.el / ,moon + lake
 42 of summer,nomen, / nˈom.en / ,sea + stone
 42 of winter,???, / ??? / ,???
 43 of autumn,shithol, / ʃˈiθ.ol / ,sharpness + sweet
 43 of spring,mrilaglar, / mril.ˈagl.ar / ,sight + tree
-43 of summer,mloanafor, / mlo.an.ˈaf.or / ,morning + writing
+43 of summer,meloanafor, / mel.o.an.ˈaf.or / ,morning + writing
 43 of winter,nanador, / nan.ˈad.or / ,star + blue
 44 of autumn,munorhanashol, / mun.orħ.an.ˈaʃ.ol / ,dusk + fruit
 44 of spring,rithilefethr, / riθ.il.ˈef.eθr / ,sky + speech
 44 of summer,thangekel, / θaŋ.ˈek.el / ,leaf + branch
 44 of winter,shakel, / ʃˈak.el / ,ice + branch
 45 of autumn,???, / ??? / ,???
-45 of spring,lrithitan, / lriθ.ˈit.an / ,storm + bird
+45 of spring,lurithitan, / lur.iθ.ˈit.an / ,storm + bird
 45 of summer,lhenaysan, / ɬen.ˈajs.an / ,dream + moon + animal
 45 of winter,rishwen, / rˈiʃw.en / ,kindness + beauty
 46 of autumn,for, / fˈor / ,sun + action
@@ -7971,19 +7981,19 @@ with,yi-, / jˈi / ,_
 47 of spring,shasel, / ʃˈas.el / ,ice + water
 47 of summer,shaninakel, / ʃan.in.ˈak.el / ,berry + branch
 47 of winter,???, / ??? / ,???
-48 of autumn,mloanashith, / mlo.an.ˈaʃ.iθ / ,morning + sharpness
+48 of autumn,meloanashith, / mel.o.an.ˈaʃ.iθ / ,morning + sharpness
 48 of spring,shagang, / ʃˈag.aŋ / ,ice + tooth
 48 of summer,holashol, / ħol.ˈaʃ.ol / ,sweet + fruit
-48 of winter,klumloretush, / kluml.or.ˈet.uʃ / ,vine + cold
+48 of winter,kulumloretush, / kul.uml.or.ˈet.uʃ / ,vine + cold
 48,tev, / tˈev / ,four + twelve
 49 of autumn,varethan, / var.ˈeθ.an / ,value + tool
 49 of spring,nanashol, / nan.ˈaʃ.ol / ,star + fruit
 49 of summer,dolaglar, / dol.ˈagl.ar / ,death + tree
 49 of winter,aymen, / ˈajm.en / ,moon + earth
 5 of autumn,nanamen, / nan.ˈam.en / ,star + earth
-5 of spring,lrithan, / lrˈiθ.an / ,wind + animal
-5 of summer,mloanatlan, / mlo.an.ˈaƛ.an / ,morning + animal
-5 of winter,lrithan, / lrˈiθ.an / ,breath + tool
+5 of spring,lurithan, / lur.ˈiθ.an / ,wind + animal
+5 of summer,meloanatlan, / mel.o.an.ˈaƛ.an / ,morning + animal
+5 of winter,lurithan, / lur.ˈiθ.an / ,breath + tool
 5,rem, / rˈem / ,_
 50 of autumn,harathan, / ħar.ˈaθ.an / ,pain + tool
 50 of spring,nanamnan, / nan.ˈamn.an / ,star + covering
@@ -7998,7 +8008,7 @@ with,yi-, / jˈi / ,_
 52 of winter,lanalor, / lan.ˈal.or / ,twilight + plant
 53 of autumn,thamlor, / θˈaml.or / ,tool + plant
 53 of spring,femlor, / fˈeml.or / ,speaking + plant
-53 of summer,ysayeol, / jsaj.ˈe.ol / ,moon + wisdom
+53 of summer,yisayeol, / jis.aj.ˈe.ol / ,moon + wisdom
 53 of winter,shalor, / ʃˈal.or / ,ice + plant
 54 of autumn,meloresyalethavar, / mel.or.esj.al.eθ.ˈav.ar / ,grain + value
 54 of spring,lunum, / lˈun.um / ,sun + TEMP + present
@@ -8015,12 +8025,12 @@ with,yi-, / jˈi / ,_
 57 of autumn,lethilekel, / leθ.il.ˈek.el / ,forest + branch
 57 of spring,yelathan, / jel.ˈaθ.an / ,person + tool
 57 of summer,varedrem, / var.ˈedr.em / ,value + flower
-57 of winter,ysaglar, / jsˈagl.ar / ,moon + tree
-58 of autumn,mlor, / mlˈor / ,sun + plant
-58 of spring,ysol, / jsˈol / ,moon + fruit
-58 of summer,ysdmfed, / jsdmfˈed / ,moon + bloom
-58 of winter,mer, / mˈer / ,earth + showing
-59 of autumn,glareshol, / glar.ˈeʃ.ol / ,tree + fruit
+57 of winter,yisaglar, / jis.ˈagl.ar / ,moon + tree
+58 of autumn,melor, / mˈel.or / ,sun + plant
+58 of spring,yisol, / jˈis.ol / ,moon + fruit
+58 of summer,yisdmfed, / jˈisdmf.ed / ,moon + bloom
+58 of winter,mr, / mr / ,earth + showing
+59 of autumn,gulareshol, / gul.ar.ˈeʃ.ol / ,tree + fruit
 59 of spring,keluaglar, / kel.u.ˈagl.ar / ,branch + tree
 59 of summer,rithiledyel, / riθ.il.ˈedj.el / ,sky + person
 59 of winter,varefethr, / var.ˈef.eθr / ,value + speaking
@@ -8035,7 +8045,7 @@ with,yi-, / jˈi / ,_
 60 of winter,nanadyethil, / nan.adj.ˈeθ.il / ,star + home
 61 of autumn,nanasyaleth, / nan.asj.ˈal.eθ / ,star + food
 61 of spring,selaglar, / sel.ˈagl.ar / ,water + tree
-61 of summer,mloanadrem, / mlo.an.ˈadr.em / ,morning + flower
+61 of summer,meloanadrem, / mel.o.an.ˈadr.em / ,morning + flower
 61 of winter,tushulor, / tuʃ.ˈul.or / ,cold + plant
 62 of autumn,lhoman, / ɬˈom.an / ,day + light
 62 of spring,meloresel, / mel.or.ˈes.el / ,plant + water
@@ -8052,7 +8062,7 @@ with,yi-, / jˈi / ,_
 65 of autumn,teleay, / tel.ˈe.aj / ,lake + feather
 65 of spring,doltlan, / dˈolƛ.an / ,death + animal
 65 of summer,mral, / mrˈal / ,darkness + ???
-65 of winter,ysanon, / jsˈan.on / ,moon + dog
+65 of winter,yisanon, / jis.ˈan.on / ,moon + dog
 66 of autumn,holalor, / ħol.ˈal.or / ,sweet + plant
 66 of spring,rithor, / rˈiθ.or / ,air + plant
 66 of summer,lhenathan, / ɬen.ˈaθ.an / ,dream + tool
@@ -8064,15 +8074,15 @@ with,yi-, / jˈi / ,_
 68 of autumn,dolag, / dˈol.ag / ,death + hotness
 68 of spring,munorhanalor, / mun.orħ.an.ˈal.or / ,dusk + plant
 68 of summer,menrunan, / menr.ˈun.an / ,earth + hat
-68 of winter,mersyaleth, / mersj.ˈal.eθ / ,earth + food
+68 of winter,mrsyaleth, / mrsjˈal.eθ / ,earth + food
 69 of autumn,rithtom, / rˈiθt.om / ,air + root
 69 of spring,teleaglar, / tel.e.ˈagl.ar / ,lake + tree
 69 of summer,selrem, / sˈelr.em / ,water + flower
 69 of winter,shalhen, / ʃˈaɬ.en / ,ice + dream
 7 of autumn,ay, / ˈaj / ,moon + ???
 7 of spring,mrilamen, / mril.ˈam.en / ,sight + stone
-7 of summer,glarenan, / glar.ˈen.an / ,tree + star
-7 of winter,mloanathan, / mlo.an.ˈaθ.an / ,morning + tool
+7 of summer,gularenan, / gul.ar.ˈen.an / ,tree + star
+7 of winter,meloanathan, / mel.o.an.ˈaθ.an / ,morning + tool
 7,pol, / pˈol / ,_
 70 of autumn,mrallhenathan, / mralɬ.en.ˈaθ.an / ,darkness + dream + tool
 70 of spring,shotlol, / ʃˈoƛ.ol / ,flowing + fruit
@@ -8083,8 +8093,8 @@ with,yi-, / jˈi / ,_
 71 of summer,lanathan, / lan.ˈaθ.an / ,twilight + tool
 71 of winter,thanramen, / θanr.ˈam.en / ,tool + darkness + stone
 72 of autumn,lethileaglar, / leθ.il.e.ˈagl.ar / ,forest + tree
-72 of spring,dleleon, / dlel.ˈe.on / ,trunk + mouth
-72 of summer,mloanatesh, / mlo.an.ˈat.eʃ / ,morning + sound
+72 of spring,duleleon, / dul.el.ˈe.on / ,trunk + mouth
+72 of summer,meloanatesh, / mel.o.an.ˈat.eʃ / ,morning + sound
 72 of winter,numvar, / nˈumv.ar / ,path + value
 73 of autumn,kanaithr, / kan.ˈa.iθr / ,change + thought
 73 of spring,???, / ??? / ,???
@@ -8092,9 +8102,9 @@ with,yi-, / jˈi / ,_
 73 of winter,mramen, / mrˈam.en / ,darkness + stone
 74 of autumn,sillhum, / sˈilɬ.um / ,existence + goodness
 74 of spring,shotl, / ʃˈoƛ / ,flowing + ???
-74 of summer,glaretesh, / glar.ˈet.eʃ / ,tree + sound
-74 of winter,menmen, / mˈenm.en / ,earth + stone
-75 of autumn,mloanarithan, / mlo.an.ar.ˈiθ.an / ,morning + bird
+74 of summer,gularetesh, / gul.ar.ˈet.eʃ / ,tree + sound
+74 of winter,mrfor, / mrfˈor / ,earth + writing
+75 of autumn,meloanarithan, / mel.o.an.ar.ˈiθ.an / ,morning + bird
 75 of spring,aysan, / ˈajs.an / ,moon + animal
 75 of summer,holalor, / ħol.ˈal.or / ,sweet + action
 75 of winter,shashol, / ʃˈaʃ.ol / ,ice + fruit
@@ -8109,9 +8119,9 @@ with,yi-, / jˈi / ,_
 78 of autumn,lhenakel, / ɬen.ˈak.el / ,dream + branch
 78 of spring,mralel, / mrˈal.el / ,darkness + branch
 78 of summer,varetlun, / var.ˈeƛ.un / ,value + joining
-78 of winter,ysdeshol, / jsdˈeʃ.ol / ,moon + showing + fruit
+78 of winter,yisdeshol, / jisd.ˈeʃ.ol / ,moon + showing + fruit
 79 of autumn,nanathang, / nan.ˈaθ.aŋ / ,star + leaf
-79 of spring,ysor, / jsˈor / ,moon + plant
+79 of spring,yisor, / jˈis.or / ,moon + plant
 79 of summer,mralaysor, / mral.ˈajs.or / ,darkness + moon + plant
 79 of winter,nanalhen, / nan.ˈaɬ.en / ,star + dream
 8 of autumn,munorhanapal, / mun.orħ.an.ˈap.al / ,dusk + stopping
@@ -8126,33 +8136,33 @@ with,yi-, / jˈi / ,_
 81 of autumn,???, / ??? / ,???
 81 of spring,sethok, / sˈeθ.ok / ,water + down
 81 of summer,lhenashotlodrem, / ɬen.aʃ.oƛ.ˈodr.em / ,dream + flowing + flower
-81 of winter,dremen, / drˈem.en / ,flower + stone
+81 of winter,duremen, / dur.ˈem.en / ,flower + stone
 82 of autumn,???, / ??? / ,???
 82 of spring,shotlom, / ʃˈoƛ.om / ,flowing + bloom
 82 of summer,munorhanatesh, / mun.orħ.an.ˈat.eʃ / ,dusk + sound
-82 of winter,syalethanan, / sjal.eθ.ˈan.an / ,food + star
+82 of winter,siyalethanan, / sij.al.eθ.ˈan.an / ,food + star
 83 of autumn,holamel, / ħol.ˈam.el / ,sweet + life
-83 of spring,mloanalor, / mlo.an.ˈal.or / ,morning + plant
+83 of spring,meloanalor, / mel.o.an.ˈal.or / ,morning + plant
 83 of summer,yelan, / jˈel.an / ,person + light
 83 of winter,aymen, / ˈajm.en / ,moon + stone
 84 of autumn,rithdrem, / rˈiθdr.em / ,air + flower
 84 of spring,selumlor, / sel.ˈuml.or / ,water + vine
 84 of summer,lhenaglar, / ɬen.ˈagl.ar / ,dream + tree
-84 of winter,mloanamen, / mlo.an.ˈam.en / ,morning + metal
+84 of winter,meloanamen, / mel.o.an.ˈam.en / ,morning + metal
 85 of autumn,lhenarith, / ɬen.ˈar.iθ / ,dream + air
 85 of spring,nanatlan, / nan.ˈaƛ.an / ,star + animal
-85 of summer,yselom, / jsˈel.om / ,moon + memory
+85 of summer,yiselom, / jis.ˈel.om / ,moon + memory
 85 of winter,nanatan, / nan.ˈat.an / ,star + face
 86 of autumn,nunasil, / nun.ˈas.il / ,small + existence
 86 of spring,dolor, / dˈol.or / ,death + blue
 86 of summer,keshaglar, / keʃ.ˈagl.ar / ,fire + tree
 86 of winter,lanamen, / lan.ˈam.en / ,twilight + metal
-87 of autumn,ysen, / jsˈen / ,moon + dream
-87 of spring,yskel, / jskˈel / ,moon + branch
+87 of autumn,yisen, / jˈis.en / ,moon + dream
+87 of spring,yiskel, / jˈisk.el / ,moon + branch
 87 of summer,rithenalor, / riθ.en.ˈal.or / ,air + dream + plant
 87 of winter,mramen, / mrˈam.en / ,darkness + metal
 88 of autumn,engothr, / ˈeŋ.oθr / ,sun + time
-88 of spring,mloanakel, / mlo.an.ˈak.el / ,dawn + branch
+88 of spring,meloanakel, / mel.o.an.ˈak.el / ,dawn + branch
 88 of summer,mralor, / mrˈal.or / ,darkness + blue
 88 of winter,lan, / lˈan / ,twilight + ???
 89 of autumn,haradrem, / ħar.ˈadr.em / ,pain + flower
@@ -8160,9 +8170,9 @@ with,yi-, / jˈi / ,_
 89 of summer,fidol, / fˈid.ol / ,sun + GEN + death
 89 of winter,tleshmen, / ƛˈeʃm.en / ,speed + metal
 9 of autumn,lhenashith, / ɬen.ˈaʃ.iθ / ,dream + sharpness
-9 of spring,shatom, / ʃˈat.om / ,ice + root
+9 of spring,todawen, / tod.ˈaw.en / ,eternal + beauty
 9 of summer,temen, / tˈem.en / ,sound + stone
-9 of winter,lrithaglar, / lriθ.ˈagl.ar / ,breath + tree
+9 of winter,lurithaglar, / lur.iθ.ˈagl.ar / ,breath + tree
 9,ki, / kˈi / ,_
 90 of autumn,meloresyalethalor, / mel.or.esj.al.eθ.ˈal.or / ,grain + plant
 90 of spring,shakwil, / ʃˈakw.il / ,ice + movement

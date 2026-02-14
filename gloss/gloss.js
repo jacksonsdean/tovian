@@ -356,18 +356,15 @@
     // Group dictionary entries by Tovian form, then infer noun->verb links from
     // sibling English glosses (e.g., "speech" + "speaking" on same form).
     const byTovian = new Map();
-    const allGlosses = [];
     rows.forEach(r => {
       const key = normalizeTovianForGloss(r.tovian);
       if (!key) return;
       if (!byTovian.has(key)) byTovian.set(key, []);
       const variants = (r.english || '').split('/').map(x => x.trim().toLowerCase()).filter(Boolean);
       byTovian.get(key).push(...variants);
-      allGlosses.push(...variants);
     });
 
     const map = new Map();
-    const globalVerbLemmas = [...new Set(allGlosses.filter(isVerbLikeGloss).map(normalizeVerbCandidate).filter(Boolean))];
 
     byTovian.forEach((glosses) => {
       const unique = [...new Set(glosses)];
@@ -380,13 +377,6 @@
           map.set(g, lemma);
         }
       });
-    });
-
-    // NLP fallback: map remaining concept glosses to nearest known verb lemma.
-    [...new Set(allGlosses)].forEach((g) => {
-      if (isVerbLikeGloss(g) || map.has(g)) return;
-      const best = bestVerbLemmaForConcept(g, globalVerbLemmas);
-      if (best) map.set(g, best);
     });
 
     // Small fallback set for opaque nominal concepts that may not have paired
@@ -621,7 +611,10 @@
 
     if (!lexical.length) return segGlosses.join(' ');
 
-    const article = markers.includes('DEF') ? 'the' : (markers.includes('INDEF') ? 'a' : '');
+    const hasNounClass = markers.includes('ANIM') || markers.includes('INAN') || markers.includes('ABS');
+    const article = markers.includes('INDEF')
+      ? 'a'
+      : ((markers.includes('DEF') || hasNounClass) ? 'the' : '');
     const prep = casePreposition(markers);
     const head = lexical.join(' ').trim();
     const np = `${article ? `${article} ` : ''}${head}`.trim();
@@ -662,12 +655,39 @@
   }
 
   function phraseVariantsFromSegments(segs, tokenData, max = 8){
-    const base = segs.map(s => firstGloss(tokenData(s).gloss) || s);
+    const segVariants = segs.map((s) => splitGlossVariants(tokenData(s).gloss));
+    const hasClassMarkerAt = (idx) => {
+      if (idx < 0 || idx >= segVariants.length) return false;
+      return segVariants[idx].some((v) => {
+        const code = markerCodeFromGloss(v);
+        return code === 'ANIM' || code === 'INAN' || code === 'ABS';
+      });
+    };
+    const chooseBaseVariant = (variants, idx, fallback) => {
+      const list = variants || [];
+      if (!list.length) return fallback;
+
+      const markerVariants = list.filter(v => !!markerCodeFromGloss(v));
+      if (!markerVariants.length) return list[0] || fallback;
+
+      // Disambiguate segments like "e" (PL vs INDEF): before class markers,
+      // prefer definiteness readings for noun phrase glossing.
+      if (hasClassMarkerAt(idx + 1)) {
+        const indef = markerVariants.find(v => markerCodeFromGloss(v) === 'INDEF');
+        if (indef) return indef;
+        const def = markerVariants.find(v => markerCodeFromGloss(v) === 'DEF');
+        if (def) return def;
+      }
+
+      return markerVariants[0] || list[0] || fallback;
+    };
+
+    const base = segs.map((s, i) => chooseBaseVariant(segVariants[i], i, s));
     const lexicalSegIndexes = [];
     const choicesPerLexSeg = [];
 
     segs.forEach((s, i) => {
-      const variants = splitGlossVariants(tokenData(s).gloss);
+      const variants = segVariants[i];
       const markerVariants = variants.filter(v => !!markerCodeFromGloss(v));
       // If this segment has grammatical marker readings, suppress stray lexical
       // alternatives (e.g., "one" from class marker segment "lo-").
@@ -930,8 +950,7 @@
     return [subjPron, aux, ...mapped.map(m => m.to)].filter(Boolean).join(' ');
   }
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    const loadStart = Date.now();
+  window.addEventListener('DOMContentLoaded', () => {
     const loadingEl = document.getElementById('glossLoading');
     const loadingTextEl = document.getElementById('glossLoadingText');
     const glossIn = document.getElementById('glossInput');
@@ -943,73 +962,100 @@
     const tranOut = document.getElementById('tranOut');
     const clearTran = document.getElementById('clearTran');
 
+    const runtime = {
+      dict: [],
+      reverseGloss: new Map(),
+      templateParts: { partMeta: new Map(), partsByLen: [] },
+      conceptVerbMap: new Map(),
+      unimorphVerbs: {},
+      unimorphReverse: new Map(),
+      ready: false,
+      loadPromise: null
+    };
+
+    const waitForPaint = () => new Promise((resolve) => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => resolve(), { timeout: 180 });
+      } else {
+        setTimeout(resolve, 0);
+      }
+    });
+
+    const waitForReady = async () => {
+      if (runtime.ready) return true;
+      if (loadingEl) loadingEl.style.display = '';
+      if (loadingTextEl) loadingTextEl.textContent = 'Finishing glosser setup…';
+      if (glossOut && !glossOut.textContent.trim()) {
+        glossOut.innerHTML = `<div class="card"><div class="muted">Glosser is still warming up…</div></div>`;
+      }
+      try {
+        await runtime.loadPromise;
+      } catch {}
+      return runtime.ready;
+    };
+
     if (loadingEl) loadingEl.style.display = '';
-    if (loadingTextEl) loadingTextEl.textContent = 'Loading glosser data…';
+    if (loadingTextEl) loadingTextEl.textContent = 'Loading glosser data in background…';
 
-    if (glossOut) {
-      glossOut.innerHTML = `<div class="card"><div class="muted">Loading…</div></div>`;
-    }
-    if (glossBtn) glossBtn.textContent = 'Loading…';
-    if (tranBtn) tranBtn.textContent = 'Loading…';
-    [glossIn, glossBtn, clearGloss, tranIn, tranBtn, clearTran].forEach((el) => {
-      if (el) el.disabled = true;
-    });
+    runtime.loadPromise = (async () => {
+      if (loadingTextEl) loadingTextEl.textContent = 'Loading dictionary…';
+      await waitForPaint();
+      try { runtime.dict = await loadDict(); } catch {}
 
-    let dict = [];
-    let reverseGloss = new Map();
-    let templateParts = { partMeta: new Map(), partsByLen: [] };
-    let conceptVerbMap = new Map();
-    let unimorphVerbs = {};
-    let unimorphReverse = new Map();
-    if (loadingTextEl) loadingTextEl.textContent = 'Loading dictionary…';
-    try { dict = await loadDict(); } catch {}
+      if (loadingTextEl) loadingTextEl.textContent = 'Indexing concepts…';
+      await waitForPaint();
+      try { runtime.conceptVerbMap = deriveConceptVerbMap(runtime.dict); } catch {}
 
-    if (loadingTextEl) loadingTextEl.textContent = 'Indexing concepts…';
-    try { conceptVerbMap = deriveConceptVerbMap(dict); } catch {}
+      if (loadingTextEl) loadingTextEl.textContent = 'Loading gloss templates…';
+      await waitForPaint();
+      try {
+        const templateData = await loadTemplateGlossReverse();
+        runtime.reverseGloss = templateData?.reverse || new Map();
+        runtime.templateParts = templateData?.partsLexicon || runtime.templateParts;
+      } catch {}
 
-    if (loadingTextEl) loadingTextEl.textContent = 'Loading gloss templates…';
-    try {
-      const templateData = await loadTemplateGlossReverse();
-      reverseGloss = templateData?.reverse || new Map();
-      templateParts = templateData?.partsLexicon || templateParts;
-    } catch {}
+      if (loadingTextEl) loadingTextEl.textContent = 'Loading verb inflections…';
+      await waitForPaint();
+      try { runtime.unimorphVerbs = await loadUniMorphVerbs(); } catch {}
 
-    if (loadingTextEl) loadingTextEl.textContent = 'Loading verb inflections…';
-    try { unimorphVerbs = await loadUniMorphVerbs(); } catch {}
+      if (loadingTextEl) loadingTextEl.textContent = 'Finalizing…';
+      await waitForPaint();
+      try { runtime.unimorphReverse = buildUniMorphReverseIndex(runtime.unimorphVerbs); } catch {}
 
-    if (loadingTextEl) loadingTextEl.textContent = 'Finalizing…';
-    try { unimorphReverse = buildUniMorphReverseIndex(unimorphVerbs); } catch {}
+      runtime.ready = true;
+      if (loadingEl) loadingEl.style.display = 'none';
+      if (glossOut && /warming up|Loading…/i.test(glossOut.textContent || '')) glossOut.innerHTML = '';
+    })();
 
-    const elapsed = Date.now() - loadStart;
-    if (elapsed < 500) await new Promise(resolve => setTimeout(resolve, 500 - elapsed));
-
-    [glossIn, glossBtn, clearGloss, tranIn, tranBtn, clearTran].forEach((el) => {
-      if (el) el.disabled = false;
-    });
-    if (glossBtn) glossBtn.textContent = 'Gloss';
-    if (tranBtn) tranBtn.textContent = 'Translate';
-    if (loadingEl) loadingEl.style.display = 'none';
-    if (glossOut && /Loading…/.test(glossOut.textContent || '')) glossOut.innerHTML = '';
-
-    glossBtn?.addEventListener('click', () => {
+    glossBtn?.addEventListener('click', async () => {
       const text = (glossIn?.value || '').trim();
       if (!text) { glossOut.innerHTML = ''; return; }
+      const ready = await waitForReady();
+      if (!ready) {
+        glossOut.innerHTML = `<div class="card"><div class="muted">Could not load glosser data yet. Please try again.</div></div>`;
+        return;
+      }
       const rawTokens = tokenizeTovian(text);
-      const tokens = autoHyphenateTokens(rawTokens, templateParts);
-      const predicted = predictedTranslation(tokens, dict, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse);
-      const variants = predictedTranslationVariants(tokens, dict, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse, 16);
+      const tokens = autoHyphenateTokens(rawTokens, runtime.templateParts);
+      const predicted = predictedTranslation(tokens, runtime.dict, runtime.reverseGloss, runtime.conceptVerbMap, runtime.unimorphVerbs, runtime.unimorphReverse);
+      const variants = predictedTranslationVariants(tokens, runtime.dict, runtime.reverseGloss, runtime.conceptVerbMap, runtime.unimorphVerbs, runtime.unimorphReverse, 16);
       const others = variants.slice(1);
       const othersHtml = others.length
         ? `<details style="margin-top:8px"><summary>Other possible translations (${others.length})</summary><ul>${others.map(v => `<li>${escapeHtml(v)}</li>`).join('')}</ul></details>`
         : '';
-      glossOut.innerHTML = `<div class="card" style="margin-bottom:10px"><div><b>Predicted translation:</b> ${escapeHtml(predicted)}</div>${othersHtml}</div>` + glossTable(tokens, dict, reverseGloss);
+      glossOut.innerHTML = `<div class="card" style="margin-bottom:10px"><div><b>Predicted translation:</b> ${escapeHtml(predicted)}</div>${othersHtml}</div>` + glossTable(tokens, runtime.dict, runtime.reverseGloss);
     });
     clearGloss?.addEventListener('click', () => { if (glossIn) glossIn.value=''; glossOut.innerHTML=''; });
 
-    tranBtn?.addEventListener('click', () => {
+    tranBtn?.addEventListener('click', async () => {
       const text = (tranIn?.value || '').trim();
       if (!text) { tranOut.innerHTML = ''; return; }
-      const draft = draftTranslateENtoTovian(dict, text);
+      const ready = await waitForReady();
+      if (!ready) {
+        tranOut.innerHTML = `<div class="card"><div class="muted">Could not load translator data yet. Please try again.</div></div>`;
+        return;
+      }
+      const draft = draftTranslateENtoTovian(runtime.dict, text);
       tranOut.innerHTML = '';
       // Line 1: Tovian (with .tovian)
       tranOut.appendChild(el(`<div class="card"><div class="tovian" style="font-size:22px">${draft}</div></div>`));
@@ -1017,7 +1063,7 @@
       tranOut.appendChild(el(`<div class="card"><div style="font-size:18px">${draft}</div></div>`));
       // Line 3: IPA (best-effort per-token)
       const ipa = draft.split(/\s+/).map(tok => {
-        const m = bestMatchToken(dict, tok);
+        const m = bestMatchToken(runtime.dict, tok);
         return m && m.ipa ? m.ipa.replace(/\s+/g, '') : tok;
       }).join(' ');
       tranOut.appendChild(el(`<div class="card"><div class="ipa" style="font-size:14px">${ipa}</div></div>`));
