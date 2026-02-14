@@ -475,6 +475,22 @@ def epenthesis_in_initial_t_sh_cluster(word: str) -> str:
     return re.sub(r'^tʃ', 'teʃ', word)
 
 
+def epenthesis_in_all_initial_clusters(word: str) -> str:
+    match = re.match(fr'^([{_char_class(consonants)}])([{_char_class(consonants)}])', word)
+    if not match:
+        return word
+
+    first, second = match.groups()
+    if first in glides or second in glides:
+        epenthetic = 'i'
+    elif first in nasals or second in nasals:
+        epenthetic = 'e'
+    else:
+        epenthetic = 'u'
+
+    return first + epenthetic + second + word[2:]
+
+
 def simplify_lθ_to_θ(word: str) -> str:
     return re.sub(r'lθ', 'θ', word)
 
@@ -618,6 +634,7 @@ sound_changes = [
     {'rule': 14005, 'description': 'Epenthesis and metathesis /ʃd/ → [ɬt]', 'function': shd_to_lht},
     {'rule': 14006, 'description': 'Voiceless glottal fricative h to pharyngeal fricative ħ', 'function': h_to_ħ},
     {'rule': 15000, 'description': 'No repeated consonants', 'function': no_double_consonants},
+    {'rule': 16001, 'description': 'Epenthesis in all initial clusters (u default, e with nasals, i with glides)', 'function': epenthesis_in_all_initial_clusters},
 ]
 
 

@@ -73,7 +73,7 @@ Order with definiteness marker: <code>[definiteness]-[case]-[class]-stem</code>
 - {% tovp "indef-ani-person aux_3_sim_prs sight indef-loc-inan-city" %} — “A person sees in a city.”
 
 
-## ALl possible markers
+## All possible markers
 <details>
 <summary>All markers</summary>
 

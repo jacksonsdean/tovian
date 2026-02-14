@@ -9,8 +9,10 @@
     "node": ">=20"
 },
   "scripts": {
-    "build": "eleventy",
-    "start": "eleventy --serve"
+    "prestart": "node site/scripts/generate_parallels.js && node site/scripts/generate_unimorph_verbs.js",
+    "start": "eleventy --serve",
+    "prebuild": "node site/scripts/generate_parallels.js && node site/scripts/generate_unimorph_verbs.js",
+    "build": "eleventy"
   },
   "description": "Tovian language by Jackson Dean",
   "main": ".eleventy.js",

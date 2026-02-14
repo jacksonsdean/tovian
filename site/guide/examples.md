@@ -11,6 +11,7 @@ This section contains practical examples of Tovian in use, organized by complexi
 
 - **[Basic Phrases]({{ '/examples/basics.html' | url }})** — Essential vocabulary and short phrases
 - **[Simple Sentences]({{ '/examples/sentences.html' | url }})** — Subject-verb patterns and word order
+- **[Complex Sentences]({{ '/examples/complex.html' | url }})** — Conditionals, hypotheticals, and multi-layer clauses
 - **[Forming Questions]({{ '/examples/questions.html' | url }})** — Yes/no and information questions
 - **[Emphasis & Word Order]({{ '/examples/emphasis.html' | url }})** — Fronting and stylistic variation
 

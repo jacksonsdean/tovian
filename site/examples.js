@@ -111,7 +111,7 @@ function buildTemplateResolver(replacements, options = {}) {
       const next = lookupSingle(rawNext) || rawNext;
 
       if (op === '.') out = `${out}${next}`;
-      else if (op === '+') out = `${out}${next}`.replace(/-/g, '');
+      else if (op === '+') out = `${out.replace(/-+$/g, '')}${next.replace(/^-+/g, '')}`;
       else if (op === '-') out = joinWithConditionalHyphen(out, next);
     }
 

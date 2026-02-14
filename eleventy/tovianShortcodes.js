@@ -120,7 +120,7 @@ function buildTemplateReplacementFn(replacements, options = {}) {
     // Segment grammar:
     // - token.token => concatenate with no separator
     // - token-token => concatenate with conditional hyphen insertion
-    // - token+token => concatenate with no separator and remove hyphens
+    // - token+token => concatenate with no separator and remove only boundary hyphens
     // Operators are evaluated left-to-right.
     const pieces = core.split(/([.+-])/).filter((p) => p !== '');
     if (pieces.length === 1) {
@@ -137,7 +137,7 @@ function buildTemplateReplacementFn(replacements, options = {}) {
       if (op === '.') {
         out = `${out}${next}`;
       } else if (op === '+') {
-        out = `${out}${next}`.replace(/-/g, '');
+        out = `${out.replace(/-+$/g, '')}${next.replace(/^-+/g, '')}`;
       } else if (op === '-') {
         out = joinWithConditionalHyphen(out, next);
       }
