@@ -12,7 +12,7 @@ Simple vocabulary and short phrases to get started.
   <p><em>Loading examples...</em></p>
 </div>
 
-<script src="/examples.js"></script>
+<script src="{{ '/examples.js' | url }}"></script>
 <script>
 window.loadExamplesFromCSV().then(data => {
   if (!data) return;

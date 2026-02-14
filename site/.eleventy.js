@@ -12,6 +12,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("*.csv");
   eleventyConfig.addPassthroughCopy("*.js");
+  eleventyConfig.addPassthroughCopy("*.json");
   // Glosser/translator client script lives under gloss/
   eleventyConfig.addPassthroughCopy("gloss/gloss.js");
   // Guide client script lives under guide/
