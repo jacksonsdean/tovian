@@ -22,7 +22,7 @@ The root `lhan` combines with case markers:
 - `tu-lhan` — when (temporal case)
 - `hi-lhan` — whose/of whom (genitive case)
 
-<script src="/examples.js"></script>
+<script src="{{ '/examples.js' | url }}"></script>
 <script>
 window.loadExamplesFromCSV().then(data => {
   if (!data) return;

@@ -20,7 +20,7 @@ Building basic declarative and descriptive sentences.
 - **Attributive nouns** (adjectives) follow directly after the noun they modify
 - **Case markers** attach to the beginning of noun phrases to indicate grammatical role
 
-<script src="/examples.js"></script>
+<script src="{{ '/examples.js' | url }}"></script>
 <script>
 window.loadExamplesFromCSV().then(data => {
   if (!data) return;
