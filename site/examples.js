@@ -1,5 +1,7 @@
 // Load examples from CSV and populate subpages
-const BASE = (window.__BASE || '/');
+
+// Base prefix for path (from Eleventy pathPrefix)
+const BASE = (typeof window !== 'undefined' && window.__BASE) || '/';
 
 function parseCSV(text) {
   const rows = [];
