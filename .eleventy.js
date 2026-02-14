@@ -19,6 +19,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'site/parallels.csv': 'parallels.csv' });
   eleventyConfig.addPassthroughCopy({ 'site/examples.csv': 'examples.csv' });
   eleventyConfig.addPassthroughCopy({ 'site/template_replacements.csv': 'template_replacements.csv' });
+  eleventyConfig.addPassthroughCopy({ 'site/unimorph_en_verbs.json': 'unimorph_en_verbs.json' });
   // Tools
   eleventyConfig.addPassthroughCopy({ 'site/gloss/gloss.js': 'gloss/gloss.js' });
   // Only copy specific guide assets; templates in site/guide are rendered
