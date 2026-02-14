@@ -186,6 +186,30 @@
   }
   
   .hidden { display: none; }
+
+  .loading-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--panel) 88%, transparent);
+    color: var(--text);
+    font-size: 14px;
+  }
+  .loading-spinner {
+    width: 14px;
+    height: 14px;
+    border-radius: 999px;
+    border: 2px solid color-mix(in srgb, var(--muted) 50%, transparent);
+    border-top-color: var(--brand);
+    animation: spin 0.8s linear infinite;
+    flex: 0 0 auto;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
   
   .site-footer { border-top: 1px solid var(--border); padding: 24px 0; background: var(--panel); }
   

@@ -19,6 +19,86 @@
   function normalizeTovianForGloss(s){ return normalizeTovian(s).replace(/[-']/g, ''); }
   function normalizeEnglish(s){ return (s || '').toLowerCase(); }
 
+  function buildTemplatePartLexicon(forms){
+    const partMeta = new Map();
+
+    (forms || []).forEach((rawForm) => {
+      const raw = normalizeTovian(rawForm || '').trim();
+      if (!raw) return;
+      const isPrefix = raw.endsWith('-');
+      const isSuffix = raw.startsWith('-');
+      const core = raw.replace(/^-+/, '').replace(/-+$/, '').trim();
+      if (!core) return;
+
+      const existing = partMeta.get(core) || { whole: false, prefix: false, suffix: false };
+      if (isPrefix && !isSuffix) existing.prefix = true;
+      else if (isSuffix && !isPrefix) existing.suffix = true;
+      else existing.whole = true;
+      partMeta.set(core, existing);
+    });
+
+    const partsByLen = [...partMeta.keys()].sort((a, b) => b.length - a.length || a.localeCompare(b));
+    return { partMeta, partsByLen };
+  }
+
+  function splitChunkWithKnownParts(chunk, lexicon){
+    const raw = normalizeTovian(chunk || '').trim();
+    if (!raw || !lexicon?.partMeta || !lexicon?.partsByLen?.length) return chunk;
+    if (!/^[a-z0-9']+$/i.test(raw)) return chunk;
+
+    const wholeMeta = lexicon.partMeta.get(raw);
+    if (wholeMeta?.whole) return chunk;
+
+    const memo = new Map();
+    const solve = (start) => {
+      if (start === raw.length) return [];
+      if (memo.has(start)) return memo.get(start);
+
+      let best = null;
+      for (const part of lexicon.partsByLen) {
+        if (!raw.startsWith(part, start)) continue;
+        const meta = lexicon.partMeta.get(part);
+        if (!meta) continue;
+        // Avoid splitting unknown words through accidental one-letter lexical roots.
+        if (part.length === 1 && !meta.prefix && !meta.suffix) continue;
+
+        const rest = solve(start + part.length);
+        if (rest === null) continue;
+        const candidate = [part, ...rest];
+        if (!best || candidate.length < best.length) best = candidate;
+      }
+
+      memo.set(start, best);
+      return best;
+    };
+
+    const best = solve(0);
+    if (!best || best.length < 2) return chunk;
+
+    const hasAffix = best.some((p) => {
+      const meta = lexicon.partMeta.get(p);
+      return !!(meta?.prefix || meta?.suffix);
+    });
+    if (!hasAffix) return chunk;
+
+    return best.join('-');
+  }
+
+  function autoHyphenateToken(token, lexicon){
+    const tok = String(token || '');
+    if (!tok) return tok;
+    // Preserve explicit morphological tags like "verb-PRS;...".
+    if (/^([A-Za-z'’]+)-([A-Z][A-Z0-9.;]*)$/.test(tok)) return tok;
+    if (tok.includes(';')) return tok;
+
+    const parts = tok.split('-').map((p) => splitChunkWithKnownParts(p, lexicon));
+    return parts.join('-');
+  }
+
+  function autoHyphenateTokens(tokens, lexicon){
+    return (tokens || []).map(t => autoHyphenateToken(t, lexicon));
+  }
+
   async function loadDict(){
     const csv = await fetch(BASE + 'dictionary.csv').then(r=>r.text());
     const lines = csv.split(/\r?\n/).filter(Boolean);
@@ -34,6 +114,7 @@
     const lines = csv.split(/\r?\n/).filter(Boolean);
     const [, ...rows] = lines;
     const reverse = new Map();
+    const tovianForms = new Set();
     rows.forEach(l => {
       const cols = l.split(',');
       if (cols.length < 3) return;
@@ -41,6 +122,7 @@
       const ipa = (cols[2] || '').trim();
       const gloss = ((cols[3] || '').trim() || (cols[0] || '').trim());
       if (!tovian || !gloss) return;
+      tovianForms.add(tovian);
       const key = normalizeTovianForGloss(tovian);
       if (!key) return;
       if (!reverse.has(key)) {
@@ -61,7 +143,10 @@
         ipa: v.ipa
       });
     });
-    return collapsed;
+    return {
+      reverse: collapsed,
+      partsLexicon: buildTemplatePartLexicon(tovianForms)
+    };
   }
 
   async function loadUniMorphVerbs(){
@@ -95,11 +180,11 @@
     if (!g) return null;
     const low = g.toLowerCase();
     const upper = g.toUpperCase();
-    if (/^(NOM|ACC|GEN|DAT|LOC|TEMP|INS|PUR|ABL|COM|ALL|ESS|ANIM|ANI|INAN|ABS)$/.test(upper)) {
+    if (/^(NOM|ACC|GEN|DAT|LOC|TEMP|INS|PUR|ABL|COM|ALL|ESS|ANIM|ANI|INAN|ABS|DEF|INDEF|SUB|IMP|COND|COUNTER|OPT|OBL|POT)$/.test(upper)) {
       return upper === 'ANI' ? 'ANIM' : upper;
     }
     if (low === 'possession' || low.includes('genitive')) return 'GEN';
-    if (low.includes('nominative')) return 'NOM';
+    if (low.includes('nominative') || low.includes('nomative')) return 'NOM';
     if (low.includes('accusative')) return 'ACC';
     if (low.includes('dative')) return 'DAT';
     if (low.includes('locative')) return 'LOC';
@@ -113,6 +198,15 @@
     if (low.includes('animate')) return 'ANIM';
     if (low.includes('inanimate')) return 'INAN';
     if (low.includes('abstract')) return 'ABS';
+    if (low.includes('definite marker') || low === 'definite') return 'DEF';
+    if (low.includes('indefinite marker') || low === 'indefinite') return 'INDEF';
+    if (low.includes('subjunctive')) return 'SUB';
+    if (low.includes('imperative')) return 'IMP';
+    if (low.includes('conditional')) return 'COND';
+    if (low.includes('counterfactual')) return 'COUNTER';
+    if (low.includes('optative')) return 'OPT';
+    if (low.includes('obligative')) return 'OBL';
+    if (low.includes('potential')) return 'POT';
     return null;
   }
 
@@ -165,7 +259,7 @@
     if (s.endsWith('ing')) {
       const stem = s.slice(0, -3);
       // simple de-gerunding heuristic
-      if (stem.length >= 3 && stem[stem.length - 1] === stem[stem.length - 2]) return stem.slice(0, -1);
+      if (/([b-df-hj-np-tv-z])\1$/i.test(stem)) return stem.slice(0, -1);
       if (stem.endsWith('v')) return stem + 'e';
       return stem;
     }
@@ -417,22 +511,194 @@
 
   function inflectByAux(lemma, aux, unimorphVerbs){
     const descriptor = (aux?.descriptor || '').toLowerCase();
-    if (descriptor.includes('continuous') || descriptor.includes('progressive')) {
-      return getUniMorphForm(unimorphVerbs, lemma, 'cont_prs') || presentParticiple(lemma);
+    const tense = aux?.tense || 'present';
+    const ppres = getUniMorphForm(unimorphVerbs, lemma, 'cont_prs') || presentParticiple(lemma);
+    const ppast = getUniMorphForm(unimorphVerbs, lemma, 'ptcp_pst') || inflectEnglishVerb(lemma, 'past');
+
+    if (descriptor.includes('obligative')) {
+      return tense === 'past' ? `should have ${ppast}` : `should ${lemma}`;
+    }
+    if (descriptor.includes('optative') || descriptor.includes('potential')) {
+      return tense === 'past' ? `may have ${ppast}` : `may ${lemma}`;
+    }
+    if (descriptor.includes('subjunctive')) {
+      return tense === 'past' ? `might have ${ppast}` : `might ${lemma}`;
+    }
+    if (descriptor.includes('conditional')) {
+      return tense === 'past' ? `would have ${ppast}` : `would ${lemma}`;
+    }
+    if (descriptor.includes('counterfactual')) {
+      return `would have ${ppast}`;
+    }
+    if (descriptor.includes('habitual')) {
+      if (tense === 'future') return `will usually ${lemma}`;
+      if (tense === 'past') return `usually ${getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past')}`;
+      return `usually ${getUniMorphForm(unimorphVerbs, lemma, 'prs_3sg') || inflectEnglishVerb(lemma, 'present')}`;
+    }
+    if (descriptor.includes('continuous') || descriptor.includes('progressive') || descriptor.includes('imperfective')) {
+      if (tense === 'past') return `was ${ppres}`;
+      if (tense === 'future') return `will be ${ppres}`;
+      return `is ${ppres}`;
     }
     if (descriptor.includes('perfect')) {
-      return getUniMorphForm(unimorphVerbs, lemma, 'ptcp_pst') || inflectEnglishVerb(lemma, aux?.tense || 'past');
+      if (tense === 'past') return `had ${ppast}`;
+      if (tense === 'future') return `will have ${ppast}`;
+      return `has ${ppast}`;
     }
-    if ((aux?.tense || '') === 'past') {
-      return getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past');
+    if (descriptor.includes('inceptive')) {
+      if (tense === 'past') return `started to ${lemma}`;
+      if (tense === 'future') return `will start to ${lemma}`;
+      return `starts to ${lemma}`;
     }
-    if ((aux?.tense || '') === 'present') {
+    if (descriptor.includes('cessative')) {
+      if (tense === 'past') return `stopped ${ppres}`;
+      if (tense === 'future') return `will stop ${ppres}`;
+      return `stops ${ppres}`;
+    }
+    if (descriptor.includes('iterative')) {
+      if (tense === 'future') return `will repeatedly ${lemma}`;
+      if (tense === 'past') return `repeatedly ${getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past')}`;
+      return `repeatedly ${getUniMorphForm(unimorphVerbs, lemma, 'prs_3sg') || inflectEnglishVerb(lemma, 'present')}`;
+    }
+    if (descriptor.includes('immediate')) {
+      if (tense === 'past') return `just ${getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past')}`;
+      if (tense === 'future') return `will soon ${lemma}`;
+      return `is just ${ppres}`;
+    }
+    if (descriptor.includes('near')) {
+      if (tense === 'past') return `recently ${getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past')}`;
+      if (tense === 'future') return `is about to ${lemma}`;
+      return `is ${ppres}`;
+    }
+    if (descriptor.includes('remote')) {
+      if (tense === 'past') return `long ago ${getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past')}`;
+      if (tense === 'future') return `in the far future ${lemma}`;
       return getUniMorphForm(unimorphVerbs, lemma, 'prs_3sg') || inflectEnglishVerb(lemma, 'present');
     }
-    return inflectEnglishVerb(lemma, aux?.tense || 'present');
+    if (tense === 'past') {
+      return getUniMorphForm(unimorphVerbs, lemma, 'pst') || inflectEnglishVerb(lemma, 'past');
+    }
+    if (tense === 'present') {
+      return getUniMorphForm(unimorphVerbs, lemma, 'prs_3sg') || inflectEnglishVerb(lemma, 'present');
+    }
+    return inflectEnglishVerb(lemma, tense);
   }
 
-  function predictedTranslation(tokens, rows, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse){
+  function applyMoodMarkersToVerb(pred){
+    const m = (pred || '').match(/^([A-Za-z'’]+)-([A-Z.]+)$/);
+    if (!m) return pred;
+    const word = m[1];
+    const markers = m[2].split('.');
+    if (markers.includes('OBL')) return `should ${word}`;
+    if (markers.includes('OPT') || markers.includes('POT')) return `may ${word}`;
+    if (markers.includes('SUB')) return `might ${word}`;
+    if (markers.includes('COND')) return `would ${word}`;
+    if (markers.includes('COUNTER')) return `would have ${word}`;
+    return pred;
+  }
+
+  function casePreposition(markers){
+    if (markers.includes('LOC')) return 'in';
+    if (markers.includes('TEMP')) return 'at';
+    if (markers.includes('ABL')) return 'from';
+    if (markers.includes('ALL')) return 'to';
+    if (markers.includes('COM')) return 'with';
+    if (markers.includes('INS')) return 'with';
+    if (markers.includes('PUR')) return 'for';
+    if (markers.includes('DAT')) return 'to';
+    if (markers.includes('ESS')) return 'as';
+    return '';
+  }
+
+  function phraseFromSegmentGlosses(segGlosses){
+    const markers = [];
+    const lexical = [];
+    segGlosses.forEach((g) => {
+      const code = markerCodeFromGloss(g);
+      if (code) markers.push(code);
+      else lexical.push(g);
+    });
+
+    if (!lexical.length) return segGlosses.join(' ');
+
+    const article = markers.includes('DEF') ? 'the' : (markers.includes('INDEF') ? 'a' : '');
+    const prep = casePreposition(markers);
+    const head = lexical.join(' ').trim();
+    const np = `${article ? `${article} ` : ''}${head}`.trim();
+
+    if (markers.includes('GEN')) return `of ${np}`;
+    return prep ? `${prep} ${np}` : np;
+  }
+
+  function splitGlossVariants(glossText){
+    return (glossText || '').split('/').map(x => x.trim()).filter(Boolean);
+  }
+
+  function uniqueLimit(items, max = 12){
+    const out = [];
+    const seen = new Set();
+    items.forEach((x) => {
+      const v = (x || '').trim();
+      if (!v || seen.has(v) || out.length >= max) return;
+      seen.add(v);
+      out.push(v);
+    });
+    return out;
+  }
+
+  function appendVariants(sentences, variants, max = 16){
+    const out = [];
+    const seen = new Set();
+    for (const s of sentences) {
+      for (const v of variants) {
+        const next = `${s}${s ? ' ' : ''}${v}`.trim();
+        if (!next || seen.has(next)) continue;
+        seen.add(next);
+        out.push(next);
+        if (out.length >= max) return out;
+      }
+    }
+    return out;
+  }
+
+  function phraseVariantsFromSegments(segs, tokenData, max = 8){
+    const base = segs.map(s => firstGloss(tokenData(s).gloss) || s);
+    const lexicalSegIndexes = [];
+    const choicesPerLexSeg = [];
+
+    segs.forEach((s, i) => {
+      const variants = splitGlossVariants(tokenData(s).gloss);
+      const markerVariants = variants.filter(v => !!markerCodeFromGloss(v));
+      // If this segment has grammatical marker readings, suppress stray lexical
+      // alternatives (e.g., "one" from class marker segment "lo-").
+      const lexical = markerVariants.length ? [] : uniqueLimit(variants.filter(v => !markerCodeFromGloss(v)), 6);
+      if (lexical.length) {
+        lexicalSegIndexes.push(i);
+        choicesPerLexSeg.push(lexical);
+      }
+    });
+
+    if (!choicesPerLexSeg.length) return [phraseFromSegmentGlosses(base)];
+
+    let combos = [base.slice()];
+    for (let j = 0; j < choicesPerLexSeg.length; j += 1) {
+      const idx = lexicalSegIndexes[j];
+      const choices = choicesPerLexSeg[j];
+      const next = [];
+      combos.forEach((arr) => {
+        choices.forEach((c) => {
+          const cp = arr.slice();
+          cp[idx] = c;
+          next.push(cp);
+        });
+      });
+      combos = next.slice(0, max);
+    }
+
+    return uniqueLimit(combos.map(c => phraseFromSegmentGlosses(c)), max);
+  }
+
+  function predictedTranslationVariants(tokens, rows, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse, maxVariants = 12){
     const fromReverse = (token) => reverseGloss?.get(normalizeTovianForGloss(token)) || null;
     const tokenData = (token) => {
       const rev = fromReverse(token);
@@ -447,54 +713,82 @@
       const tagMatch = tok.match(/^([A-Za-z'’]+)-([A-Z][A-Z0-9.;]*)$/i);
       if (tagMatch) {
         const realized = realizeTaggedVerb(tagMatch[1], tagMatch[2], unimorphVerbs, unimorphReverse);
-        if (realized) return { pred: realized, aux: null };
+        if (realized) return { predVariants: [realized], glossVariants: [realized], aux: null };
       }
+
       const segs = tok.split('-');
       if (segs.length > 1) {
-        const segGlosses = segs.map(s => firstGloss(tokenData(s).gloss) || s);
-        const markers = [];
-        const lexical = [];
-        segGlosses.forEach(g => {
-          const code = markerCodeFromGloss(g);
-          if (code) markers.push(code);
-          else lexical.push(g);
-        });
-        const pred = (lexical.length === 1 && markers.length)
-          ? `${lexical[0]}-${markers.join('.')}`
-          : segGlosses.join(' ');
         const fullGloss = tokenData(tok).gloss || '';
-        return { pred, fullGloss, aux: parseAuxGloss(firstGloss(fullGloss)) };
+        const predVariants = phraseVariantsFromSegments(segs, tokenData, 8);
+        return {
+          predVariants,
+          glossVariants: splitGlossVariants(fullGloss),
+          fullGloss,
+          aux: parseAuxGloss(firstGloss(fullGloss))
+        };
       }
+
       const fullGloss = tokenData(tok).gloss || '';
-      const g = firstGloss(fullGloss) || tok;
-      return { pred: g, fullGloss, aux: parseAuxGloss(g) };
+      const glossVariants = splitGlossVariants(fullGloss);
+      const primary = firstGloss(fullGloss) || tok;
+      return {
+        predVariants: uniqueLimit([primary, ...glossVariants], 6),
+        glossVariants,
+        fullGloss,
+        aux: parseAuxGloss(primary)
+      };
     });
 
-    const out = [];
+    let sentences = [''];
     for (let i = 0; i < tokenInfos.length; i += 1) {
       const cur = tokenInfos[i];
+
       if (cur.aux && i + 1 < tokenInfos.length) {
         const next = tokenInfos[i + 1];
-        const head = (next.pred || '').split('-')[0].trim().split(/\s+/)[0];
-        const lemma = conceptToVerbFromGlossText(next.fullGloss, conceptVerbMap) || conceptToVerbLemma(head, conceptVerbMap);
-        if (lemma) {
-          const inflected = inflectByAux(lemma, cur.aux, unimorphVerbs);
-          out.push(inflected);
-          i += 1; // consume concept noun token
-          continue;
-        }
-        if (next.pred) {
+        const verbVariants = [];
+
+        const glossCandidates = uniqueLimit([
+          ...(next.glossVariants || []),
+          next.fullGloss || '',
+          ...(next.predVariants || [])
+        ], 12);
+
+        glossCandidates.forEach((cand) => {
+          const lemma = conceptToVerbFromGlossText(cand, conceptVerbMap) || conceptToVerbLemma((cand || '').split(/\s+/)[0], conceptVerbMap);
+          if (lemma) verbVariants.push(inflectByAux(lemma, cur.aux, unimorphVerbs));
+        });
+
+        if (!verbVariants.length) {
           const tag = auxTag(cur.aux);
-          const realized = tag ? realizeTaggedVerb(next.pred, tag, unimorphVerbs, unimorphReverse) : null;
-          out.push(realized || next.pred);
-          i += 1; // consume concept noun token
-          continue;
+          (next.predVariants || []).forEach((p) => {
+            const realized = tag ? realizeTaggedVerb(p, tag, unimorphVerbs, unimorphReverse) : null;
+            verbVariants.push(realized || p);
+          });
         }
+
+        sentences = appendVariants(sentences, uniqueLimit(verbVariants, 8), maxVariants);
+        i += 1;
+        continue;
       }
-      out.push(cur.pred);
+
+      const variants = uniqueLimit((cur.predVariants || []).map(applyMoodMarkersToVerb), 8);
+      sentences = appendVariants(sentences, variants, maxVariants);
     }
 
-    return out.join(' ');
+    return uniqueLimit(sentences, maxVariants);
+  }
+
+  function predictedTranslation(tokens, rows, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse){
+    return predictedTranslationVariants(tokens, rows, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse, 1)[0] || '';
+  }
+
+  function escapeHtml(s){
+    return String(s || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
   }
 
   function glossTable(tokens, rows, reverseGloss){
@@ -637,7 +931,9 @@
   }
 
   window.addEventListener('DOMContentLoaded', async () => {
+    const loadStart = Date.now();
     const loadingEl = document.getElementById('glossLoading');
+    const loadingTextEl = document.getElementById('glossLoadingText');
     const glossIn = document.getElementById('glossInput');
     const glossBtn = document.getElementById('glossBtn');
     const glossOut = document.getElementById('glossOut');
@@ -647,36 +943,66 @@
     const tranOut = document.getElementById('tranOut');
     const clearTran = document.getElementById('clearTran');
 
+    if (loadingEl) loadingEl.style.display = '';
+    if (loadingTextEl) loadingTextEl.textContent = 'Loading glosser data…';
+
     if (glossOut) {
       glossOut.innerHTML = `<div class="card"><div class="muted">Loading…</div></div>`;
     }
+    if (glossBtn) glossBtn.textContent = 'Loading…';
+    if (tranBtn) tranBtn.textContent = 'Loading…';
     [glossIn, glossBtn, clearGloss, tranIn, tranBtn, clearTran].forEach((el) => {
       if (el) el.disabled = true;
     });
 
     let dict = [];
     let reverseGloss = new Map();
+    let templateParts = { partMeta: new Map(), partsByLen: [] };
     let conceptVerbMap = new Map();
     let unimorphVerbs = {};
     let unimorphReverse = new Map();
+    if (loadingTextEl) loadingTextEl.textContent = 'Loading dictionary…';
     try { dict = await loadDict(); } catch {}
+
+    if (loadingTextEl) loadingTextEl.textContent = 'Indexing concepts…';
     try { conceptVerbMap = deriveConceptVerbMap(dict); } catch {}
-    try { reverseGloss = await loadTemplateGlossReverse(); } catch {}
+
+    if (loadingTextEl) loadingTextEl.textContent = 'Loading gloss templates…';
+    try {
+      const templateData = await loadTemplateGlossReverse();
+      reverseGloss = templateData?.reverse || new Map();
+      templateParts = templateData?.partsLexicon || templateParts;
+    } catch {}
+
+    if (loadingTextEl) loadingTextEl.textContent = 'Loading verb inflections…';
     try { unimorphVerbs = await loadUniMorphVerbs(); } catch {}
+
+    if (loadingTextEl) loadingTextEl.textContent = 'Finalizing…';
     try { unimorphReverse = buildUniMorphReverseIndex(unimorphVerbs); } catch {}
+
+    const elapsed = Date.now() - loadStart;
+    if (elapsed < 500) await new Promise(resolve => setTimeout(resolve, 500 - elapsed));
 
     [glossIn, glossBtn, clearGloss, tranIn, tranBtn, clearTran].forEach((el) => {
       if (el) el.disabled = false;
     });
+    if (glossBtn) glossBtn.textContent = 'Gloss';
+    if (tranBtn) tranBtn.textContent = 'Translate';
     if (loadingEl) loadingEl.style.display = 'none';
     if (glossOut && /Loading…/.test(glossOut.textContent || '')) glossOut.innerHTML = '';
 
     glossBtn?.addEventListener('click', () => {
       const text = (glossIn?.value || '').trim();
       if (!text) { glossOut.innerHTML = ''; return; }
-      const tokens = tokenizeTovian(text);
+      const rawTokens = tokenizeTovian(text);
+      const tokens = autoHyphenateTokens(rawTokens, templateParts);
       const predicted = predictedTranslation(tokens, dict, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse);
-      glossOut.innerHTML = `<div class="card" style="margin-bottom:10px"><div><b>Predicted translation:</b> ${predicted}</div></div>` + glossTable(tokens, dict, reverseGloss);
+      const variants = predictedTranslationVariants(tokens, dict, reverseGloss, conceptVerbMap, unimorphVerbs, unimorphReverse, 16);
+      const others = variants.slice(1);
+      const othersHtml = others.length
+        ? `<details style="margin-top:8px"><summary>Other possible translations (${others.length})</summary><ul>${others.map(v => `<li>${escapeHtml(v)}</li>`).join('')}</ul></details>`
+        : '';
+      glossOut.innerHTML = `<div class="card" style="margin-bottom:10px"><div><b>Predicted translation:</b> ${escapeHtml(predicted)}</div>${othersHtml}</div>` + glossTable(tokens, dict, reverseGloss);
     });
     clearGloss?.addEventListener('click', () => { if (glossIn) glossIn.value=''; glossOut.innerHTML=''; });
 
