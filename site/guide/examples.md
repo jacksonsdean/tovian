@@ -9,10 +9,10 @@ This section contains practical examples of Tovian in use, organized by complexi
 
 ## Browse by Topic
 
-- **[Basic Phrases](/examples/basics.html)** — Essential vocabulary and short phrases
-- **[Simple Sentences](/examples/sentences.html)** — Subject-verb patterns and word order
-- **[Forming Questions](/examples/questions.html)** — Yes/no and information questions
-- **[Emphasis & Word Order](/examples/emphasis.html)** — Fronting and stylistic variation
+- **[Basic Phrases]({{ '/examples/basics.html' | url }})** — Essential vocabulary and short phrases
+- **[Simple Sentences]({{ '/examples/sentences.html' | url }})** — Subject-verb patterns and word order
+- **[Forming Questions]({{ '/examples/questions.html' | url }})** — Yes/no and information questions
+- **[Emphasis & Word Order]({{ '/examples/emphasis.html' | url }})** — Fronting and stylistic variation
 
 ## Quick Reference
 
