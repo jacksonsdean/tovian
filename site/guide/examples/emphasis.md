@@ -21,7 +21,7 @@ Using fronting and word order for emphasis and clarity.
 - Attributive nouns (adjectives) follow the noun they modify
 - These techniques create stylistic variation while maintaining meaning
 
-<script src="/examples.js"></script>
+<script src="{{ '/examples.js' | url }}"></script>
 <script>
 window.loadExamplesFromCSV().then(data => {
   if (!data) return;

@@ -11,6 +11,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 'site/images': 'images' });
   eleventyConfig.addPassthroughCopy({ 'site/fonts': 'fonts' });
   eleventyConfig.addPassthroughCopy({ 'site/app.js': 'app.js' });
+  eleventyConfig.addPassthroughCopy({ 'site/examples.js': 'examples.js' });
   eleventyConfig.addPassthroughCopy({ 'site/CsvToTable.js': 'CsvToTable.js' });
   eleventyConfig.addPassthroughCopy({ 'site/styles.css': 'styles.css' });
   eleventyConfig.addPassthroughCopy({ 'site/dictionary.csv': 'dictionary.csv' });

@@ -1,4 +1,6 @@
 // Load examples from CSV and populate subpages
+const BASE = (window.__BASE || '/');
+
 function parseCSV(text) {
   const rows = [];
   let row = [];
@@ -128,7 +130,7 @@ function parseTemplateExpression(value) {
 }
 
 async function loadTemplateReplacementResolvers() {
-  const response = await fetch('/template_replacements.csv');
+  const response = await fetch(BASE + 'template_replacements.csv');
   const csv = await response.text();
   const rows = parseCSV(csv);
   const [, ...data] = rows;
@@ -170,7 +172,7 @@ async function loadTemplateReplacementResolvers() {
 async function loadExamplesFromCSV() {
   try {
     // Prefer build-time resolved output to avoid runtime resolver drift.
-    const parallelsResponse = await fetch('/parallels.csv');
+    const parallelsResponse = await fetch(BASE + 'parallels.csv');
     if (parallelsResponse.ok) {
       const csv = await parallelsResponse.text();
       const allRows = parseCSV(csv);
@@ -191,7 +193,7 @@ async function loadExamplesFromCSV() {
     }
 
     const [response, resolvers] = await Promise.all([
-      fetch('/examples.csv'),
+      fetch(BASE + 'examples.csv'),
       loadTemplateReplacementResolvers()
     ]);
     const csv = await response.text();
