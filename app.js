@@ -12,7 +12,22 @@
       favorites: new Set(),
       showIPA: true,
       includeAuxiliaries: false,
+      includeDates: false,
     };
+
+    const MONTHS = ['january','february','march','april','may','june','july','august','september','october','november','december'];
+    const SEASONS = ['spring','summer','autumn','winter'];
+
+    function isCalendarEnglish(english) {
+      const en = (english || '').trim().toLowerCase();
+      if (!en) return false;
+      // e.g. "January" or "January 20" or "January twentieth"
+      if (MONTHS.includes(en)) return true;
+      if (MONTHS.some(m => en.startsWith(m + ' '))) return true;
+      // e.g. "1 of spring"
+      if (/^\d+\s+of\s+(spring|summer|autumn|winter)$/.test(en)) return true;
+      return false;
+    }
   
     // Base prefix for path (from Eleventy pathPrefix)
     const BASE = (window.__BASE || '/');
@@ -62,6 +77,7 @@
         ipa: (r[2] || '').trim(),
         roots: (r[3] || '').trim(),
         isAuxiliary: /^auxiliary(\-form)?:/i.test((r[0] || '').trim()),
+        isDate: isCalendarEnglish((r[0] || '').trim()),
         // A broader text field to make search forgiving (typos, IPA, roots, etc.)
         search: '',
       }));
@@ -72,6 +88,13 @@
       return entries.filter(e => !e.isAuxiliary);
     }
 
+    function applyDateFilter(entries, includeDates) {
+      if (includeDates) return entries;
+      return entries.filter(e => !e.isDate);
+    }
+
+    function applyDictionaryFilters(entries) {
+      return applyDateFilter(applyAuxFilter(entries, state.includeAuxiliaries), state.includeDates);
     function getUniqueTovianWordCount(entries) {
       const unique = new Set();
       entries.forEach((e) => {
@@ -225,7 +248,7 @@
       const csvText = await fetch(base + 'dictionary.csv').then((r) => r.text());
       state.allEntries = withSearchFields(parseCSV(csvText)).filter((x) => x.english && x.tovian && !/\(obsolete\)/i.test(x.english));
       state.entries = state.allEntries;
-      state.dictEntries = applyAuxFilter(state.entries, state.includeAuxiliaries);
+      state.dictEntries = applyDictionaryFilters(state.entries);
       state.fuseDict = new Fuse(state.dictEntries, { keys: ['english', 'tovian', 'ipa', 'roots', 'search'], threshold: 0.3 });
       renderDictCards(state.dictEntries);
       updateDictionaryBadgeTooltip(state.dictEntries);
@@ -250,14 +273,7 @@
       if (wotdHost && wotdEntries.length) {
         const d = new Date();
         // ignore calendar/date-like entries for WOTD
-        const months = ['january','february','march','april','may','june','july','august','september','october','november','december'];
-        const seasons = ['spring','summer','autumn','winter'];
-        const nonCalendar = wotdEntries.filter(e => {
-          const en = (e.english || '').toLowerCase();
-          if (/^\d+\s+of\s+(spring|summer|autumn|winter)$/.test(en)) return false;
-          if (months.some(m => new RegExp('^'+m+'\\s+\\d+$').test(en))) return false;
-          return true;
-        });
+        const nonCalendar = wotdEntries.filter(e => !isCalendarEnglish(e.english));
         const pool = nonCalendar.length ? nonCalendar : wotdEntries;
         const seed = d.getFullYear() * 372 + (d.getMonth()+1) * 31 + d.getDate();
         const idx = seed % pool.length;
@@ -265,7 +281,7 @@
         wotdHost.appendChild(card);
         // Also show today's named date if present (e.g., "January 20")
         try {
-          const dateKey = `${months[d.getMonth()]} ${d.getDate()}`;
+          const dateKey = `${MONTHS[d.getMonth()]} ${d.getDate()}`;
           const match = wotdEntries.find(e => e.english.toLowerCase() === dateKey);
           if (match) {
             const head = document.createElement('div');
@@ -420,6 +436,7 @@
       // Dictionary filter
       const dictInput = document.getElementById('dictSearch');
       const auxBtn = document.getElementById('toggleAuxBtn');
+      const datesBtn = document.getElementById('toggleDatesBtn');
       function filterTable(q) {
         const table = document.getElementById('dictionaryTable');
         if (!table) return;
@@ -428,7 +445,12 @@
         Array.from(rows).forEach((row) => {
           const englishCell = (row.cells?.[0]?.textContent || '').trim();
           const isAux = /^auxiliary(\-form)?:/i.test(englishCell);
+          const isDate = isCalendarEnglish(englishCell);
           if (!state.includeAuxiliaries && isAux) {
+            row.style.display = 'none';
+            return;
+          }
+          if (!state.includeDates && isDate) {
             row.style.display = 'none';
             return;
           }
@@ -438,7 +460,7 @@
       }
 
       function rebuildDictionaryIndexAndRender() {
-        state.dictEntries = applyAuxFilter(state.entries, state.includeAuxiliaries);
+        state.dictEntries = applyDictionaryFilters(state.entries);
         state.fuseDict = new Fuse(state.dictEntries, { keys: ['english', 'tovian', 'ipa', 'roots', 'search'], threshold: 0.3 });
         const q = dictInput?.value?.trim() || '';
         const favMode = document.getElementById('favoritesBtn')?.getAttribute('aria-pressed') === 'true';
@@ -469,6 +491,13 @@
       auxBtn?.addEventListener('click', () => {
         state.includeAuxiliaries = !state.includeAuxiliaries;
         auxBtn.setAttribute('aria-pressed', state.includeAuxiliaries ? 'true' : 'false');
+        rebuildDictionaryIndexAndRender();
+      });
+
+      if (datesBtn) datesBtn.setAttribute('aria-pressed', state.includeDates ? 'true' : 'false');
+      datesBtn?.addEventListener('click', () => {
+        state.includeDates = !state.includeDates;
+        datesBtn.setAttribute('aria-pressed', state.includeDates ? 'true' : 'false');
         rebuildDictionaryIndexAndRender();
       });
       dictInput?.addEventListener('input', () => {
@@ -764,4 +793,4 @@
 
     window.addEventListener('DOMContentLoaded', init);
   })();
-  
+
