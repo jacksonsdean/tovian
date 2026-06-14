@@ -95,6 +95,8 @@
 
     function applyDictionaryFilters(entries) {
       return applyDateFilter(applyAuxFilter(entries, state.includeAuxiliaries), state.includeDates);
+      }
+
     function getUniqueTovianWordCount(entries) {
       const unique = new Set();
       entries.forEach((e) => {
