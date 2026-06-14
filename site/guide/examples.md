@@ -1,7 +1,7 @@
 ---
 layout: guide_page.njk
-permalink: /guide/examples.html
-title: Examples | Tovian Guide
+permalink: /examples/index.html
+title: Examples | Tovian
 ---
 # Examples
 
@@ -9,37 +9,38 @@ This section contains practical examples of Tovian in use, organized by complexi
 
 ## Browse by Topic
 
-- **[Basic Phrases](/guide/examples/basics.html)** — Essential vocabulary and short phrases
-- **[Simple Sentences](/guide/examples/sentences.html)** — Subject-verb patterns and word order
-- **[Forming Questions](/guide/examples/questions.html)** — Yes/no and information questions
-- **[Emphasis & Word Order](/guide/examples/emphasis.html)** — Fronting and stylistic variation
+- **[Basic Phrases]({{ '/examples/basics.html' | url }})** — Essential vocabulary and short phrases
+- **[Simple Sentences]({{ '/examples/sentences.html' | url }})** — Subject-verb patterns and word order
+- **[Complex Sentences]({{ '/examples/complex.html' | url }})** — Conditionals, hypotheticals, and multi-layer clauses
+- **[Forming Questions]({{ '/examples/questions.html' | url }})** — Yes/no and information questions
+- **[Emphasis & Word Order]({{ '/examples/emphasis.html' | url }})** — Fronting and stylistic variation
 
 ## Quick Reference
 
 ### Basics
 
-- <code>la-yel</code> — the person
-- <code>lo-shithil</code> — the city
-- <code>fa mril</code> — see(s) (present)
-- <code>fethr</code> — speech/speaking
+- {% tovc "ani-person" %} — the person
+- {% tovc "inan-city" %} — the city
+- {% tovc "aux_3_sim_prs sight" %} — see(s) (present)
+- {% tovc "speech" %} — speech/speaking
 
 ### Simple Sentences
 
-- <code>la-yel fa mril.</code> — The person sees.
-- <code>i-la-yel fa mril a-ti-lo-shithil.</code> — The person sees in the city.
-- <code>lhan wa ofa fethr?</code> — Do you speak?
+- {% tovc "ani-person aux_3_sim_prs sight" %}. — The person sees.
+- {% tovc "nom-ani-person aux_3_sim_prs sight loc-inan-city" %}. — The person sees in the city.
+- {% tovc "what you aux_2_sim_prs speech" %}? — Do you speak?
 
-### Attributive Nouns
+### Attributive Nouns (Adjectives)
 
-- <code>la-yel mot</code> — the big person
-- <code>ti-lo-shithil mot la-yel fa mril.</code> — The big person sees in the city.
+- {% tovc "ani-person large" %} — the big person
+- {% tovc "loc-inan-city large ani-person aux_3_sim_prs sight" %}. — The big person sees in the city.
 
 ### Fronting for Emphasis
 
-- <code>ti-lo-shithil la-yel fa mril.</code> — In the city, the person sees.
+- {% tovc "loc-inan-city ani-person aux_3_sim_prs sight" %}. — In the city, the person sees.
 
 ### Questions with Case Markers
 
-- <code>si-lhan ta fe fethr?</code> — How did he speak?
-- <code>ti-lhan ta fa fethr?</code> — Where does he speak?
+- {% tovc "ins-what he aux_3_sim_pst speech" %}? — How did he speak?
+- {% tovc "loc-what he aux_3_sim_prs speech" %}? — Where does he speak?
 

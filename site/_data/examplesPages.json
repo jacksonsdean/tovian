@@ -1,0 +1,9 @@
+[
+  { "id": "examples-home", "path": "index.html", "title": "Examples", "summary": "Practical examples of increasing complexity." },
+  { "id": "examples-basics", "path": "basics.html", "title": "Basic Phrases", "summary": "Essential vocabulary and short phrases." },
+  { "id": "examples-sentences", "path": "sentences.html", "title": "Simple Sentences", "summary": "Subject–verb patterns and basic word order." },
+  { "id": "examples-compounds", "path": "compounds.html", "title": "Compound Sentences", "summary": "Multi-clause and linked sentence patterns." },
+  { "id": "examples-complex", "path": "complex.html", "title": "Complex Sentences", "summary": "Conditional, hypothetical, and nested clause patterns." },
+  { "id": "examples-questions", "path": "questions.html", "title": "Forming Questions", "summary": "Yes/no and information question patterns." },
+  { "id": "examples-emphasis", "path": "emphasis.html", "title": "Emphasis & Word Order", "summary": "Fronting and stylistic variation." }
+]

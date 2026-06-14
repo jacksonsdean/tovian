@@ -1,0 +1,14 @@
+---
+permalink: /examples/manifest.json
+eleventyExcludeFromCollections: true
+---
+[
+  {% for p in examplesPages %}
+  {
+    "id": {{ p.id | dump | safe }},
+    "path": {{ (p.path) | dump | safe }},
+    "title": {{ p.title | dump | safe }},
+    "summary": {{ p.summary | dump | safe }}
+  }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]

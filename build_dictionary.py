@@ -1,9 +1,10 @@
 from collections import OrderedDict
 import argparse
 import csv
+import re
 
-from format_words import format_for_latex, get_dictionary_csv, get_dictionary_latex, romanization
-from sound_changes import apply_sound_changes, borrowed_sound_changes, mark_stress
+from format_words import dotted_with_stress, format_for_latex, get_dictionary_csv, get_dictionary_latex, romanization
+from sound_changes import apply_sound_changes, borrowed_sound_changes, mark_stress, unmark_stress
 
 # Auxiliaries: aspect roots + tense suffixes (see site/guide/verbs.md)
 AUX_TENSE_SUFFIXES = OrderedDict([
@@ -119,6 +120,96 @@ def build_all_auxiliary_entries():
         seen.add(key)
         unique.append(e)
     return unique
+
+
+def make_template_replacement_key(english):
+    """Build a stable replacement key for Eleventy templates.
+
+    Rules:
+    - Auxiliary forms are compact uppercase tokens, e.g.
+      aux_1_con_ref_pro_fut
+    - Other entries are lowercase snake_case.
+    """
+    text = english.strip()
+
+    aux_match = re.match(r"^auxiliary-form:\s*(.*?)\s*\((past|present|future)\)\s*$", text, flags=re.IGNORECASE)
+    if aux_match:
+        descriptor = aux_match.group(1).strip()
+        tense = aux_match.group(2).lower().strip()
+
+        mood_abbr = {
+            "subjunctive": "sbj",
+            "imperative": "imp",
+            "conditional": "con",
+            "counterfactual": "ctr",
+            "optative": "opt",
+            "obligative": "obl",
+            "potential": "pot",
+        }
+        voice_abbr = {
+            "reflexive": "ref",
+            "passive": "pas",
+            "middle": "mid",
+            "causative": "cau",
+            "reciprocal": "rec",
+        }
+        aspect_abbr = {
+            "simple": "sim",
+            "imperfective": "ipf",
+            "perfect": "prf",
+            "near": "nea",
+            "immediate": "imm",
+            "habitual": "hab",
+            "progressive": "pro",
+            "continuous": "cnt",
+            "iterative": "itr",
+            "inceptive": "inc",
+            "cessative": "ces",
+            "remote": "rem",
+        }
+        tense_abbr = {
+            "past": "pst",
+            "present": "prs",
+            "future": "fut",
+        }
+
+        tokens = descriptor.split()
+        parts = ["aux"]
+
+        # Person: 1st / 2nd / 3rd / 3rd (explicit)
+        if len(tokens) >= 2 and tokens[0].lower() == "3rd" and tokens[1].lower() == "(explicit)":
+            parts.append("3X")
+            tokens = tokens[2:]
+        elif tokens and tokens[0].lower() in {"1st", "2nd", "3rd"}:
+            parts.append(tokens[0][0])
+            tokens = tokens[1:]
+
+        # Remaining descriptors are mood (optional), voice (optional), aspect (required)
+        if tokens and tokens[0].lower() in mood_abbr:
+            parts.append(mood_abbr[tokens[0].lower()])
+            tokens = tokens[1:]
+        if tokens and tokens[0].lower() in voice_abbr:
+            parts.append(voice_abbr[tokens[0].lower()])
+            tokens = tokens[1:]
+        if tokens and tokens[0].lower() in aspect_abbr:
+            parts.append(aspect_abbr[tokens[0].lower()])
+            tokens = tokens[1:]
+
+        # Fallback for any unexpected trailing tokens.
+        for token in tokens:
+            cleaned = re.sub(r"[^A-Za-z0-9]+", "", token).upper()
+            if cleaned:
+                parts.append(cleaned)
+
+        parts.append(tense_abbr[tense])
+        return "_".join(parts)
+
+    key = text.lower()
+    key = key.replace("/", "_")
+    key = key.replace("-", "_")
+    key = re.sub(r"[^a-z0-9]+", "_", key)
+    key = re.sub(r"_+", "_", key).strip("_")
+    return key
 
 
 def load_roots():
@@ -278,6 +369,7 @@ def main():
 
     input_words = roots + compounds + borrowed + auxiliaries
     interactive_dict = {}
+    template_replacements = OrderedDict()
     latex_histories = {}
     csv_histories = []
     filtered_entries = []
@@ -294,6 +386,7 @@ def main():
 
         rom = romanization(word_after_changes)
         stress = mark_stress(word_after_changes)
+        template_ipa = dotted_with_stress(unmark_stress(word_after_changes))
         csv_history = get_dictionary_csv(word_after_changes, translation, stress, rom, pos, notes, roots_gloss)
         csv_histories.append(csv_history)
 
@@ -315,6 +408,22 @@ def main():
             interactive_dict[definition.strip()] = (final_word, pos, history, rom, stress, notes)
 
         if not args.interactive and not has_filters:
+            english = definition.strip()
+            replacement_key = make_template_replacement_key(english)
+            if not replacement_key:
+                continue
+
+            if replacement_key not in template_replacements:
+                template_replacements[replacement_key] = (rom, template_ipa, english)
+            else:
+                existing_tovian, existing_ipa, _existing_gloss = template_replacements[replacement_key]
+                if (existing_tovian, existing_ipa) != (rom, template_ipa):
+                    suffix = 2
+                    while f"{replacement_key}_{suffix}" in template_replacements:
+                        suffix += 1
+                    template_replacements[f"{replacement_key}_{suffix}"] = (rom, template_ipa, english)
+
+        if not args.interactive:
             print(stress)
             print(rom)
             print()
@@ -382,6 +491,14 @@ def main():
         if not filtered_entries:
             all_filter_terms = filter_terms + partial_filter_terms
             print(f"No dictionary entries matched: {', '.join(all_filter_terms)}")
+    template_filename = 'template_replacements.csv'
+    template_pages_filename = 'site/' + template_filename
+    for fname in [template_filename, template_pages_filename]:
+        with open(fname, 'w', encoding='utf-8', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['english', 'tovian', 'tovian_ipa', 'gloss'])
+            for english_key, (tovian, tovian_ipa, gloss) in template_replacements.items():
+                writer.writerow([english_key, tovian, tovian_ipa, gloss])
 
     if args.interactive:
         print("Interactive mode enabled. Type 'q' to quit.")

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Tovian Language Guide and Dictionary",
   "scripts": {
+    "prestart": "node scripts/generate_parallels.js && node scripts/generate_unimorph_verbs.js",
     "start": "eleventy --serve",
+    "prebuild": "node scripts/generate_parallels.js && node scripts/generate_unimorph_verbs.js",
     "build": "eleventy"
   },
   "keywords": ["conlang", "tovian"],
