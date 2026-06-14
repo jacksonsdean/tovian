@@ -39,6 +39,17 @@ python build_dictionary.py -i
 # Generate dictionary up to a specific year
 python build_dictionary.py -y 5000
 
+# Build full files, then print exact entry matches (accepts multiple terms)
+python build_dictionary.py -f water fire
+python build_dictionary.py -f water,fire
+
+# Build full files, then print entries with partial matches
+python build_dictionary.py -fp water fire
+python build_dictionary.py -fp water,fire
+
+# Print only final word output without sound-change history
+python build_dictionary.py --final-words-only
+
 # Normal generation (creates dictionary.csv and dictionary.tex)
 python build_dictionary.py
 ```

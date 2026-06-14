@@ -7,10 +7,10 @@ title: Forming Questions | Tovian Guide
 
 ## Yes/No
 
-Add <code>lhan</code> at the start of a declarative sentence.
+Add <code>lhan</code> at the start of a question.
 
-- <code>lhan wa ofa fethr?</code>  
-  English: Do you speak?
+- <code>lhan yule-fethr wa ofa fethr?</code>  
+  English: Do you speak Tovian?
 
 ## Information (wh- style)
 

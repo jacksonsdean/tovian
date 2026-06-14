@@ -5,7 +5,7 @@ Year,Translation,Roots,POS,Note
 0,Winter,present+cold,N,_
 
 
-6000,December,one+cold,N,Ventiosh
+6000,December,time+GEN+dark,N,Ventiosh
 6000,1 of winter/december 1,breath+flower,N,Rithwildrem
 6000,2 of winter/december 2,death+berry,N,Galbery
 6000,3 of winter/december 3,???,N,Brezgilly
@@ -36,7 +36,7 @@ Year,Translation,Roots,POS,Note
 6000,28 of winter/december 28,vine+twilight,N,Twilifern
 6000,29 of winter/december 29,moon+fire,N,Moonash
 6000,30 of winter/december 30,breath+???,N,Galedibble
-6000,January,two+cold,N,Frohsten
+6000,January,water+cold+COM,N,Frohsten
 6000,31 of winter/January 31,???,N,Frohstlef
 6000,32 of winter/January 32,cold+ground,N,Wintersnap
 6000,33 of winter/January 33,darkness+flower,N,Níghtbloom
@@ -67,7 +67,7 @@ Year,Translation,Roots,POS,Note
 6000,58 of winter/January 58,earth+showing,N,Earthem
 6000,59 of winter/January 59,value+speaking,N,Velarum
 6000,60 of winter/January 60,star+home,N,Starhovel
-6000,February,three+cold,N,Nivost
+6000,February,small+sun,N,Nivost
 6000,61 of winter/February 1,cold+plant,N,Froshpea
 6000,62 of winter/February 2,bottom+darkness+stone,N,Nightcoal
 6000,63 of winter/February 3,darkness+tar,N,Shadowtar
@@ -98,7 +98,7 @@ Year,Translation,Roots,POS,Note
 6000,88 of winter/February 28,twilight+???,N,Duskin
 6000,89 of winter/February 29,speed+metal,N,Quicksilver
 6000,90 of winter/February 30,ice+tool,N,Frostscreen
-6000,March,one+plant,N,Vindrem
+6000,March,falling+water,N,Vindrem
 6000,1 of spring/March 1,moon+vine,N,Lunevigne
 6000,2 of spring/March 2,sun+sharpness,N,Solspica
 6000,3 of spring/March 3,tool+fruit,N,Stellnut
@@ -129,7 +129,7 @@ Year,Translation,Roots,POS,Note
 6000,28 of spring/March 28,sun+fruit,N,Sunfruit
 6000,29 of spring/March 29,star+grain,N,Starbarley
 6000,30 of spring/March 30,mystery+container,N,Mystbarrel
-6000,April,two+plant,N,Foegvel
+6000,April,heat+rain,N,Foegvel
 6000,31 of spring/April 1,sky+fruit,N,Skyfruit
 6000,32 of spring/April 2,moon+sharpness,N,Mooncrísp
 6000,33 of spring/April 3,storm+beauty,N,Thunderpearl
@@ -191,7 +191,7 @@ Year,Translation,Roots,POS,Note
 6000,88 of spring/May 28,dawn+branch,N,Duslower
 6000,89 of spring/May 29,flowing+mouth,N,Starwort
 6000,90 of spring/May 30,ice+movement,N,Frostslide
-6000,June,one+height+sun,N,Germspar
+6000,June,sitting+sun,N,Thermiblase
 6000,1 of summer/June 1,morning+bloom,N,Dawnbloom
 6000,2 of summer/June 2,sky+tree,N,Skybark
 6000,3 of summer/June 3,moon+tool,N,Moonspear
@@ -222,7 +222,7 @@ Year,Translation,Roots,POS,Note
 6000,28 of summer/June 28,thought+flower,N,Thoughtbloom
 6000,29 of summer/June 29,darkness+fruit,N,Nightberry
 6000,30 of summer/June 30,plant+???,N,Sproutbles
-6000,July,two+height+sun,N,Thermiblase
+6000,July,standing+sun,N,Thermiblase
 6000,31 of summer/July 1,dream+star+grain,N,Startriticale
 6000,32 of summer/July 2,wisdom+plant,N,Moonmullen
 6000,33 of summer/July 3,sun+dream+fruit,N,Sanfruta
@@ -253,7 +253,7 @@ Year,Translation,Roots,POS,Note
 6000,58 of summer/July 28,moon+bloom,N,Moonbloom
 6000,59 of summer/July 29,sky+person,N,Cloudmun
 6000,60 of summer/July 30,center+path+dream,N,Lhelnumly
-6000,August,three+height+sun,N,Floreart
+6000,August,dancing+sun,N,Floreart
 6000,61 of summer/August 1,morning+flower,N,Dawnrose
 6000,62 of summer/August 2,sound+tree,N,Thunderoak
 6000,63 of summer/August 3,covering+plant,N,Veilfern
@@ -315,7 +315,7 @@ Year,Translation,Roots,POS,Note
 6000,28 of autumn/September 28,???,N,Whivetch
 6000,29 of autumn/September 29,value+grain,N,Goldwheat
 6000,30 of autumn/September 30,air+sound,N,Windflute
-6000,October,two+harvest,N,Fructiwane
+6000,October,standing+harvest,N,Fructiwane
 6000,31 of autumn/October 1,harvest+fruit,N,Starplum
 6000,32 of autumn/October 2,vine+grain,N,Duskmillet
 6000,33 of autumn/October 3,???,N,Munpuf

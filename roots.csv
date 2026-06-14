@@ -12,10 +12,10 @@ Year,Word,Translation,Roots,POS,Note
 -1,ji-,COM/comitative case marker/with/together with,_,CASE,_
 -1,su-,ALL/allative case marker,_,CASE,_
 -1,pu-,ESS/essive case marker,_,CASE,_
--1,-e,plural marker,_,PLURAL,_
--1,la-,animate noun class,_,CLASS,_
--1,lo-,inanimate noun class,_,CLASS,_
--1,le-,abstract noun class,_,CLASS,_
+-1,-e,PL/plural marker,_,PLURAL,_
+-1,la-,ANA/animate noun class,_,CLASS,_
+-1,lo-,INANA/inanimate noun class,_,CLASS,_
+-1,le-,ABS/abstract noun class,_,CLASS,_
 -1,wi-,SUB/subjunctive mood marker,_,MOOD,_
 -1,se-,IMP/imperative mood marker,_,MOOD,_
 -1,ko-,COND/conditional mood marker,_,MOOD,_
@@ -63,6 +63,7 @@ Year,Word,Translation,Roots,POS,Note
 0,aleða,consumption/tasting/eating,_,N,_
 0,amtorin,dog,_,N,_
 0,vekh,killing,_,N,_
+0,ƛaƛa,falling,_,N,_
 0,gilore,conflict/fighting,_,N,_
 0,kwil,movement,_,N,_
 0,ʃoƛ,flow,_,N,_
@@ -97,6 +98,8 @@ Year,Word,Translation,Roots,POS,Note
 0,naɬ,thinking/believing/pondering,_,N,_
 0,palor,stopping/ceasing,_,N,_
 0,jaloran,beginning/starting,_,N,_
+0,romat,sitting,_,N,_
+0,reman,standing,_,N,_
 0,raiʃel,kindness,_,N,_
 0,wen,beauty,_,N,_
 0,kana,change,_,N,_
@@ -184,7 +187,7 @@ Year,Word,Translation,Roots,POS,Note
 0,te,they (plural),_,Ps,_
 0,lota,it/it (inanimate),_,P,_
 0,lote,them (inanimate),_,Ps,_
-0,nan,ancient/old,_,N,_
+0,nan,ancientness/antiquity/oldness,_,N,_
 0,bral,darkness/dark,_,N,_
 0,sor,proximity/closeness,_,N,_
 0,tanum,closure/shutting,_,N,_
@@ -201,3 +204,4 @@ Year,Word,Translation,Roots,POS,Note
 0,ʒola,fruit,_,N,_
 0,ʒemeno,newness,_,N,_
 0,hutanna,world,_,N,_
+0,salamin,gift,_,N,_

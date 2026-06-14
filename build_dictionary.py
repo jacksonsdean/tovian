@@ -150,6 +150,53 @@ def remove_obsolete_marker(word):
     return word.replace(" (obsolete)", "")
 
 
+def normalize_filter_terms(filter_groups):
+    terms = []
+    for group in filter_groups:
+        for term in group:
+            for part in term.split(','):
+                part = part.strip()
+                if part:
+                    terms.append(part)
+    return terms
+
+
+def matches_filter(filter_terms, *values, partial=False):
+    if not filter_terms:
+        return False
+
+    searchable_values = [str(value).casefold() for value in values if value and value != "_"]
+    if partial:
+        return any(term.casefold() in value for term in filter_terms for value in searchable_values)
+
+    whole_entry_values = []
+    for value in searchable_values:
+        whole_entry_values.append(value)
+        whole_entry_values.extend(part.strip() for part in value.split('/') if part.strip())
+
+    return any(term.casefold() == value for term in filter_terms for value in whole_entry_values)
+
+
+def print_history(history):
+    for rule, word in history:
+        print(f'{rule}: {mark_stress(word)}')
+
+
+def print_filtered_entry(entry, final_words_only=False):
+    print(f"English: {entry['translation']}")
+    print(f"Tovian: {entry['rom']}")
+    print(f"IPA: {entry['stress']}")
+    print(f"POS: {entry['pos']}")
+    if entry['roots_gloss'] != "_":
+        print(f"Roots: {entry['roots_gloss']}")
+    if entry['notes'] != "_" and entry['notes']:
+        print(f"Note: {entry['notes']}")
+    if not final_words_only:
+        print("History:")
+        print_history(entry['history'])
+    print()
+
+
 def find_root_or_compound(word, roots, compounds):
     for root in roots:
         r = remove_obsolete_marker(root[2]).strip()
@@ -194,7 +241,34 @@ def main():
     parser = argparse.ArgumentParser(description='Build a dictionary from roots, compounds, and borrowed words.')
     parser.add_argument('--interactive', '-i', action='store_true', help='Run in interactive mode')
     parser.add_argument('--max_year', '-y', type=int, help='Maximum year for sound changes')
+    parser.add_argument(
+        '--final-words-only',
+        action='store_true',
+        help='Print only final word output and omit history from console output.',
+    )
+    parser.add_argument(
+        '--filter',
+        '-f',
+        action='append',
+        nargs='+',
+        default=[],
+        metavar='TERM',
+        help='Build the full dictionary, then show entries matching one or more complete entry names/forms. Can be used more than once.',
+    )
+    parser.add_argument(
+        '--filter-partial',
+        '-fp',
+        action='append',
+        nargs='+',
+        default=[],
+        metavar='TERM',
+        help='Build the full dictionary, then show entries with partial matches for one or more filter terms. Can be used more than once.',
+    )
     args = parser.parse_args()
+
+    filter_terms = normalize_filter_terms(args.filter)
+    partial_filter_terms = normalize_filter_terms(args.filter_partial)
+    has_filters = bool(filter_terms or partial_filter_terms)
 
     roots = load_roots()
     compounds = form_compounds(roots)
@@ -206,6 +280,7 @@ def main():
     interactive_dict = {}
     latex_histories = {}
     csv_histories = []
+    filtered_entries = []
     for input_word in input_words:
         translation = input_word[2]
         roots_gloss = input_word[3]
@@ -214,19 +289,32 @@ def main():
         word_after_changes, history = apply_sound_changes(input_word, max_year=args.max_year)
 
         final_word = format_for_latex(word_after_changes)
-        if not args.interactive:
-            for rule, word in history:
-                print(f'{rule}: {mark_stress(word)}')
+        if not args.interactive and not has_filters and not args.final_words_only:
+            print_history(history)
 
         rom = romanization(word_after_changes)
         stress = mark_stress(word_after_changes)
         csv_history = get_dictionary_csv(word_after_changes, translation, stress, rom, pos, notes, roots_gloss)
         csv_histories.append(csv_history)
 
+        if (
+            matches_filter(filter_terms, translation, word_after_changes, rom, stress)
+            or matches_filter(partial_filter_terms, translation, roots_gloss, pos, notes, word_after_changes, rom, stress, partial=True)
+        ):
+            filtered_entries.append({
+                'translation': translation,
+                'rom': rom,
+                'stress': stress,
+                'pos': pos,
+                'roots_gloss': roots_gloss,
+                'notes': notes,
+                'history': history,
+            })
+
         for definition in translation.split('/'):
             interactive_dict[definition.strip()] = (final_word, pos, history, rom, stress, notes)
 
-        if not args.interactive:
+        if not args.interactive and not has_filters:
             print(stress)
             print(rom)
             print()
@@ -285,6 +373,16 @@ def main():
             for csv_history in expanded_csv_histories:
                 file.write(csv_history.rstrip('\n') + '\n')
 
+    if has_filters:
+        match_label = "match" if len(filtered_entries) == 1 else "matches"
+        print(f"Filtered dictionary entries: {len(filtered_entries)} {match_label}")
+        print()
+        for entry in filtered_entries:
+            print_filtered_entry(entry, final_words_only=args.final_words_only)
+        if not filtered_entries:
+            all_filter_terms = filter_terms + partial_filter_terms
+            print(f"No dictionary entries matched: {', '.join(all_filter_terms)}")
+
     if args.interactive:
         print("Interactive mode enabled. Type 'q' to quit.")
         while True:
@@ -297,8 +395,8 @@ def main():
                 print(f"Final Word: {final_word}, POS: {pos_val}, Romanization: {rom}, Stress: {stress}")
                 if note != "_" and note:
                     print(f"Note: {note}")
-                for rule, word in history:
-                    print(f'{rule}: {mark_stress(word)}')
+                if not args.final_words_only:
+                    print_history(history)
             else:
                 print("Word not found in the dictionary. 'q' to quit.")
 

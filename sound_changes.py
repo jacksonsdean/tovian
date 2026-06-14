@@ -15,6 +15,9 @@ glides = 'jw'
 liquids = 'lr'
 nasals = 'mnŋ'
 
+labials = 'pbmfv'
+palatals = 'jʃʒɟ'
+
 fricatives = 'fvθðszʒʃhħɬ'
 affricates = 'ƛ'
 approximates = 'ɹj'
@@ -199,6 +202,26 @@ def nasal_assimilation(word: str) -> str:
     return word
 
 
+def epenthesis_i_in_ms(word: str) -> str:
+    return re.sub(r'ms', 'mis', word)
+
+
+def epenthesis_in_initial_clusters(word: str) -> str:
+    pattern = fr'^([{_char_class(consonants)}])([{_char_class(consonants)}])'
+
+    def replacement(match: re.Match[str]) -> str:
+        first, second = match.groups()
+        if first in palatals:
+            vowel = 'i'
+        elif first in labials or second in labials:
+            vowel = 'u'
+        else:
+            vowel = 'e'
+        return first + vowel + second
+
+    return re.sub(pattern, replacement, word)
+
+
 def word_initial_vowel_loss_unless_stressed(word: str) -> str:
     stressed = mark_stress(word)
     if re.match(fr'^{stress_mark}[{vowels}]', stressed):
@@ -318,6 +341,16 @@ def stop_cluster_simplification(word: str) -> str:
 def fricative_cluster_hardening(word: str) -> str:
     return re.sub(r'sʃ|ɬʃ', lambda m: 't' + m.group(), word)
 
+def no_h_between_r_and_i(word: str) -> str:
+    """
+    ħ → ∅ / r _ i
+    """
+    return re.sub(r"r[ħh](?=i)", "r", word)
+
+def simplify_rl_to_r(word: str) -> str:
+    return re.sub(r'rl', 'r', word)
+def simplify_rl_to_l(word: str) -> str:
+    return re.sub(r'rl', 'l', word)
 
 def shd_to_lht(word: str) -> str:
     return re.sub(r'ʃd', 'ɬt', word)
@@ -560,6 +593,7 @@ sound_changes = [
     {'rule': 5100, 'description': 's is lost between vowels', 'function': loss_of_s_between_vowels},
     {'rule': 5500, 'description': 'Vowel combinations', 'function': vowel_combinations},
     {'rule': 6000, 'description': 'Nasal assimilation', 'function': nasal_assimilation},
+    {'rule': 6001, 'description': 'Epenthesis i in ms cluster', 'function': epenthesis_i_in_ms},
     {'rule': 6200, 'description': 'Approximate loss after o or u', 'function': approximate_loss_after_o_or_u},
     {'rule': 6240, 'description': 'hn > n', 'function': simplify_hn_to_n},
     {'rule': 6300, 'description': 'Vowel loss before approximates', 'function': vowel_loss_before_approximate},
@@ -589,6 +623,7 @@ sound_changes = [
     {'rule': 10700, 'description': 'θ to t after voiceless stops', 'function': theta_t_after_voiceless_stops},
     {'rule': 11000, 'description': 'No coda stops', 'function': p_b_to_m},
     {'rule': 11001, 'description': 'b to d', 'function': b_to_d},
+    {'rule': 11002, 'description': 'loss of h between r and i', 'function': no_h_between_r_and_i}, 
     {'rule': 11500, 'description': 'Stop cluster simplification', 'function': stop_cluster_simplification},
     {'rule': 11501, 'description': 'Simplify gƛ', 'function': simplify_g_tl},
     {'rule': 11600, 'description': 'Medial syncope', 'function': medial_syncope_unless_stressed},
@@ -608,6 +643,7 @@ sound_changes = [
     {'rule': 12501, 'description': 'Dissimilate fricative reduplication', 'function': dissimilate_fricative_reduplication},
     {'rule': 12502, 'description': 'Simplify lθ → l', 'function': simplify_lθ_to_θ},
     {'rule': 12503, 'description': 'Simplify dg → g', 'function': simplify_dg_cluster},
+    {'rule': 12505, 'description': 'Simplify rl → l', 'function': simplify_rl_to_l},
     {'rule': 13000, 'description': 'No fricative clusters', 'function': no_fricative_clusters},
     {'rule': 13001, 'description': 'Simplify final consonant clusters to single consonant', 'function': simplify_final_clusters},
     {'rule': 13002, 'description': 'Simplify fricative-nasal clusters', 'function': simplify_fricative_nasal_clusters},
@@ -618,6 +654,7 @@ sound_changes = [
     {'rule': 14005, 'description': 'Epenthesis and metathesis /ʃd/ → [ɬt]', 'function': shd_to_lht},
     {'rule': 14006, 'description': 'Voiceless glottal fricative h to pharyngeal fricative ħ', 'function': h_to_ħ},
     {'rule': 15000, 'description': 'No repeated consonants', 'function': no_double_consonants},
+    {'rule': 15001, 'description': 'Epenthesis in initial consonant clusters (e default; i after palatals; u near labials)', 'function': epenthesis_in_initial_clusters},
 ]
 
 

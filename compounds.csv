@@ -1,4 +1,5 @@
 Year,Translation,Roots,POS,Note
+9999999,Tovian/language,ABS+speech,N,_
 100,speaking,showing+thought,N,_
 500,sharing,joining+possession,N,_
 50,plant,life+action,N,_
@@ -24,7 +25,7 @@ Year,Translation,Roots,POS,Note
 10,dreambringer,dream+COM+walking+person,N,_
 10,waking dreambringer,dream+COM+alertness,N,_
 0,child,newness+dream,N,_
-0,young,not+old,N,_
+0,young,not+oldness,N,_
 10,year,small+cycle,N,_
 0,first,ESS+one,N,_
 0,second,ESS+two,Ns,_
@@ -57,7 +58,7 @@ Year,Translation,Roots,POS,Note
 4000,one hundred forty four/144,twelve+twelve,N,_
 4000,week,ten+day,N,_
 0,month,small+small+cycle,N,_
-642,grandfather,old+father,N,_
+642,grandfather/grandmother/grandparent,GEN+oldness+father,N,_
 3024,hat,head+covering,N,_
 402,jealousy,wickedness+comparison,N,_
 500,dawn/morning,first+light,N,_
@@ -96,3 +97,9 @@ Year,Translation,Roots,POS,Note
 1000,turn/rotate,movement+cycle,N,_
 0,abandoned,empty+place,N,_
 1200,orphan,abandoned+person,N,_
+1300,generosity,goodness+gift,N,_
+0,fish,water+animal,N,_
+0,rain,water+falling,N,_
+0,lightning,light+falling,N,_
+0,singing,speaking+beauty,N,_
+0,dancing,movement+beauty,N,_
