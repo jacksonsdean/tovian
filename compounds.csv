@@ -107,6 +107,7 @@ Year,Translation,Roots,POS,Note
 7000,desk,writing+flatness,N,_
 1300,brick,fire+rock,N,_
 4700,tease,playing+evil,N,_
+200,story,speaking+life,N,_
 
 -1,they,she+PL,_,Ps,_
 -1,who,NOM+INT,INT,_
