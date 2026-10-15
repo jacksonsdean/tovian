@@ -7,6 +7,19 @@ title: Attributive Nouns | Tovian Guide
 
 Descriptive qualities are expressed as nouns placed directly after the noun they modify. Order matters.
 
+## Truth-shards and hard truths
+
+{% tovc "half_truth" %} means **half-truth** or **truth-shard**: a truth partly understood or selectively revealed. Someone may possess only a fragment of the truth, or deliberately offer only that fragment. Context distinguishes sincere limited understanding from deliberate omission.
+
+This is a lexicalized compound of “truth” and “shard.” The proto-root `keraθa` (“shard/fragment”) develops into {% tovc "shard" %}. Combining the proto-roots for `truth+shard` at year 0 and applying the sound-change script produces {% tovc "half_truth" %}; its modern form reflects the shared sound history.
+
+- {% tovc "nom-abs-half_truth+pl" %} — “the half-truths / truth-shards.”
+- {% tovc "nom-abs-truth+pl hardness" %} — “the hard truths.”
+
+The second expression uses {% tovc "hardness" %} (“hardness/strength”) as an attributive noun. The compound {% tovc "half_truth" %} is one lexical word; the attributive phrase keeps “truth” and “hardness” separate.
+
+## Attributive examples
+
 - {% tovp "acc-inan-city <b><u> big </u></b> ani-person aux_3_sim_prs   sight" %} 
     - {% tovscript "acc-inan-city big ani-person aux_3_sim_prs sight" %} 
   - `{% tovipa "acc-inan-city big ani-person aux_3_sim_prs sight" %}` 

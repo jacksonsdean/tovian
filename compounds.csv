@@ -108,6 +108,7 @@ Year,Translation,Roots,POS,Note
 1300,brick,fire+rock,N,_
 4700,tease,playing+evil,N,_
 200,story,speaking+life,N,_
+0,half-truth/truth-shard/partly understood truth/selectively revealed truth,truth+shard,N,A truth partly understood or selectively revealed; the missing context may be unknown to the speaker or intentionally withheld.
 
 -1,they,she+PL,_,Ps,_
 -1,who,NOM+INT,INT,_

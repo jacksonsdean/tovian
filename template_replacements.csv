@@ -222,6 +222,8 @@ strength,lha,ɬˈa,strength
 stickiness,ing,ˈiŋ,stickiness
 completeness,om,ˈom,completeness
 wholeness,om,ˈom,wholeness
+shard,kerath,kˈer.aθ,shard
+fragment,kerath,kˈer.aθ,fragment
 commonness,yal,jˈal,commonness
 mundanity,yal,jˈal,mundanity
 normality,yal,jˈal,normality
@@ -489,6 +491,10 @@ desk,foretum,for.ˈet.um,desk
 brick,men,mˈen,brick
 tease,kogyal,kˈogj.al,tease
 story,fethim,fˈeθ.im,story
+half_truth,yeolath,je.ˈol.aθ,half-truth
+truth_shard,yeolath,je.ˈol.aθ,truth-shard
+partly_understood_truth,yeolath,je.ˈol.aθ,partly understood truth
+selectively_revealed_truth,yeolath,je.ˈol.aθ,selectively revealed truth
 they,ta-e,tˈa.e,they
 who,i-lhan,ˈi.ɬan,who
 whom,yu-lhan,jˈu.ɬan,whom
