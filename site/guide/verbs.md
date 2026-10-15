@@ -9,6 +9,18 @@ Tovian uses a conjugated auxiliary + a bare lexical predicate. The predicate is 
 
 Every auxiliary in formal writing or a complex sentence must carry a person prefix, including each auxiliary in a nested chain. The order within each auxiliary is **person + mood + voice + aspect root + tense**. Case and class prefixes belong to noun phrases and keep their existing order.
 
+## Inheritance as carrying the past forward
+
+{% tovc "inheritance" %} means **inheritance**: taking up and carrying forward what came before. It can refer to property, traits, duties, traditions, or ideas passed on from an earlier source. As a lexical predicate, the same root means “inherit.”
+
+The compound `carrying+past`, formed at year 500, develops through the sound-change script into {% tovc "inheritance" %}. The date follows the formation of the existing “past” compound at year 10.
+
+- {% tovc "abs-inheritance" %} — “inheritance” as an abstract noun.
+- {% tovc "aux_3_sim_prs inheriting" %} — “he/she/it/they inherit.”
+- {% tovc "acc-abs-life aux_3_sim_prs inheriting" %} — “they inherit life.”
+
+The noun root stays unchanged in each example. In the working sentence, “inherit a life of their own” uses this sense of carrying something forward; the possessive construction for “their own” remains to be worked out.
+
 ## Tense suffixes on the auxiliary
 
 <table>
