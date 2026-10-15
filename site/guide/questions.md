@@ -40,6 +40,8 @@ Combine a case prefix with {% tovc "what" %} to ask for a specific role:
 
 Examples:
 
+{% tovc "when" %} asks “when?” An explicit temporal statement such as “When I speak, you write” uses the [temporal frame](syntax.html) `tu-le-ngothr: P; Q`.
+
 - <code>si-lhan ta fe fethr?</code> — English: How did he speak?
 - <code>ti-lhan ta fa fethr?</code> — English: Where does he speak?
 - <code>mi-lhan wa ofa fethr?</code> — English: To whom are you speaking?

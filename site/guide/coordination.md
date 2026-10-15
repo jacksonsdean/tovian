@@ -16,6 +16,8 @@ Use two finite clauses in sequence:
 
 This is the default strategy for additive coordination. Use `;` or `,` to mark the split between clauses in writing.
 
+An explicit [temporal frame](syntax.html) uses `tu-le-ngothr: P; Q`. Within that frame, commas may join events in P and the semicolon closes P before the main clause Q. Bare juxtaposition can still receive a temporal reading from context.
+
 ## Contrast without a dedicated “but”
 
 Tovian does not have a dedicated contrastive coordinator in the core lexicon. Contrast is expressed through:

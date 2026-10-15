@@ -129,7 +129,7 @@ The truths remain the grammatical subject throughout. The inner phrase means “
 
 ### Shared subjects, embedded clauses, and tense
 
-“I cease [being able to see]” is a shared-subject chain. “I know [you left yesterday]” contains a clause with its own subject and time. A shared-subject agreement rule applies within a chain; it does not require every auxiliary in a whole sentence to have the same person. The syntax for embedding a clause must be specified separately.
+“I cease [being able to see]” is a shared-subject chain. “I know [you left yesterday]” contains a clause with its own subject and time. A shared-subject agreement rule applies within a chain; it does not require every auxiliary in a whole sentence to have the same person. The [temporal frame](syntax.html) `tu-le-ngothr: P; Q` now specifies one construction with a finite event description P; general complement clauses such as “I know [you left]” still need their own rule.
 
 **Temporal dependence remains to be defined.** The examples here use present tense throughout. Matching person does not commit Tovian to copying tense endings across every layer. A general account of inner temporal reference and mixed-tense chains is still open; these examples establish person agreement and scope without settling that question.
 
