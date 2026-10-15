@@ -55,16 +55,16 @@
     <tr><th>Prefix</th><th>Case</th><th>Role</th></tr>
   </thead>
   <tbody>
-    <tr><td><code>nom</code></td><td>Nominative</td><td>subject</td></tr>
-    <tr><td><code>acc</code></td><td>Accusative</td><td>direct object</td></tr>
-    <tr><td><code>gen</code></td><td>Genitive</td><td>possession</td></tr>
-    <tr><td><code>dat</code></td><td>Dative</td><td>indirect object</td></tr>
-    <tr><td><code>loc</code></td><td>Locative</td><td>in / at</td></tr>
-    <tr><td><code>ins</code></td><td>Instrumental</td><td>with / by means of</td></tr>
-    <tr><td><code>pur</code></td><td>Purpose</td><td>for</td></tr>
-    <tr><td><code>abl</code></td><td>Ablative</td><td>away from</td></tr>
-    <tr><td><code>com</code></td><td>Comitative</td><td>together with</td></tr>
-    <tr><td><code>all</code></td><td>Allative</td><td>towards</td></tr>
+    <tr><td><code>i</code></td><td>Nominative</td><td>subject</td></tr>
+    <tr><td><code>yu</code></td><td>Accusative</td><td>direct object</td></tr>
+    <tr><td><code>hi</code></td><td>Genitive</td><td>possession</td></tr>
+    <tr><td><code>mi</code></td><td>Dative</td><td>indirect object</td></tr>
+    <tr><td><code>ti</code></td><td>Locative</td><td>in / at</td></tr>
+    <tr><td><code>si</code></td><td>Instrumental</td><td>with / by means of</td></tr>
+    <tr><td><code>lhu</code></td><td>Purpose</td><td>for</td></tr>
+    <tr><td><code>di</code></td><td>Ablative</td><td>away from</td></tr>
+    <tr><td><code>yi</code></td><td>Comitative</td><td>together with</td></tr>
+    <tr><td><code>su</code></td><td>Allative</td><td>towards</td></tr>
   </tbody>
 </table>
 <h2>Classes</h2>
@@ -73,16 +73,16 @@
     <tr><th>Prefix</th><th>Class</th><th>Example</th></tr>
   </thead>
   <tbody>
-    <tr><td><code>ani</code></td><td>animate (people, animals, plants)</td><td><code>ani-person</code> “person”</td></tr>
-    <tr><td><code>inan</code></td><td>inanimate / places</td><td><code>inan-city</code> “city”</td></tr>
-    <tr><td><code>abs</code></td><td>abstract</td><td><code>abs-wisdom</code> “wisdom”</td></tr>
+    <tr><td><code>la</code></td><td>animate (people, animals, plants)</td><td><code>la-yel</code> “person”</td></tr>
+    <tr><td><code>lo</code></td><td>inanimate / places</td><td><code>lo-shithil</code> “city”</td></tr>
+    <tr><td><code>le</code></td><td>abstract</td><td><code>le-yeol</code> “wisdom”</td></tr>
   </tbody>
   </table>
 <h3>Examples</h3>
 <ul>
-<li><code>acc-ani-person aux_3_sim_prs sight</code> — English: [He/She] sees the person.</li>
-<li><code>loc-inan-city ani-person aux_3_sim_prs sight</code> — English: The person sees in the city.</li>
-<li><code>gen-ani-person</code> — English: of the person.</li>
+<li><code>yu-la-yel afa muril</code> — English: [He/She] sees the person.</li>
+<li><code>ti-lo-shithil la-yel afa muril</code> — English: The person sees in the city.</li>
+<li><code>hi-la-yel</code> — English: of the person.</li>
 </ul>
 <h2>Definiteness</h2>
 <p>Speakers usually rely on context for definiteness, but optional prefixes can clarify. Definiteness markers are added before case and class markers, with the exception of the nomative case, where it replaces the case marker entirely.</p>
@@ -93,17 +93,17 @@
     <tr><th></th><th>Marker</th></tr>
   </thead>
   <tbody>
-    <tr><td>Definite</td><td><code>def</code></td></tr>
-    <tr><td>Indefinite</td><td><code>indef</code></td></tr>
+    <tr><td>Definite</td><td><code>i</code></td></tr>
+    <tr><td>Indefinite</td><td><code>e</code></td></tr>
   </tbody>
 </table>
 <h3>Examples</h3>
 <ul>
 <li>
-<pre>nom-ani-person aux_3_sim_prs sight def-loc-inan-city</pre> — “The person sees in the city.”
+<pre>i-la-yel afa muril i-ti-lo-shithil</pre> — “The person sees in the city.”
 </li>
 <li>
-<pre>indef-ani-person aux_3_sim_prs sight indef-loc-inan-city</pre> — “A person sees in a city.”
+<pre>e-la-yel afa muril e-ti-lo-shithil</pre> — “A person sees in a city.”
 </li>
 </ul>
 <h2>All possible markers</h2>
@@ -118,131 +118,131 @@
     <tr>
       <td>Nominative</td>
       <td>
-        <code>def-ani</code>,
-        <code>def-inan</code>,
-        <code>def-abs</code>
+        <code>i-la</code>,
+        <code>i-lo</code>,
+        <code>i-le</code>
       </td>
       <td>
-        <code>indef-ani</code>,
-        <code>indef-inan</code>,
-        <code>indef-abs</code>
+        <code>e-la</code>,
+        <code>e-lo</code>,
+        <code>e-le</code>
       </td>
     </tr>
     <tr>
       <td>Accusative</td>
       <td>
-        <code>def-acc-ani</code>,
-        <code>def-acc-inan</code>,
-        <code>def-acc-abs</code>
+        <code>i-yu-la</code>,
+        <code>i-yu-lo</code>,
+        <code>i-yu-le</code>
       </td>
       <td>
-        <code>indef-acc-ani</code>,
-        <code>indef-acc-inan</code>,
-        <code>indef-acc-abs</code>
+        <code>e-yu-la</code>,
+        <code>e-yu-lo</code>,
+        <code>e-yu-le</code>
       </td>
     </tr>
     <tr>
       <td>Genitive</td>
       <td>
-        <code>def-gen-ani</code>,
-        <code>def-gen-inan</code>,
-        <code>def-gen-abs</code>
+        <code>i-hi-la</code>,
+        <code>i-hi-lo</code>,
+        <code>i-hi-le</code>
       </td>
       <td>
-        <code>indef-gen-ani</code>,
-        <code>indef-gen-inan</code>,
-        <code>indef-gen-abs</code>
+        <code>e-hi-la</code>,
+        <code>e-hi-lo</code>,
+        <code>e-hi-le</code>
       </td>
     </tr>
     <tr>
       <td>Dative</td>
       <td>
-        <code>def-dat-ani</code>,
-        <code>def-dat-inan</code>,
-        <code>def-dat-abs</code>
+        <code>i-mi-la</code>,
+        <code>i-mi-lo</code>,
+        <code>i-mi-le</code>
       </td>
       <td>
-        <code>indef-dat-ani</code>,
-        <code>indef-dat-inan</code>,
-        <code>indef-dat-abs</code>
+        <code>e-mi-la</code>,
+        <code>e-mi-lo</code>,
+        <code>e-mi-le</code>
       </td>
     </tr>
     <tr>
       <td>Locative</td>
       <td>
-        <code>def-loc-ani</code>,
-        <code>def-loc-inan</code>,
-        <code>def-loc-abs</code>
+        <code>i-ti-la</code>,
+        <code>i-ti-lo</code>,
+        <code>i-ti-le</code>
       </td>
       <td>
-        <code>indef-loc-ani</code>,
-        <code>indef-loc-inan</code>,
-        <code>indef-loc-abs</code>
+        <code>e-ti-la</code>,
+        <code>e-ti-lo</code>,
+        <code>e-ti-le</code>
       </td>
     </tr>
     <tr>
       <td>Instrumental</td>
       <td>
-        <code>def-ins-ani</code>,
-        <code>def-ins-inan</code>,
-        <code>def-ins-abs</code>
+        <code>i-si-la</code>,
+        <code>i-si-lo</code>,
+        <code>i-si-le</code>
       </td>
       <td>
-        <code>indef-ins-ani</code>,
-        <code>indef-ins-inan</code>,
-        <code>indef-ins-abs</code>
+        <code>e-si-la</code>,
+        <code>e-si-lo</code>,
+        <code>e-si-le</code>
       </td>
     </tr>
     <tr>
       <td>Purpose</td>
       <td>
-        <code>def-pur-ani</code>,
-        <code>def-pur-inan</code>,
-        <code>def-pur-abs</code>
+        <code>i-lhu-la</code>,
+        <code>i-lhu-lo</code>,
+        <code>i-lhu-le</code>
       </td>
       <td>
-        <code>indef-pur-ani</code>,
-        <code>indef-pur-inan</code>,
-        <code>indef-pur-abs</code>
+        <code>e-lhu-la</code>,
+        <code>e-lhu-lo</code>,
+        <code>e-lhu-le</code>
       </td>
     </tr>
     <tr>
       <td>Ablative</td>
       <td>
-        <code>def-abl-ani</code>,
-        <code>def-abl-inan</code>,
-        <code>def-abl-abs</code>
+        <code>i-di-la</code>,
+        <code>i-di-lo</code>,
+        <code>i-di-le</code>
       </td>
       <td>
-        <code>indef-abl-ani</code>,
-        <code>indef-abl-inan</code>,
-        <code>indef-abl-abs</code>
+        <code>e-di-la</code>,
+        <code>e-di-lo</code>,
+        <code>e-di-le</code>
       </td>
     </tr>
     <tr>
       <td>Comitative</td>
       <td>
-        <code>def-com-ani</code>,
-        <code>def-com-inan</code>,
-        <code>def-com-abs</code>
+        <code>i-yi-la</code>,
+        <code>i-yi-lo</code>,
+        <code>i-yi-le</code>
       </td>
       <td>
-        <code>indef-com-ani</code>,
-        <code>indef-com-inan</code>,
-        <code>indef-com-abs</code>
+        <code>e-yi-la</code>,
+        <code>e-yi-lo</code>,
+        <code>e-yi-le</code>
       </td>
     </tr>
     <tr>
       <td>Allative</td>
       <td>
-        <code>def-all-ani</code>,
-        <code>def-all-inan</code>,
-        <code>def-all-abs</code>
+        <code>i-su-la</code>,
+        <code>i-su-lo</code>,
+        <code>i-su-le</code>
       </td>
       <td>
-        <code>indef-all-ani</code>,
-        <code>indef-all-inan</code>,
-        <code>indef-all-abs</code>
+        <code>e-su-la</code>,
+        <code>e-su-lo</code>,
+        <code>e-su-le</code>
       </td>
     </tr>
   </tbody>
