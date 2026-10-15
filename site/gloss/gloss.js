@@ -211,7 +211,7 @@
   }
 
   function parseAuxGloss(gloss){
-    const m = (gloss || '').match(/^auxiliary(?:[-\s]form)?:\s*([^()]+)\((past|present|future)\)/i);
+    const m = (gloss || '').match(/^auxiliary(?:[-\s]form)?:\s*(.*?)\s*\((past|present|future)\)\s*$/i);
     if (!m) return null;
     const descriptor = (m[1] || '').trim().toLowerCase();
     const tense = (m[2] || '').trim().toLowerCase();
@@ -844,7 +844,7 @@
     return `<table>${head}<tbody>${body}</tbody></table>`;
   }
 
-  function choosePersonSuffix(words){
+  function choosePersonPrefix(words){
     const w0 = (words[0]||'').toLowerCase();
     if (w0 === 'i' || w0 === 'we') return 'i'; // 1st
     if (w0 === 'you') return 'o'; // 2nd
@@ -893,17 +893,15 @@
 
   function draftTranslateENtoTovian(rows, text){
     const words = text.split(/\s+/).filter(Boolean);
-    const out = [];
     // Determine tense from English hints
     const joined = words.join(' ').toLowerCase();
     let aux = 'fa';
     if (/\b(will|tomorrow)\b/.test(joined)) aux = 'fo';
     else if (/(ed\b|yesterday|ago)\b/.test(joined)) aux = 'fe';
-    // Determine person suffix for main verb (heuristic)
+    // Every formal auxiliary agrees with the subject; the lexical root stays bare.
     const first = (words[0]||'').toLowerCase();
-    let personSuf = 'a'; // default aligns with example; adjust per grammar
-    if (first === 'you') personSuf = 'o';
-    const subjPron = first === 'i' ? 'na' : (first === 'you' ? 'wa' : '');
+    aux = choosePersonPrefix(words) + aux;
+    const subjPron = first === 'i' ? 'na' : (first === 'we' ? 'ne' : (first === 'you' ? 'wa' : ''));
     // Map words to Tovian and mark verbs
     const verbSet = new Set(['see','speak','go','walk','be','have','do','eat','sleep','love','know','want','give','take','come','make','say','think','hear','look']);
     const mapped = words.map(w => {
@@ -920,9 +918,7 @@
     const vi = mapped.findIndex(m => m.isVerb);
     if (vi !== -1) {
       const verb = mapped[vi];
-      // person suffix on main verb
-      let main = verb.to + (personSuf || '');
-      main = main.replace(/([aeiou])\1+$/,'$1');
+      const main = verb.to;
       const pre = mapped.slice(0, vi);
       const post = mapped.slice(vi + 1);
       // Remove consumed tokens from rest if any

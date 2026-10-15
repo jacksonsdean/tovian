@@ -5,7 +5,9 @@ title: Verbs & Aspects | Tovian Guide
 ---
 # Verbs & Aspects
 
-Tovian uses a conjugated auxiliary + a bare main verb. The main verb stays uninflected; all marking for person, tense, aspect, mood, and voice appears on the auxiliary.
+Tovian uses a conjugated auxiliary + a bare lexical predicate. The predicate is an unchanged noun root used verbally; all marking for person, tense, aspect, mood, and voice appears on the auxiliary.
+
+Every auxiliary in formal writing or a complex sentence must carry a person prefix, including each auxiliary in a nested chain. The order within each auxiliary is **person + mood + voice + aspect root + tense**. Case and class prefixes belong to noun phrases and keep their existing order.
 
 ## Tense suffixes on the auxiliary
 
@@ -49,7 +51,7 @@ Tovian uses a conjugated auxiliary + a bare main verb. The main verb stays uninf
 - {% tovc "aux_3_obl_hab_prs" %} … — English: should habitually … (obligative + habitual present)
 - {% tovc "aux_2_imp_sim_prs returning" %}. — English: Return! (2nd person imperative; person + mood on auxiliary)
 
-Agreement (subject person on auxiliary)
+## Agreement (subject person on every auxiliary)
 
 <table>
   <thead>
@@ -58,19 +60,75 @@ Agreement (subject person on auxiliary)
   <tbody>
     <tr><td>1st</td><td><code>i-</code></td><td>{% tovc "aux_1_sim_prs sight" %} “I/we see”</td></tr>
     <tr><td>2nd</td><td><code>o-</code></td><td>{% tovc "aux_2_sim_prs speech" %} “you speak”</td></tr>
-    <tr><td>3rd</td><td><em>unmarked</em> (optionally <code>a-</code>)</td><td>{% tovc "aux_3_sim_prs sight" %} “he/she/they see”</td></tr>
+    <tr><td>3rd</td><td><code>a-</code></td><td>{% tovc "aux_3_sim_prs sight" %} “he/she/it/they see”</td></tr>
   </tbody>
 </table>
 
 Plural is a noun suffix <code>-e</code>; verbs do not agree with number.
 
+The subject determines person: “the truths” takes third-person `a-`, just as “it” and “they” do. An explicit subject noun or pronoun does not remove the requirement for agreement.
+
+In short, unambiguous casual speech, third-person `a-` may be omitted: {% tovc "aux_3C_sim_prs sight" %} can stand for {% tovc "aux_3_sim_prs sight" %}, “he/she/it/they see.” Retain person marking throughout formal writing and complex sentences, especially auxiliary chains. First- and second-person prefixes remain required.
+
+### Distinguishing modifiers from auxiliaries
+
+Bare `lha` means “hardness/strength” and can follow a noun as its modifier. The formal third-person perfect auxiliary is `alha`; the passive perfect is `apalha`.
+
+- {% tovc "nom-abs-truth+pl hardness aux_3_pas_sim_prs thinking" %} — “The hard truths are pondered.”
+- {% tovc "nom-abs-truth+pl aux_3_pas_prf_prs thinking" %} — “The truths have been pondered.”
+
+The person prefix identifies the auxiliary in these examples. It preserves the noun-based predicate system without requiring a separate class of lexical verbs.
+
+## Auxiliary nesting and scope
+
+An auxiliary may take the following auxiliary phrase as its complement. **Each earlier auxiliary applies to the entire phrase that follows it.** Read a chain from the inside outward. Brackets below show grouping only; they are not spoken or written Tovian morphemes.
+
+Within one shared-subject chain, every auxiliary carries the same person prefix. Each layer can contribute its own mood and aspect. Within a single auxiliary, mood takes scope over aspect: potential + cessative means “can stop,” while an outer cessative followed by a potential auxiliary means “stops being able.”
+
+<table>
+  <thead><tr><th>Form and grouping</th><th>Meaning</th></tr></thead>
+  <tbody>
+    <tr><td>{% tovc "aux_3_ces_prs sight" %}</td><td>Stops seeing.</td></tr>
+    <tr><td>{% tovc "aux_3_pot_ces_prs sight" %}</td><td>Can [stop seeing].</td></tr>
+    <tr><td>{% tovc "aux_3_ces_prs [aux_3_pot_sim_prs sight]" %}</td><td>Stops [being able to see].</td></tr>
+    <tr><td>{% tovc "aux_3_pot_inc_prs sight" %}</td><td>Can [begin seeing].</td></tr>
+    <tr><td>{% tovc "aux_3_inc_prs [aux_3_pot_sim_prs sight]" %}</td><td>Begins [being able to see].</td></tr>
+    <tr><td>{% tovc "aux_3_obl_ces_prs writing" %}</td><td>Should [stop writing].</td></tr>
+    <tr><td>{% tovc "aux_3_ces_prs [aux_3_obl_sim_prs writing]" %}</td><td>Ceases [to be expected to write].</td></tr>
+    <tr><td>{% tovc "aux_1_ces_prs [aux_1_pot_sim_prs sight]" %}</td><td>I/we cease [being able to see].</td></tr>
+  </tbody>
+</table>
+
+Person agreement repeats because the grammatical subject is shared. It does not require the moods or aspects to match.
+
+### “Can no longer be ignored”
+
+The intended scope is **cessation → possibility → passive predicate**. Using `[IGNORE]` as an English placeholder for a lexical root still to be chosen:
+
+`apa [ashopafa [IGNORE]]`
+
+- `a-p-a`: third person + cessative + present.
+- `a-sho-pa-f-a`: third person + potential + passive + simple + present.
+- `[IGNORE]`: the unchanged lexical predicate.
+
+The truths remain the grammatical subject throughout. The inner phrase means “can be ignored”; the outer cessative ends that possibility. This differs from “stop being ignored,” where actual ignoring ends, and from “can stop being ignored,” where stopping is possible. The construction uses one cessative; the bound `pa-` inside `ashopafa` marks passive voice.
+
+“No longer” presupposes an earlier possibility; it does not by itself mean that the impossibility will last forever. No new particle or untensed auxiliary is introduced by this nesting rule.
+
+### Shared subjects, embedded clauses, and tense
+
+“I cease [being able to see]” is a shared-subject chain. “I know [you left yesterday]” contains a clause with its own subject and time. A shared-subject agreement rule applies within a chain; it does not require every auxiliary in a whole sentence to have the same person. The syntax for embedding a clause must be specified separately.
+
+**Temporal dependence remains to be defined.** The examples here use present tense throughout. Matching person does not commit Tovian to copying tense endings across every layer. A general account of inner temporal reference and mixed-tense chains is still open; these examples establish person agreement and scope without settling that question.
+
 <details class="card" style="margin-top: 1rem;">
-  <summary><b>All auxiliary forms</b> <span class="muted">(aspect × tense)</span></summary>
+  <summary><b>Third-person auxiliary forms</b> <span class="muted">(formal; aspect × tense)</span></summary>
   <div id="auxiliariesAuto" class="muted" style="margin-top: .75rem;">Loading…</div>
 </details>
 
 <details class="card" style="margin-top: 1rem;">
   <summary><b>All possible auxiliaries</b> <span class="muted">(person × mood × voice × aspect × tense)</span></summary>
+  <p>Forms labeled “3rd (casual)” omit <code>a-</code> and are limited to short, unambiguous casual speech.</p>
   <div style="margin-top: .75rem; display: grid; gap: .75rem;">
     <input id="allAuxFilter" type="search" placeholder="Filter (e.g. 'imperative', 'passive', 'habitual', 'future')" />
     <select id="allAuxSelect" size="12" style="width: 100%;"></select>

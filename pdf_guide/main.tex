@@ -118,7 +118,7 @@
     \StrSubstitute{#1}{ }{}[\temp] % Replace spaces in the name with nothing
     \StrSubstitute{\temp}{'}{}[\templabel] % Replace apostrophe
     \StrSubstitute{\templabel}{,}{}[\templabel] % Replace apostrophe
-    \label{\templabel} 
+    \label{\templabel}
     \arabic{tablectr}\subsubsubsection{}\stepcounter{tablectr}-\arabic{tablectr} & \textbf{#1}
 }
 
@@ -178,14 +178,14 @@
 \newcommand{\CAess}[0]{pu} % allative case
 
 
-\newcommand{\CAabl}[0]{di} 
+\newcommand{\CAabl}[0]{di}
 
 \newcommand{\casestable}[0]{
 \subsection*{Noun Classes}
 \begin{itemize}
     \item \textbf{Animate (living beings, includes plants)}
     \begin{itemize}
-        \item \textbf{Prefix:} \textit{\CLan} 
+        \item \textbf{Prefix:} \textit{\CLan}
         \item \textbf{Example:} \textit{\CLan-driel} (person)
     \end{itemize}
     \item \textbf{Inanimate (objects and places)}
@@ -211,7 +211,7 @@
     \begin{itemize}
         \item \textbf{Prefix:} \textit{\CAacc-}
         \item \textbf{Example:} \textit{\CAacc-\CLan-driel} (the person as the direct object)
-        \item \textbf{Sentence}: \textit{\CAacc-\CLin-tel fa mrila \CAnom-\CLan-driel} (the person sees the lake)
+        \item \textbf{Sentence}: \textit{\CAacc-\CLin-tel afa muril \CAnom-\CLan-driel} (the person sees the lake)
     \end{itemize}
     \item \textbf{Genitive (possession)}
     \begin{itemize}
@@ -260,7 +260,7 @@
         \item \textbf{Prefix:} \textit{\CAall-}
         \item \textbf{Example:} \textit{\CAall-\CLan-tal} (towards the east)
     \end{itemize}
-        
+
 
      \item \textbf{Essive (time or state)}
     \begin{itemize}
@@ -330,7 +330,7 @@ Lefethr is an \textit{agglutanative} language, meaning morphemes do not change f
 
      \textit{nore} & seas \\
      \hline
-     
+
 \end{tabular}
 \end{center}
 
@@ -356,13 +356,13 @@ In situations where there is ambiguity or in very formal communication, there ar
 \hspace{-30pt}
 \begin{tabular}{l l}
 \hline
-    The sun shines in the sky  &   \textit{\textbf{i}-\CLin-efol fa ana \textbf{a}\CAloc-rithil}\\
-    A sun shines in the sky   &  \textit{\textbf{e}-\CLin-efol fa ana \textbf{a}\CAloc-rithil}\\
+    The sun shines in the sky  &   \textit{\textbf{i}-\CLin-efol afa ana \textbf{a}\CAloc-rithil}\\
+    A sun shines in the sky   &  \textit{\textbf{e}-\CLin-efol afa ana \textbf{a}\CAloc-rithil}\\
 
-        The sun shines in a sky  &   \textit{\textbf{i}-\CLin-efol fa ana \textbf{o}\CAloc-rithil}\\
-    A sun shines in a sky   &  \textit{\textbf{e}-\CLin-efol fa ana \textbf{o}\CAloc-rithil}\\
+        The sun shines in a sky  &   \textit{\textbf{i}-\CLin-efol afa ana \textbf{o}\CAloc-rithil}\\
+    A sun shines in a sky   &  \textit{\textbf{e}-\CLin-efol afa ana \textbf{o}\CAloc-rithil}\\
 \hline
-     
+
 \end{tabular}
 }
 
@@ -370,105 +370,41 @@ In situations where there is ambiguity or in very formal communication, there ar
 
 \medskip
 
-Nouns are categorized into three distinct \textbf{classes}, each identified by a unique prefix: \textit{\CLan-} for animate beings, \textit{\CLin-} for inanimate objects and places, and \textit{\CLab-} for abstract concepts and ideas. Nouns can also be inflected for grammatical \textbf{cases} to indicate their role within a sentence. Classes are not always used when the meaning is obvious, for example ``the person sees" would be written formally as \textit{\CLan-driel fa mrila}, but in informal communication, the class might be dropped to create \textit{driel fa mrila}, since the subject is obviously not a dead person (\textit{\CLin-driel}) or the abstract concept of people (\textit{\CLab-drie}l). When both cases and classes are required, cases are added before classes. For example \textit{\CLin-nume \textbf{\CApur}-\textbf{\CLab}-aray }is ``the paths for wisdom", where \textbf{\CApur} represents ``for", \textbf{\CLab} represents ``abstract concept of", and \textbf{ara} is ``wisdom." In formal or educational contexts, hyphens (romanization: ``-", Tovian: ``\vc{\fontsize{50pt}{-200pt}\tovian\textasciitilde-\textasciitilde}") are used to separate prefixes from their nouns. For example, in this document, a sentence could be written as \textit{\CAnom-\CLan-driel \CAacc-\CLin-tel fa mrila} (the person sees the lake), but in practice one might use \textit{driel \CAacc\CLin tel fa mrila}, dropping the hyphens, the nomative case, and the animate class.
+Nouns are categorized into three distinct \textbf{classes}, each identified by a unique prefix: \textit{\CLan-} for animate beings, \textit{\CLin-} for inanimate objects and places, and \textit{\CLab-} for abstract concepts and ideas. Nouns can also be inflected for grammatical \textbf{cases} to indicate their role within a sentence. Classes are not always used when the meaning is obvious, for example ``the person sees" would be written formally as \textit{\CLan-driel afa muril}, but in informal communication, the class might be dropped to create \textit{driel afa muril}, since the subject is obviously not a dead person (\textit{\CLin-driel}) or the abstract concept of people (\textit{\CLab-drie}l). When both cases and classes are required, cases are added before classes. For example \textit{\CLin-nume \textbf{\CApur}-\textbf{\CLab}-aray }is ``the paths for wisdom", where \textbf{\CApur} represents ``for", \textbf{\CLab} represents ``abstract concept of", and \textbf{ara} is ``wisdom." In formal or educational contexts, hyphens (romanization: ``-", Tovian: ``\vc{\fontsize{50pt}{-200pt}\tovian\textasciitilde-\textasciitilde}") are used to separate prefixes from their nouns. For example, in this document, a sentence could be written as \textit{\CAnom-\CLan-driel \CAacc-\CLin-tel afa muril} (the person sees the lake), but in practice one might use \textit{driel \CAacc\CLin tel afa muril}, dropping the hyphens, the nomative case, and the animate class.
 
 
 
 \input{classes_and_cases}
 
 \subsection*{Word Order}
-Sentences historically used a Subject-Object-Verb (SOV) word order. In this structure, the subject of the sentence comes first, followed by the object, and then the verb. For instance, "The person lives in the city" would be structured as "\CLan-driel \CAloc-\CLin-pelor fa mela", where "\CLan-driel" (the person) is the subject, "\CAloc-\CLin-pelor" (the city) is the direct (locative) object, and "fa mela" (lives) is the verb.
+Sentences historically used a Subject-Object-Verb (SOV) word order. In this structure, the subject of the sentence comes first, followed by the object, and then the verb. For instance, "The person lives in the city" would be structured as "\CLan-driel \CAloc-\CLin-pelor afa mel", where "\CLan-driel" (the person) is the subject, "\CAloc-\CLin-pelor" (the city) is the direct (locative) object, and "afa mel" (lives) is the verb.
 
 
-For emphasis, modern Tovian allows flexibility in word order. Elements can be fronted to the beginning of the sentence to add emphasis or focus. For example, to emphasize the city being lived in by the person, one might say "\CAloc-\CLin-pelor \CLan-driel fa mela," placing the object "\CAloc-\CLin-pelor" (the city) at the beginning of the sentence. This doesn't introduce ambiguity only because of the locative marker (\CAloc-) on the object of the sentence, which indicates it is never the subject despite coming first in word-order.
+For emphasis, modern Tovian allows flexibility in word order. Elements can be fronted to the beginning of the sentence to add emphasis or focus. For example, to emphasize the city being lived in by the person, one might say "\CAloc-\CLin-pelor \CLan-driel afa mel," placing the object "\CAloc-\CLin-pelor" (the city) at the beginning of the sentence. This doesn't introduce ambiguity only because of the locative marker (\CAloc-) on the object of the sentence, which indicates it is never the subject despite coming first in word-order.
 
-When changing word order, it is important to leave adjectives (remember, they are unmarked nouns) directly after the noun they modify. For example, "the person lives in the big city" would be either "\CLan-driel \CAloc-\CLin-pelor mot fa mela" or "\CAloc-\CLin-pelor mot \CLan-driel fa mela." Separating "mot" (big) and "pelor" (city) changes the meaning of the sentence. For example: "\CAloc-\CLin-pelor \CLan-driel mot fa mela" would be "the big person lives in the city." 
+When changing word order, it is important to leave adjectives (remember, they are unmarked nouns) directly after the noun they modify. For example, "the person lives in the big city" would be either "\CLan-driel \CAloc-\CLin-pelor mot afa mel" or "\CAloc-\CLin-pelor mot \CLan-driel afa mel." Separating "mot" (big) and "pelor" (city) changes the meaning of the sentence. For example: "\CAloc-\CLin-pelor \CLan-driel mot afa mel" would be "the big person lives in the city."
 
 
 \subsection*{Questions}
 \subsubsection{Yes/No questions}
-To turn a declarative statement into a yes or no question, \textit{lhan} is added to the front of the sentence.
+Add \textit{lhan} before a declarative clause. Person agreement remains on the auxiliary:
 
-\textbf{Example: } \textit{lhan ila-we yalo-ta fa mrila?}
+\begin{itemize}
+\item \textit{lhan yu-la-yel ofa muril?}: ``Do you see the person?''
+\item \textit{yu-la-yel ifa muril}: ``I see the person.''
+\end{itemize}
 
-``Do you see it?"
+A short answer may omit a recoverable subject and object, leaving \textit{ifa muril}, ``I see.'' First- and second-person agreement stays explicit. Only third-person \textit{a-} may be omitted in short, unambiguous casual speech; formal writing and complex sentences retain person prefixes on every auxiliary.
 
-\textbf{Response:} \textit{ila-na yalo-ta fa mrila}
-
-``I see it"
-
-In response to a question, declarative statements are sometimes simplified to just the conjugated auxilary + infinative, for example \textit{na yalo-ta fa mrila} could be shortened to \textit{fa mrila}, literally: ``sees", but the subject and object are inferred to be the same as the question since they are left out of the response. 
-
-\medskip
-
-\subsubsection{WH- questions}
- To form a non-yes/no question, add the question marker \textit{lhan} to the beginning of the sentence with a case-marking prefix to specify what question is being asked. 
- Examples:
-     \begin{tabular}{c c}
-        \textbf{ti}-lhan ta fe fethra & ``Where did he speak" \\
-        \textbf{to}-lhan ta fe fethra & ``when did he speak?" \\
-        \textbf{si}-lhan ta fe fethra & ``how did he speak?" \\
-        \textbf{ya}-lhan ta fe fethra & ``to what/whom did he speak?" \\
-          & 
-     \end{tabular}
-
-\subsubsection{Example conversation}
-
-\noindent A: \textit{lhan driel se kwilora tolon?} % was the person dancing yesterday? 
-
-\noindent B: \textit{ilata se nikwilora tolon, shan ilata lho kwilora ditom hitirlhon. lhan ilawa yata fo mrilo?} % she was not dancing yesterday, but she will have danced by the end of the week. Will you see her?
-
-\noindent A: \textit{na yata fo mrili, tolhan ta fo kwilora?} % I am going to see her, what time will she dance?
-
-\noindent B: \textit{tolerep tohethn} % At five o'clock tomorrow
-
-{\tovian
-\noindent lhan driel se kwilora tolon
-
-\noindent ilata se nikwilora tolon, shan ilata lho kwilora ditom hitirlhon. lhan ilawa yata fo mrilo
-
-\noindent na yata fo mrili, tolhan ta fo kwilora
-
-\noindent torep tohethn
-}
-
-
-\ex
-\begingl
-\gla lhan driel se kwilora to-lon? //
-\glb Q person PROG.PAST dance.1SG LOC-yesterday // 
-\glft "Was the person dancing yesterday?" //
-\endgl
-\xe
-
-\ex
-\begingl
-\gla ilata se nikwilora tolon, shan ilata lho kwilora ditom hitirlhon. lhan ilawa yata fo mrilo? //
-\glb SBJ.ANIM.3SG PROG.PAST NEG-dance.1SG LOC-yesterday, but 3SG PERF dance.1SG ABL-end GEN-week. Q 2SG ACC-3SG FUT see.2SG? //
-\glft "She was not dancing yesterday, but she will have danced by the end of the week. Will you see her?" //
-\endgl
-\xe
-
-\ex
-\begingl
-\gla ila-na ya-ta fo mrili, to-lhan ta fo kwilora? //
-\glb 1SG ACC-3SG FUT see.1SG, when-Q 3SG FUT dance.1SG? //
-\glft "I will see her, what time will she dance?" //
-\endgl
-\xe
-Sentence D
-
-\ex
-\begingl
-\gla tole-rep to-hethn//
-\glb LOC-five LOC-tomorrow//
-\glft "At five o'clock tomorrow." //
-\endgl
-\xe
-
+\subsubsection{WH-questions}
+A case prefix on \textit{lhan} specifies the question:
+\begin{itemize}
+\item \textit{ti-lhan ta afe fethr?}: ``Where did he/she speak?''
+\item \textit{tu-lhan ta afe fethr?}: ``When did he/she speak?''
+\item \textit{si-lhan ta afe fethr?}: ``How did he/she speak?''
+\end{itemize}
 
 \newpage
-
 
 % \section{Conjunctions}
 

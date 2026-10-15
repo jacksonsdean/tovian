@@ -30,12 +30,13 @@ AUX_ASPECT_ROOTS = OrderedDict([
 ])
 
 # Person prefixes (auxiliary agreement)
-# 3rd person is normally unmarked but may optionally be marked with a-
+# Every auxiliary requires person marking in formal or complex sentences.
+# Bare 3rd-person forms are restricted to short, unambiguous casual speech.
 AUX_PERSON_PREFIXES = OrderedDict([
     ("1st", "i"),
     ("2nd", "o"),
-    ("3rd", ""),
-    ("3rd (explicit)", "a"),
+    ("3rd", "a"),
+    ("3rd (casual)", ""),
 ])
 
 # Mood prefixes (normalized for concatenation; hyphens/0 placeholders removed)
@@ -66,7 +67,7 @@ AUX_VOICE_PREFIXES = OrderedDict([
 
 
 def build_auxiliary_tense_aspect_entries():
-    """Generate all (aspect × tense) auxiliary forms as dictionary entries.
+    """Generate formal 3rd-person (aspect × tense) dictionary entries.
 
     Returns tuples shaped like roots.csv rows:
     (year, word, translation, roots, pos, note)
@@ -74,7 +75,7 @@ def build_auxiliary_tense_aspect_entries():
     entries = []
     for aspect_name, aspect_root in AUX_ASPECT_ROOTS.items():
         for tense_name, tense_suffix in AUX_TENSE_SUFFIXES.items():
-            word = f"{aspect_root}{tense_suffix}"
+            word = f"a{aspect_root}{tense_suffix}"
             translation = f"auxiliary: {aspect_name} ({tense_name})"
             entries.append((-1, word, translation, "_", "AUX", "_"))
     return entries
@@ -84,7 +85,7 @@ def build_all_auxiliary_entries():
     """Generate every possible auxiliary word.
 
     Includes:
-    - base aspect × tense auxiliaries (fa, fe, fo, ...)
+    - formal 3rd-person aspect × tense auxiliaries (afa, afe, afo, ...)
     - all person × mood × voice × aspect × tense combinations
     """
     entries = []
@@ -176,9 +177,9 @@ def make_template_replacement_key(english):
         tokens = descriptor.split()
         parts = ["aux"]
 
-        # Person: 1st / 2nd / 3rd / 3rd (explicit)
-        if len(tokens) >= 2 and tokens[0].lower() == "3rd" and tokens[1].lower() == "(explicit)":
-            parts.append("3X")
+        # Person: 1st / 2nd / 3rd / 3rd (casual)
+        if len(tokens) >= 2 and tokens[0].lower() == "3rd" and tokens[1].lower() == "(casual)":
+            parts.append("3C")
             tokens = tokens[2:]
         elif tokens and tokens[0].lower() in {"1st", "2nd", "3rd"}:
             parts.append(tokens[0][0])
@@ -407,7 +408,6 @@ def main():
         for definition in translation.split('/'):
             interactive_dict[definition.strip()] = (final_word, pos, history, rom, stress, notes)
 
-        if not args.interactive and not has_filters:
             english = definition.strip()
             replacement_key = make_template_replacement_key(english)
             if not replacement_key:
@@ -520,4 +520,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
+

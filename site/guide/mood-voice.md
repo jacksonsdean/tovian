@@ -41,6 +41,8 @@ Voice prefixes:
 
 Note: person + mood + voice can combine on the auxiliary. Order is person prefix, then mood, then voice, followed by the aspect/tense-marked auxiliary root.
 
+The person prefix is required on every auxiliary in formal writing and complex sentences. Within one auxiliary, mood takes scope over aspect: `ashopa muril` means “can stop seeing.” Across auxiliaries, each earlier auxiliary takes scope over the whole following phrase: `apa [ashofa muril]` means “stops being able to see.” Both auxiliaries mark the shared subject with `a-`. See [auxiliary nesting and scope](verbs.html).
+
 Example:
 
 - {% tovc "aux_2_imp_sim_prs returning" %} — 2nd person imperative “Return!” (o- person, se- imperative, fa simple aspect)
