@@ -47,8 +47,23 @@ P and Q are finite clauses, each using the ordinary subject, case, and auxiliary
 
 Each clause contributes its own tense and aspect; person agreement does not require matching tense or aspect across P and Q. The temporal interpretation must remain coherent. The frame alone does not assert that P is completed, that P causes Q, or that the statement is conditional; aspect and context supply those distinctions.
 
+### Sequencing events with “then”
+
+{% tovc "following_stage" %} is the noun “following time or stage,” from the year-0 compound `time+front`. Temporal case and abstract class give {% tovc "temp-abs-following_stage" %}, “at the following stage”: **“then” or “afterward.”** The reference point is the preceding event or another salient stage. Aspect and context supply the delay and any completion requirement. See [time expressions](calendar.html) for the derivation and an independent-clause example.
+
+Inside a temporal frame, this expression can locate the second event after the first:
+
+`tu-le-ngothr: P1, tu-le-methr P2; Q.`
+
+Both P1 and P2 remain inside the frame. The comma joins the events, `tu-le-methr` explicitly orders P2 after P1, and the semicolon introduces Q. The temporal noun phrase before P2 takes no colon because it does not open a further finite event description.
+
+In the working sentence:
+
+- {% tovc "temp-abs-time: nom-abs-half_truth+pl com-abs-truth+pl hardness aux_3_pas_sim_prs pondering, temp-abs-following_stage aux_3_pas_sim_prs writing" %}; …
+  — “When the half-truths, together with the hard truths, are pondered and then written, …”
+
 ### Relation to other constructions
 
 {% tovc "when" %} remains the interrogative “when?” This temporal frame supplies an explicit “when P, Q” relation where bare clause juxtaposition would leave that relation to context. It licenses a finite event description after the temporal head; general relative clauses and other noun-clause complements remain separate questions. The interpretation of tense inside a nested auxiliary chain also remains open.
 
-In the working sentence, the truths being pondered and written belong inside P; inheriting life, taking root, and becoming impossible to ignore belong in Q. The words or constructions for “then,” “their own,” “take root,” and “ignore” still need to be settled.
+In the working sentence, the truths being pondered and written belong inside P; inheriting life, taking root, and becoming impossible to ignore belong in Q. The words or constructions for “their own,” “take root,” and “ignore” still need to be settled.

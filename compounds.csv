@@ -110,6 +110,7 @@ Year,Translation,Roots,POS,Note
 200,story,speaking+life,N,_
 0,half-truth/truth-shard/partly understood truth/selectively revealed truth,truth+shard,N,A truth partly understood or selectively revealed; the missing context may be unknown to the speaker or intentionally withheld.
 500,inheritance/inheriting/inherit/carrying forward a legacy,carrying+past,N,Taking up and carrying forward what came before; applies to property traits duties traditions and ideas passed on from an earlier source.
+0,following time/following stage/subsequent stage/next stage,time+front,N,The next relevant time or stage after an event or reference point; temporal-case tu-le-methr expresses then or afterward. Delay and completion are supplied by aspect or context.
 
 -1,they,she+PL,_,Ps,_
 -1,who,NOM+INT,INT,_
